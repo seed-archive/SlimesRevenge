@@ -1,30 +1,28 @@
 ---
-description: Dependency inversion — statuses apply via hooks; board/occupied does not require a controlled player.
-globs:
-  - Assets/Scripts/Runtime/Status/**/*.cs
-  - Assets/Scripts/Runtime/Turns/Combat.cs
-  - Assets/Scripts/Runtime/Turns/TurnManager.cs
-  - Assets/Scripts/Runtime/Turns/GameSession.cs
-  - Assets/Scripts/Runtime/Creatures/Creature.cs
-  - Assets/Scripts/Runtime/Volume/**/*.cs
-  - Assets/Scripts/Runtime/Behavior/CreatureHunt.cs
-  - Assets/Scripts/Runtime/Behavior/CreatureMoves.cs
-  - Assets/Scripts/Runtime/World/Floor.cs
-  - Assets/Scripts/Runtime/World/GridPath.cs
-  - Assets/Tests/Editor/Behavior/EnemyHuntSimulationTests.cs
-  - Assets/Tests/Editor/TestSupport/SessionFactory.cs
-  - docs/status-effects.md
-  - docs/strike-vs-puddle.md
-  - docs/architecture/dependency-inversion.md
-  - docs/behavior.md
-alwaysApply: false
+paths:
+  - "Assets/Scripts/Runtime/Status/**/*.cs"
+  - "Assets/Scripts/Runtime/Turns/Combat.cs"
+  - "Assets/Scripts/Runtime/Turns/TurnManager.cs"
+  - "Assets/Scripts/Runtime/Turns/GameSession.cs"
+  - "Assets/Scripts/Runtime/Creatures/Creature.cs"
+  - "Assets/Scripts/Runtime/Volume/**/*.cs"
+  - "Assets/Scripts/Runtime/Behavior/CreatureHunt.cs"
+  - "Assets/Scripts/Runtime/Behavior/CreatureMoves.cs"
+  - "Assets/Scripts/Runtime/World/Floor.cs"
+  - "Assets/Scripts/Runtime/World/GridPath.cs"
+  - "Assets/Tests/Editor/Behavior/EnemyHuntSimulationTests.cs"
+  - "Assets/Tests/Editor/TestSupport/SessionFactory.cs"
+  - "docs/status-effects.md"
+  - "docs/strike-vs-puddle.md"
+  - "docs/architecture/dependency-inversion.md"
+  - "docs/behavior.md"
 ---
 
 # Dependency inversion
 
 Two layers, one principle: **depend on hooks / board abstractions, not on concrete skills or a mandatory player.**
 
-Canon: [docs/architecture/dependency-inversion.md](docs/architecture/dependency-inversion.md). Status catalog: [docs/status-effects.md](docs/status-effects.md). Strike vs puddle: [docs/strike-vs-puddle.md](docs/strike-vs-puddle.md).
+Canon: [docs/architecture/dependency-inversion.md](../../docs/architecture/dependency-inversion.md). Status catalog: [docs/status-effects.md](../../docs/status-effects.md). Strike vs puddle: [docs/strike-vs-puddle.md](../../docs/strike-vs-puddle.md).
 
 ---
 

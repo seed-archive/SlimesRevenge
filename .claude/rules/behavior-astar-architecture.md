@@ -1,20 +1,18 @@
 ---
-description: Mob AI architecture — Unity Behavior decides intent; A* Pathfinding Project picks the step. No DIY chase heuristics.
-globs:
-  - Assets/Scripts/Runtime/Behavior/**/*.cs
-  - Assets/Scripts/Runtime/World/GridPath.cs
-  - Assets/Scripts/Runtime/World/GridStep.cs
-  - Assets/Tests/Editor/Behavior/**/*.cs
-  - Assets/Tests/Editor/World/GridPathTests.cs
-  - docs/behavior.md
-alwaysApply: false
+paths:
+  - "Assets/Scripts/Runtime/Behavior/**/*.cs"
+  - "Assets/Scripts/Runtime/World/GridPath.cs"
+  - "Assets/Scripts/Runtime/World/GridStep.cs"
+  - "Assets/Tests/Editor/Behavior/**/*.cs"
+  - "Assets/Tests/Editor/World/GridPathTests.cs"
+  - "docs/behavior.md"
 ---
 
 # Behavior + A* architecture
 
 Mob turns are a **two-library pipeline**. Do not replace either half with a custom C# brain or a home-grown path scorer.
 
-Related design notes: [docs/behavior.md](docs/behavior.md).
+Related design notes: [docs/behavior.md](../../docs/behavior.md).
 
 ## Intent (architecture goal)
 
@@ -177,7 +175,7 @@ if (predator != null)
 
 ### Hunt tests (board-only)
 
-Mob↔mob hunts must **not** require a slime. Prefer `SessionFactory.Board` + `TakeTurn(..., player: null)`. Do not inflate the map or park a slime at `(19,19)` to dodge Aggressive vision — see [docs/architecture/dependency-inversion.md](docs/architecture/dependency-inversion.md).
+Mob↔mob hunts must **not** require a slime. Prefer `SessionFactory.Board` + `TakeTurn(..., player: null)`. Do not inflate the map or park a slime at `(19,19)` to dodge Aggressive vision — see [docs/architecture/dependency-inversion.md](../../docs/architecture/dependency-inversion.md).
 
 ```csharp
 // ❌ BAD — fake far slime so Aggressive never steals focus

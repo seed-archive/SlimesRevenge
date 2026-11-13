@@ -22,10 +22,12 @@ Assets/
   Scenes/                 # Splash (bootstrap) → Main (menu) → Game
   Localization/Resources/ # en / ru string tables
   Resources/              # Runtime-loaded sprites (animals, status icons)
-docs/                     # Design / architecture notes (human + agent)
+docs/                     # Design / architecture notes (human + agent), index in docs/README.md
 scripts/                  # play.sh, stop.sh, build.sh, format.sh
 .github/workflows/        # GameCI EditMode tests + mobile builds
-.cursor/rules/            # Cursor agent rules (see below)
+.claude/rules/            # Agent rules (see below)
+.claude/skills/           # Agent procedures (see below)
+PLAN.md                   # Open findings, accepted debt, questions for the user
 ```
 
 Domain docs (read before changing the matching feature):
@@ -40,16 +42,29 @@ Domain docs (read before changing the matching feature):
 | Action log | [docs/architecture/action-log.md](docs/architecture/action-log.md) |
 | Popup cards | [docs/architecture/popup-cards.md](docs/architecture/popup-cards.md) |
 
-## Cursor rules
+## Agent rules and skills
 
-Project rules live in [`.cursor/rules/`](.cursor/rules/). Open or edit matching files so they attach by glob:
+Rules live in [`.claude/rules/`](.claude/rules/). Rules without `paths` always apply; the others attach when a matching file is read or edited.
 
 | Rule | Intent |
 | --- | --- |
-| [`.cursor/rules/behavior-astar-architecture.mdc`](.cursor/rules/behavior-astar-architecture.mdc) | Mob turn AI: **Unity Behavior** chooses *what*, **A* Pathfinding Project** chooses *where*. No DIY chase heuristics. |
-| [`.cursor/rules/dependency-inversion.mdc`](.cursor/rules/dependency-inversion.mdc) | Statuses apply via hooks; board/occupied does not require a controlled player. |
-| [`.cursor/rules/fdr-enemy-sprite-generation.mdc`](.cursor/rules/fdr-enemy-sprite-generation.mdc) | FDR enemy sheets: GenerateImage + verbatim rat prompt; larger raster OK. |
-| [`.cursor/rules/play-mode-unity.mdc`](.cursor/rules/play-mode-unity.mdc) | Play Mode: `open -na`, never a child of the agent shell. |
+| [`workflow`](.claude/rules/workflow.md) | Task flow, Definition of Done, reporting, git (base branch `dev`). |
+| [`kiss-dry-yagni`](.claude/rules/kiss-dry-yagni.md) | Smallest change; simplification pass over the diff. |
+| [`documentation`](.claude/rules/documentation.md) | `docs/`, ADRs, `AGENTS.md`, and the plan file `PLAN.md`. |
+| [`versions`](.claude/rules/versions.md) | Packages through Renovate; the Unity version changed by hand everywhere; vendored libraries. |
+| [`repository-boundaries`](.claude/rules/repository-boundaries.md) | The repository is self-contained. |
+| [`play-mode-unity`](.claude/rules/play-mode-unity.md) | Play Mode: `open -na`, never a child of the agent shell. |
+| [`testing`](.claude/rules/testing.md) | What an EditMode test must prove; cleanup; no weakened checks. |
+| [`unity`](.claude/rules/unity.md) | `.meta` files and GUIDs, scenes and prefabs, assemblies, CSharpier, sprite import. |
+| [`behavior-astar-architecture`](.claude/rules/behavior-astar-architecture.md) | Mob turn AI: **Unity Behavior** chooses *what*, **A* Pathfinding Project** chooses *where*. No DIY chase heuristics. |
+| [`dependency-inversion`](.claude/rules/dependency-inversion.md) | Statuses apply via hooks; board/occupied does not require a controlled player. |
+
+Skills live in [`.claude/skills/`](.claude/skills/):
+
+| Skill | Use |
+| --- | --- |
+| [`editmode-tests`](.claude/skills/editmode-tests/SKILL.md) | Run the EditMode suite or a filter in batchmode and read the results XML. |
+| [`fdr-enemy-sheet`](.claude/skills/fdr-enemy-sheet/SKILL.md) | Generate a creature sprite sheet in the FDR enemy layout and downscale it into `Assets/Art`. |
 
 ## Board vs controlled
 
@@ -81,7 +96,7 @@ Override with `UNITY_EDITOR` for builds (`scripts/build.sh`).
 
 **Always** use these scripts. Do **not** invoke Unity `-executeMethod` by hand or scrape `Logs/play-*.log` to decide if Play Mode is up — `play.sh` already waits for readiness and returns an exit code.
 
-The Cursor **agent shell is not a place to own the editor**. Starting `Unity &` there dies with the turn (SIGHUP) while stdout still said `READY`. `play.sh` therefore launches via **`open -na` Unity.app** (LaunchServices), outside that shell. Rule: [`.cursor/rules/play-mode-unity.mdc`](.cursor/rules/play-mode-unity.mdc). If the user says Unity is not open, believe them and run `play.sh` again.
+The **agent shell is not a place to own the editor**. Starting `Unity &` there dies with the turn (SIGHUP) while stdout still said `READY`. `play.sh` therefore launches via **`open -na` Unity.app** (LaunchServices), outside that shell. Rule: [`.claude/rules/play-mode-unity.md`](.claude/rules/play-mode-unity.md). If the user says Unity is not open, believe them and run `play.sh` again.
 
 ```bash
 ./scripts/play.sh              # Splash → Main menu
@@ -137,6 +152,8 @@ Config: [`.csharpierrc.json`](.csharpierrc.json), ignore: [`.csharpierignore`](.
 ## Testing (EditMode)
 
 Tests are NUnit EditMode under `Assets/Tests/Editor`. CI runs them via GameCI (`.github/workflows/test.yml`).
+
+Agents: the [`editmode-tests`](.claude/skills/editmode-tests/SKILL.md) skill runs them and reads the results XML.
 
 ### Full EditMode suite (local batchmode)
 

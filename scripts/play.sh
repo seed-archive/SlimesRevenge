@@ -11,10 +11,10 @@
 #   UNITY_EDITOR         override Unity binary (…/Unity.app/Contents/MacOS/Unity)
 #   PLAY_READY_MAX_SEC   max seconds to wait (default 300); polls once per second
 #
-# Cursor agents: this script must start the editor with `open -na` (LaunchServices),
+# Agents: this script must start the editor with `open -na` (LaunchServices),
 # never as `Unity &` in the agent tool shell. That shell dies at the end of the turn
 # and SIGHUP would take Unity with it — stdout READY is then a lie. See AGENTS.md
-# and .cursor/rules/play-mode-unity.mdc.
+# and .claude/rules/play-mode-unity.md.
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
@@ -72,7 +72,7 @@ mkdir -p Logs
 rm -f Temp/UnityLockfile "$LOG"
 rm -rf Temp/__Backupscenes Assets/_Recovery
 
-# GUI app via LaunchServices — not a child of the caller (Cursor agent) shell.
+# GUI app via LaunchServices — not a child of the caller (agent) shell.
 UNITY_APP="$(cd "$(dirname "$UNITY")/../.." && pwd)"
 open -na "$UNITY_APP" --args \
   -projectPath "$ROOT" \

@@ -1,19 +1,18 @@
 ---
-description: Generate FDR-style creature sprite sheets (universal layout prompt). Use when drawing new animal/enemy sheets for the pack.
-globs:
-  - Assets/Art/**/*.png
-  - Assets/Art/**/*.png.meta
-  - Assets/Art/Original/**
-  - Assets/Resources/Animals/**
-  - Assets/ElvGames/Fantasy Dreamland Reborn/Enemies/**
-alwaysApply: false
+name: fdr-enemy-sheet
+description: Generate a creature sprite sheet in the ElvGames Fantasy Dreamland Reborn (FDR) enemy layout — the universal image prompt, the 512×208 grid, and the downscale into Assets/Art. Use when the user asks to draw a new animal, enemy or slime sheet for the game.
 ---
 
 # FDR enemy sprite-sheet generation
 
-When the user asks to draw a new creature sheet in the ElvGames Fantasy Dreamland Reborn style, call **GenerateImage**. Do not pixel-draw by hand. Do not invent an 8-direction “chicken” sheet (`scripts/generate_animal_sheets.py`).
+When the user asks to draw a new creature sheet in the ElvGames Fantasy Dreamland Reborn style, use an **image generator** with the prompt below (called **GenerateImage** in this skill). Do not pixel-draw by hand. Do not invent an 8-direction “chicken” sheet (`scripts/generate_animal_sheets.py`). If no image tool is available in the session, give the user the prompt and the reference image and ask them for the generated PNG.
 
-Cursor saves the result **outside the git repo** (`~/.cursor/projects/…/assets/`). Then:
+The two helpers this skill names, `scripts/downscale_fdr_sheet.py` and `scripts/fdr_sheet_grid_guide.png`, were lost and will not turn up. The first time a sheet is generated, write them anew and commit them:
+
+- `fdr_sheet_grid_guide.png`: one pack `_A` sheet (for example `FDR_Enemy_05_A.png`) upscaled 3× nearest-neighbor to 1536×624, cyan lines on every cell edge (the coordinates in the `description` below), magenta below to 1536×1024, the lime square with yellow inside in the bottom-right.
+- `downscale_fdr_sheet.py`: the steps under "Downscale" at the end of this skill.
+
+The generator saves the result **outside the git repo**. Then:
 
 1. Copy that file **unchanged** to `Assets/Art/Original/` (full-size generator PNG).
 2. Downscale with `scripts/downscale_fdr_sheet.py` into `Assets/Art/Animals/{Kind}.png` (slimes: `Assets/Art/Slimes/{Look}.png`) and `Assets/Resources/Animals/` for animals.

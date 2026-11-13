@@ -2,7 +2,7 @@
 
 One project-wide principle with **two layers**: statuses apply themselves, and the **board does not depend on a player**.
 
-Canonical Cursor rule: [`.cursor/rules/dependency-inversion.mdc`](../../.cursor/rules/dependency-inversion.mdc). Status catalog: [docs/status-effects.md](../status-effects.md). Behavior overview: [docs/behavior.md](../behavior.md).
+Agent rule with examples: [`.claude/rules/dependency-inversion.md`](../../.claude/rules/dependency-inversion.md). Status catalog: [docs/status-effects.md](../status-effects.md). Behavior overview: [docs/behavior.md](../behavior.md).
 
 ```mermaid
 flowchart TB
@@ -43,7 +43,7 @@ Hard rules (summary):
 3. Personality ≠ status — no `FearsSlimes` / `HatesSlimes`.
 4. Same `Substance.Apply` for strike residue and puddle contact.
 
-Full good/bad examples live in the Cursor rule.
+Full good/bad examples live in the agent rule.
 
 ---
 

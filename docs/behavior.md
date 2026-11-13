@@ -76,7 +76,7 @@ Personality focus — `CreatureTurnContext.Player` — **nullable**. Без иг
 
 Код: `Assets/Tests/Editor/Behavior/BehaviorRulesTests.cs` (+ смежные в `CreatureAiTests` / `CreatureSelectExecuteTests`).
 
-Chase идёт через `GridPath` (A* Pathfinding Project). Самописной «best toward» / кольцевой эвристики для шага **нет** — см. `.cursor/rules/behavior-astar-architecture.mdc`. Temp `AstarPath` всегда `DestroyImmediate`, иначе в Play Mode следующий chase молча падает.
+Chase идёт через `GridPath` (A* Pathfinding Project). Самописной «best toward» / кольцевой эвристики для шага **нет** — см. `.claude/rules/behavior-astar-architecture.md`. Temp `AstarPath` всегда `DestroyImmediate`, иначе в Play Mode следующий chase молча падает.
 
 ## Ключевой код
 

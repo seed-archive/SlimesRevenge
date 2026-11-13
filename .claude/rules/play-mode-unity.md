@@ -1,0 +1,15 @@
+# Play Mode vs the agent shell
+
+`./scripts/play.sh` / `./scripts/stop.sh` are the only Play Mode entry points. Do **not** call Unity `-executeMethod` yourself. Do **not** scrape `Logs/play-*.log` to decide if Play Mode is up.
+
+The agent's tool shell is **disposable**. When the turn ends, that process group can get SIGHUP. If Unity was started as `Unity &` inside that shell, the editor **exits** even though the tool already printed `READY:`. The user then correctly says it is not running. Believe them.
+
+`play.sh` starts the editor with **`open -na …/Unity.app --args …`** (LaunchServices), not as a background job of the agent. Do not "fix" this with `nohup`/`disown` around the Unity binary from agent code, and do not wrap `play.sh` in extra process-group hacks. Run:
+
+```bash
+./scripts/play.sh --duel       # or --campaign, or no args
+```
+
+If the user says the window is gone, run `play.sh` again (it `stop.sh`s first). Do not `pgrep` to argue with them.
+
+A batchmode run (EditMode tests, `scripts/build.sh`) needs the project closed in the editor. If `Temp/UnityLockfile` exists, run `./scripts/stop.sh` first.
