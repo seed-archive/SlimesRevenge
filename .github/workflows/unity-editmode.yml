@@ -27,7 +27,10 @@ jobs:
           key: Library-test-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
           restore-keys: Library-test-
 
-      - uses: game-ci/unity-test-runner@v4
+      # Pinned to the v4 build that last activated our Personal license (run 32937797781, 2026-08-26).
+      # The later v4 build (32e5771) switched to the license-file method, which Unity rejects
+      # with "TimeStamp validation failed".
+      - uses: game-ci/unity-test-runner@0ff419b913a3630032cbe0de48a0099b5a9f0ed9
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
