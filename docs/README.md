@@ -1,6 +1,6 @@
 # Docs
 
-Knowledge notes about the game and the code. Plan and open findings: [`PLAN.md`](../PLAN.md).
+Knowledge notes about the game and the code.
 
 ## Game
 

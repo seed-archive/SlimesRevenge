@@ -10,7 +10,7 @@ Context ends; project knowledge must not. Anything whose loss would force someon
 | How to build, play and test, for a person | `README.md` |
 | Lasting knowledge about the game and the code | `docs/<topic>.md`, `docs/architecture/<topic>.md`, index in `docs/README.md` |
 | Decisions a reader could take for a mistake | `docs/adr/NNNN-<title>.md` |
-| Findings outside the task's scope, accepted debt, follow-ups, questions for the user | `PLAN.md` in the repository root |
+| Findings outside the task's scope, accepted debt, follow-ups, questions for the user | `PLAN.md` in the repository root — git-ignored, local to this checkout, never committed |
 | Rules for agents | `.claude/rules/` |
 | Repeatable procedures for agents | `.claude/skills/<name>/SKILL.md` |
 
@@ -83,7 +83,7 @@ While working on a task you notice things that are not part of it: a bug, a test
 - Every question you asked the user that is still unanswered also goes under **Needs the user**, with the date it was asked and what waits on it. Ask it again in your next report; remove it once answered, and write the answer where it belongs (a note, an ADR, the item it unblocks).
 - Data loss (saves, serialized fields, scene references) is marked as such and named in the report every time until it is taken into work.
 - Remove an item when it is done or becomes a GitHub issue or PR (link it). `PLAN.md` is not a status log or a history: what was merged is in git.
-- `PLAN.md` is committed with the change that adds or removes an item.
+- `PLAN.md` is git-ignored (`/PLAN.md` in `.gitignore`) and never committed: it is this checkout's working plan. Committed files do not link to it. Knowledge that must outlive it goes into `docs/` or an ADR.
 
 ## Before finishing a task
 

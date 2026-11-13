@@ -27,7 +27,7 @@ scripts/                  # play.sh, stop.sh, build.sh, format.sh
 .github/workflows/        # GameCI EditMode tests + mobile builds
 .claude/rules/            # Agent rules (see below)
 .claude/skills/           # Agent procedures (see below)
-PLAN.md                   # Open findings, accepted debt, questions for the user
+PLAN.md                   # Agent plan: findings, debt, questions (git-ignored, local)
 ```
 
 Domain docs (read before changing the matching feature):

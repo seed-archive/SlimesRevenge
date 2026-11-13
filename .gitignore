@@ -56,3 +56,6 @@ scripts/out/
 
 # Local Unity AI Assistant editor settings
 ProjectSettings/Packages/com.unity.ai.assistant/
+
+# Agent plan: local to each checkout, never committed
+/PLAN.md
