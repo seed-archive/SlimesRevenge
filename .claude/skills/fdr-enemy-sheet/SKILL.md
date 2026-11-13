@@ -1,11 +1,33 @@
 ---
 name: fdr-enemy-sheet
-description: Generate a creature sprite sheet in the ElvGames Fantasy Dreamland Reborn (FDR) enemy layout — the universal image prompt, the 512×208 grid, and the downscale into Assets/Art. Use when the user asks to draw a new animal, enemy or slime sheet for the game.
+description: Draw a creature sprite sheet in the ElvGames Fantasy Dreamland Reborn (FDR) enemy layout — the 512×208 grid, what every cell holds, the character brief, drawing pixels from code or generating an image and downscaling it, and wiring the sheet into Assets. Use when the user asks to draw a new animal, enemy or slime sheet for the game.
 ---
 
 # FDR enemy sprite-sheet generation
 
-When the user asks to draw a new creature sheet in the ElvGames Fantasy Dreamland Reborn style, use an **image generator** with the prompt below (called **GenerateImage** in this skill). Do not pixel-draw by hand. Do not invent an 8-direction “chicken” sheet (`scripts/generate_animal_sheets.py`). If no image tool is available in the session, give the user the prompt and the reference image and ask them for the generated PNG.
+Do not invent an 8-direction “chicken” sheet (`scripts/generate_animal_sheets.py`); every creature uses the FDR layout below.
+
+## Character first: these are enemies
+
+Every creature on an FDR sheet is a **combat beast the slime fights**, not a pet or a toy. Before drawing, write a one-line character brief (what makes it dangerous) and draw that:
+
+- Hostile read at 1×: angled brows or narrowed eyes, bared teeth or fangs, hackles, claws, a forward-leaning stance. Idle frames look ready to fight.
+- Avoid plush cues: big round eyes with glints, round chibi heads, tongues out, smiles, collars and bows, pastel candy palettes.
+- Silhouette and colour carry the threat: sharper ears and tail, darker or more saturated base, a warning accent (red eyes, scars).
+- The attack (C5–C8) is the creature's signature move and must look like it hurts.
+
+The first dog sheets (both models, 2026-11-14) came out as plush puppies; `scripts/draw_dog.py` is that placeholder.
+
+## Two ways to make the sheet
+
+1. **Draw the pixels from code** (no image tool needed): one plain script `scripts/draw_<kind>.py` that writes the native 512×208 sheet into `Assets/Art/Animals/{Kind}.png` and `Assets/Resources/Animals/{Kind}.png`, with a preview in `scripts/out/` (git-ignored). Model it on `scripts/draw_dog.py`: a palette, small pixel maps per part, one pose function per facing plus the battle row, the sheet layout. No drawing framework. Measure the pack references before drawing and iterate on the zoomed preview until it reads at 1×.
+2. **Generate an image**: use an **image generator** with the prompt below (called **GenerateImage** in this skill), then downscale. If no image tool is available in the session, give the user the prompt and the reference image and ask them for the generated PNG.
+
+## Wiring a sheet into the game
+
+`CreatureSheet` loads `Resources/Animals/{Kind}` and finds frames by name `{Kind}_{index}` (`FdrSheetLayout`). A new or replaced sheet needs that slicing in both `.meta` files: take `Assets/Resources/Animals/Bat.png.meta`, replace `Bat_` with `{Kind}_`, keep the asset's own `guid` (a new file gets a new one), give each sprite a fresh `spriteID`, and drop the `AssetOrigin` block (it belongs to the pack bat).
+
+## Generator route
 
 The two helpers this skill names, `scripts/downscale_fdr_sheet.py` and `scripts/fdr_sheet_grid_guide.png`, were lost and will not turn up. The first time a sheet is generated, write them anew and commit them:
 
