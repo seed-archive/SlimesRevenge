@@ -1,0 +1,47 @@
+# Progression
+
+**Status:** Draft (2026-11-25) — mostly ideas. Only the items marked **Agreed** are decided; everything under "Ideas" is recorded so it is not lost and will be worked out later.
+
+What changes between runs and inside a run beyond one room: worlds, difficulty, what carries over, what can be handed to the next slime.
+
+## Agreed
+
+- **The long descent** through generated floors (~40) is the big idea; now: the arena and one generated dungeon ([vision.md](vision.md)).
+- **Softcore is the main mode; Iron Man** (permadeath) is chosen at the start of a game and cannot be turned off ([vision.md](vision.md)).
+- **Difficulty levels** Easy / Normal / Hard differ in how many enemies a face-tanking slime survives, not in enemy numbers ([vision.md](vision.md)).
+- **No separate survival meter.** No hunger or similar clock: spending the body to kill already is the survival pressure. (The reference game's hunger is deliberately not taken: [references/the-pit.md](references/the-pit.md).)
+- **Meta-progression is wanted.** Something should carry over between runs; what exactly is open (ideas below).
+
+## Ideas
+
+Not decided. Each needs a purpose, a cost and a balance check before it becomes a design.
+
+### Worlds of one liquid
+
+- Replayability through different **worlds**, each richer in one liquid: a water world, a lava world, and so on. Since the slime's body is made of what it drinks, a world shapes which builds are easy in it.
+- At the **end of each world** the slime obtains something of that world — for example a *lava essence*.
+- What essences are for is open: a currency, a key, a collection ("gather five essences, get a reward"), something given to someone.
+
+### The slime's origin liquid
+
+- **Locked first unit:** a run starts with one unit that cannot be spent — the slime's origin. A water-born slime gets a bonus to water builds; on the next run a lava-born slime gets a bonus to lava builds.
+- **Alternative without locking:** the slime simply has an innate affinity to one liquid or element for the run.
+- Either way the origin could be the meta-progression: origins unlocked by finishing worlds or collecting essences.
+
+### Passing things on
+
+- A **chest** in a safe place (the town, the sewers) that survives between characters.
+- A **personal fountain**: pour into it the liquids that do not fit the current build, drink them back later or leave them to the next slime.
+- The reference game's save-and-stash point every few floors is the model ([references/the-pit.md](references/the-pit.md)).
+
+### Knowledge that survives death
+
+- From the reference game: discovered things stay known in later runs. Candidate: liquid combinations and enemy weaknesses, once seen, are shown in the info cards from then on.
+
+## Open questions
+
+Recorded, not asked yet — they wait until volume, affinity and growth are designed:
+
+1. What essences are for.
+2. Origin liquid: locked first unit, or an innate affinity without locking.
+3. Chest, personal fountain, or both; where they stand.
