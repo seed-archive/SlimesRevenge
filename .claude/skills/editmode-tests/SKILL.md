@@ -22,6 +22,8 @@ UNITY="${UNITY_EDITOR:-/Applications/Unity/Hub/Editor/6000.5.10f1/Unity.app/Cont
   -logFile "$(pwd)/Logs/editmode.log"
 ```
 
+Coverage: add `-enableCodeCoverage -coverageResultsPath "$(pwd)/Logs/CodeCoverage" -coverageOptions "generateAdditionalMetrics;generateHtmlReport;generateBadgeReport;assemblyFilters:+SlimesRevenge.Runtime,+SlimesRevenge.Editor"` (the same options as CI). Totals per assembly and class are in `Logs/CodeCoverage/Report/Summary.json`; the HTML report is `Logs/CodeCoverage/Report/index.html`.
+
 Focused run: add `-testFilter "<prefix>"` and write to `Logs/focused-results.xml` / `Logs/focused.log`. Prefixes by area:
 
 | Filter | Covers |

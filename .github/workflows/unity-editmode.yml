@@ -40,9 +40,16 @@ jobs:
           customImage: unityci/editor:ubuntu-6000.5.10f1-base-3
           testMode: editmode
           githubToken: ${{ secrets.GITHUB_TOKEN }}
+          coverageOptions: 'generateAdditionalMetrics;generateHtmlReport;generateBadgeReport;assemblyFilters:+SlimesRevenge.Runtime,+SlimesRevenge.Editor'
 
       - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: Test-results
           path: artifacts
+
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: Coverage
+          path: CodeCoverage

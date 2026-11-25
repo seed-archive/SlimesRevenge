@@ -57,6 +57,9 @@ scripts/out/
 # Local Unity AI Assistant editor settings
 ProjectSettings/Packages/com.unity.ai.assistant/
 
+# Code Coverage window settings (CLI and CI pass their own options)
+ProjectSettings/Packages/com.unity.testtools.codecoverage/
+
 # Agent session files (public repo: never committed)
 /docs/now.md
 /docs/plan.md

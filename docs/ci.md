@@ -21,6 +21,7 @@ Mobile builds run only from `build.yml`, so work on `dev` never builds Android o
 - The test runner action is pinned to a commit SHA, not a tag. The later v4 build uses the license-file method, which Unity rejects for the Personal license ("TimeStamp validation failed"). Do not bump it without a working activation.
 - Caches `Library/` keyed by the hash of `Assets/`, `Packages/` and `ProjectSettings/`; any asset change gives a new key and restores the closest older one.
 - Uploads the NUnit results as the `Test-results` artifact, even when tests fail.
+- Measures code coverage in the same run (the runner always passes `-enableCodeCoverage`; it takes effect because `com.unity.testtools.codecoverage` is in the manifest — without the package the `Coverage` artifact is empty). `coverageOptions` limits it to the `SlimesRevenge.Runtime` and `SlimesRevenge.Editor` assemblies, so tests and the vendored A* do not count. The HTML report, `Summary.json` and badges are uploaded as the `Coverage` artifact. Coverage is reported, not enforced: no threshold fails the job.
 - Secrets: `UNITY_LICENSE`, `UNITY_EMAIL`, `UNITY_PASSWORD`. A fork PR has no secrets, so its EditMode job cannot activate Unity.
 
 ## Format job (`test.yml`)
