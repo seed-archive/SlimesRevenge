@@ -27,7 +27,7 @@ Written in this order: each layer depends on the one above it.
 | 4 | [substances.md](substances.md) | Every liquid today; stacking (strength, not duration; Flammable additive); one puddle per cell; the two cycles (strengthens / suppresses, after *wu xing*); enemy vulnerability from body liquid | Draft — stacking and puddles Agreed; 4 open decisions |
 | 5 | actions.md | Everything the slime does: move, strike, spit (ranged), drop a puddle / set a trap, collect, devour, wait | Not started |
 | 6 | affinity.md | Slime affinity (one liquid outweighs the others: thresholds, tiers, perks) and enemy affinities | Not started |
-| 7 | [growth.md](growth.md) | Gaining volume: net body per fight, eating corpses and blood, collecting puddles, fountains (flasks and tanks, rate, which liquids), growing capacity | Draft — net-body targets, drink/eat in the level-1 kit, fountain kinds Agreed; numbers from balance (pending) |
+| 7 | [growth.md](growth.md) | Gaining volume: net body per fight, eating corpses and blood, collecting puddles, fountains (flasks and tanks, rate, which liquids), growing capacity | Draft — net-body targets, the last unit (spawn pool / reserve fountain), drink/eat in the level-1 kit, fountain kinds Agreed; numbers from balance (pending) |
 | 8 | combat.md | Damage, armor, death, corpses, decay, the kill → eat loop | Not started |
 | 9 | statuses.md | Every status as a design (purpose, counterplay); today's catalog is [status-effects.md](../status-effects.md) | Not started |
 | 10 | [enemies.md](enemies.md) | The roster: role, abilities, affinity, behavior archetype, what each drops; a template for new enemies | Draft — no groups, fast enemies Agreed |

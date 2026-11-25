@@ -21,6 +21,14 @@ How the slime gains body: drinking, eating corpses, fountains.
 
 Targets, not rules of the code. Exact numbers come from balance (pending).
 
+## The last unit
+
+**Agreed** (2026-11-25).
+
+- When the body is down to one unit, the fountains are empty and enemies remain, the slime still has to go and kill them itself. The rule that makes this possible comes from balance (pending).
+- **Softcore:** an unlimited Water pool at the spawn.
+- **Iron Man:** no unlimited Water; a reserve fountain of about 20 Water instead (number from balance, pending).
+
 ## Drinking and eating
 
 **Agreed** (2026-11-25). Drinking and eating corpses belong to the level-1 kit: move, strike, drink, eat ([progression.md](progression.md#mechanic-ladder)). Eating is the Devour action. Open: whether drinking from a fountain is the same action as Collect (taking a puddle) or a new one.
