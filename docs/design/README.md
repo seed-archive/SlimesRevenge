@@ -32,10 +32,11 @@ Written in this order: each layer depends on the one above it.
 | 9 | statuses.md | Every status as a design (purpose, counterplay); today's catalog is [status-effects.md](../status-effects.md) | Not started |
 | 10 | enemies.md | The roster: role, abilities, affinity, behavior archetype, what each drops; a template for new enemies | Not started |
 | 11 | levels.md | The room generator: room shapes, corridors, placement of enemies, fountains and hazards, difficulty curve; first target is one dungeon for playtests | Not started |
-| 12 | progression.md | The long descent (~40 floors), skipping floors, passing things between characters, difficulty levels and Iron Man, the arena | Not started |
+| 12 | [progression.md](progression.md) | The long descent (~40 floors), difficulty levels and Iron Man, worlds of one liquid, essences, origin liquid, chest and personal fountain, what carries over | Draft — mostly ideas |
 | 13 | balance.md | Formulas and numbers in one place, the balance spreadsheet, how a change is checked | Not started |
 | 14 | art-brief.md | The image-generator spec: sheet layout, palette, per-creature brief template, so another model can draw every asset | Not started |
 | 15 | tools.md | Game-design tools used here and why (spreadsheets, flow and economy modelling, level editors) | Not started |
+| 16 | [design-guard.md](design-guard.md) | Code that plays fights by the real rules and checks which builds work on which difficulty and why; agreed design rules as CI checks | Draft — first version waits for approval |
 
 ## References
 
