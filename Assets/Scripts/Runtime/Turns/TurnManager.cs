@@ -333,7 +333,7 @@ namespace SlimesRevenge
                     }
 
                     pauseCorpseAging = false;
-                    player.TickStatuses();
+                    player.RefreshStatuses();
                 }
                 finally
                 {
@@ -368,7 +368,7 @@ namespace SlimesRevenge
             ActionLog.BeginKey(TextKey.LogTurn, ActionLogPart.Creature(creature.Kind));
             try
             {
-                creature.TickStatuses();
+                creature.RefreshStatuses();
             }
             finally
             {

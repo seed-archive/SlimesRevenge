@@ -143,7 +143,7 @@ public static List<Vector2Int> FindDiyAstar(...) { /* PriorityQueue + neighbors 
 var gg = astar.data.AddGraph(typeof(GridGraph)) as GridGraph;
 gg.neighbours = NumNeighbours.Eight;
 astar.Scan(gg);
-// mark Walkable / Penalty, CalculateConnections, FloodFill
+// in a work item: mark Walkable / Penalty, CalculateConnections; then FlushWorkItems
 var ab = ABPath.Construct((Vector3)startNode.position, (Vector3)goalNode.position, null);
 AstarPath.StartPath(ab);
 ab.BlockUntilCalculated();

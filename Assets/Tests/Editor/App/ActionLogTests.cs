@@ -779,7 +779,7 @@ namespace SlimesRevenge.Tests
             ActionLog.BeginKey(TextKey.LogTurn, ActionLogPart.Creature(creature.Kind));
             try
             {
-                creature.TickStatuses();
+                creature.RefreshStatuses();
             }
             finally
             {

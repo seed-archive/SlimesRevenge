@@ -68,13 +68,13 @@ namespace SlimesRevenge.Tests
             Assert.IsTrue(slime.AddStatus(new Digesting(cat)));
             Assert.AreEqual(2, slime.FindStatus<Digesting>().Remaining);
 
-            slime.TickStatuses();
+            slime.RefreshStatuses();
             Assert.AreEqual(2, slime.Volume.UnitCount);
             Assert.IsTrue(slime.IsDigesting);
             Assert.AreEqual(1, slime.FindStatus<Digesting>().Remaining);
             Assert.AreEqual(2, cat.Volume.UnitCount);
 
-            slime.TickStatuses();
+            slime.RefreshStatuses();
             Assert.AreEqual(4, slime.Volume.UnitCount);
             Assert.IsFalse(slime.IsDigesting);
         }

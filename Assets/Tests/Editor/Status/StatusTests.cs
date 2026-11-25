@@ -163,7 +163,7 @@ namespace SlimesRevenge.Tests
             dog.AddStatus(new Flammable());
             dog.AddStatus(new Burning());
             var before = dog.HitPoints;
-            dog.TickStatuses();
+            dog.RefreshStatuses();
             Assert.AreEqual(before - 2, dog.HitPoints);
         }
 
@@ -223,7 +223,7 @@ namespace SlimesRevenge.Tests
             Assert.AreEqual(0, rat.Speed);
             for (var i = 0; i < 5; i++)
             {
-                rat.TickStatuses();
+                rat.RefreshStatuses();
             }
 
             Assert.AreEqual(1, rat.CountStatus<Instability>());

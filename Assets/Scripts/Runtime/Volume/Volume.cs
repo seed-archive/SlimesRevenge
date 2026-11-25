@@ -246,12 +246,6 @@ namespace SlimesRevenge
             units.Clear();
         }
 
-        /// <summary>Remove half the units (tip-first), rounding down the removed count.</summary>
-        public void Halve()
-        {
-            Damage(units.Count / 2);
-        }
-
         /// <summary>Null-safe wrapper around <see cref="Substance.Clone"/>.</summary>
         public static Substance CloneSubstance(Substance substance)
         {

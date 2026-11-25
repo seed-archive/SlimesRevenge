@@ -37,7 +37,7 @@ namespace SlimesRevenge.Tests
             slime.AddStatus(first);
             slime.AddStatus(second);
 
-            slime.TickStatuses();
+            slime.RefreshStatuses();
             Assert.AreEqual(1, first.Pulses);
             Assert.AreEqual(0, second.Pulses);
             Assert.IsFalse(slime.IsAlive);

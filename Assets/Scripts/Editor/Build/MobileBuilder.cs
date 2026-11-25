@@ -56,7 +56,7 @@ namespace SlimesRevenge.Editor
                 throw new InvalidOperationException($"Failed to open {scene}");
             }
 
-            if (Camera.main == null && UnityEngine.Object.FindFirstObjectByType<Camera>() == null)
+            if (Camera.main == null && UnityEngine.Object.FindAnyObjectByType<Camera>() == null)
             {
                 throw new InvalidOperationException(
                     $"Scene '{scene}' has no Camera — refusing Play Mode (would show 'No cameras rendering')."
@@ -79,7 +79,7 @@ namespace SlimesRevenge.Editor
             }
 
             EditorApplication.playModeStateChanged -= OnPlayModeStateChanged;
-            var cam = Camera.main ?? UnityEngine.Object.FindFirstObjectByType<Camera>();
+            var cam = Camera.main ?? UnityEngine.Object.FindAnyObjectByType<Camera>();
             var scene = SceneManager.GetActiveScene().path;
             if (cam == null || !cam.enabled || !cam.gameObject.activeInHierarchy)
             {
