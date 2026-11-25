@@ -1,6 +1,6 @@
 # Progression
 
-**Status:** Draft (2026-11-25) — mostly ideas. Only the items marked **Agreed** are decided; everything under "Ideas" is recorded so it is not lost and will be worked out later.
+**Status:** Draft (2026-11-25) — mostly ideas. Only the sections and items marked **Agreed** are decided; everything under "Ideas" is recorded so it is not lost and will be worked out later.
 
 What changes between runs and inside a run beyond one room: worlds, difficulty, what carries over, what can be handed to the next slime.
 
@@ -11,6 +11,24 @@ What changes between runs and inside a run beyond one room: worlds, difficulty, 
 - **Difficulty levels** Easy / Normal / Hard differ in how many enemies a face-tanking slime survives, not in enemy numbers ([vision.md](vision.md)).
 - **No separate survival meter.** No hunger or similar clock: spending the body to kill already is the survival pressure. (The reference game's hunger is deliberately not taken: [references/the-pit.md](references/the-pit.md).)
 - **Meta-progression is wanted.** Something should carry over between runs; what exactly is open (ideas below).
+
+## Mechanic ladder
+
+**Agreed** (2026-11-25).
+
+The game grows like a tower: one level at a time, each built on the one below it. Here a *level* is a stage of the descent, not a difficulty level (Easy / Normal / Hard).
+
+- **Why.** The game needs progression. A slime that has every mechanic on level 1 leaves the player not knowing what to do and with no reason to go to level 2.
+- **Level 1 — the minimum kit**, balanced first: the slime has Water only and a Water affinity from the start; it can move and strike with Water. No other liquid, no puddles, no spit.
+- **Every next level adds one new mechanic** that the level cannot be passed without. Candidates:
+  - a new liquid;
+  - poison against blood;
+  - setting on fire;
+  - putting fire out;
+  - pouring puddles (not on level 1; it unlocks on a later level);
+  - spit with range 1, 2 or 3 cells, the range set by balance.
+- **Spit comes late on purpose:** against weak enemies it is far too strong.
+- **Not decided yet:** the exact order of the mechanics, which level each unlocks on, and every number. They come from the balance analysis, which is not done yet ([balance.md](README.md)).
 
 ## Ideas
 
@@ -45,3 +63,4 @@ Recorded, not asked yet — they wait until volume, affinity and growth are desi
 1. What essences are for.
 2. Origin liquid: locked first unit, or an innate affinity without locking.
 3. Chest, personal fountain, or both; where they stand.
+4. Mechanic ladder: the order of the mechanics, the level each unlocks on, spit range — from the balance analysis.
