@@ -49,8 +49,8 @@ Devour starts a Digesting status whose length equals the corpse's units. The sli
 
 **Agreed** (2026-11-25):
 
-- **Starting value: 2 action points per round** — *to be set by the design guard*: the simulator ([design-guard.md](design-guard.md)) runs the face-tank table with different values and the number that makes it true is kept.
-- **Every action costs 1 point.** Move one cell, strike, pour, collect, start devouring, wait, and later spit.
+- **Starting value: 2 action points per round** — balance is re-testing the base between 2 and 4 (Oleg mentioned 4); 2 stays until then — *to be set by the design guard*: the simulator ([design-guard.md](design-guard.md)) runs the face-tank table with different values and the number that makes it true is kept.
+- **Every action costs 1 point.** Move one cell, strike, pour, gather (collect / drink), swap two adjacent units, start devouring, wait, and later spit.
 - **Volume does not change action points.** A smaller slime is not quicker: enemies get both stronger abilities and more health as the game goes on, so the slime keeps its volume as health and cannot trade it for speed.
 - **Affinity changes action points.** Heavy liquids slow the slime: a Lava or Mercury affinity costs points. A light liquid may add one (Water is a candidate, not decided). The exact numbers are *to be set by the design guard*; the user's example ("heavy liquids slow it down to 3") assumes a base of 4, so the base and the modifiers are tuned together.
 - **No pick-ups that add points.** The world is rooms, corridors and doors; there is no "descent" with finds along it.

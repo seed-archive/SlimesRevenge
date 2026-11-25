@@ -25,11 +25,11 @@ Targets, not rules of the code. Exact numbers come from balance (pending).
 
 **Agreed** (2026-11-25).
 
-- A full slime swaps a liquid by pouring a puddle and drinking the new liquid.
+- Swapping does not need puddles: hits free room in the body, the slime drinks new liquids and arranges its body ([volume.md](volume.md)). This works from level 1.
+- Later, once pouring arrives, a full slime can also swap by pouring a puddle and drinking the new liquid. Puddles stay a separate, later mechanic; spit is level 2.
 - Liquid is never lost: what the slime pours stays on the floor until someone takes it.
 - The slime's own puddle gives it no buff and no debuff. Anyone else who steps in gets the effect, mostly a debuff.
 - Code today ([puddles.md](../puddles.md)): the slime takes no status from any puddle, not only its own; a non-slime that steps in takes the effect and the puddle disappears.
-- Open: the level-1 kit has no pouring, so swapping is not possible on level 1; on which level pouring arrives is not decided yet.
 
 ## The last unit
 
@@ -41,7 +41,7 @@ Targets, not rules of the code. Exact numbers come from balance (pending).
 
 ## Drinking and eating
 
-**Agreed** (2026-11-25). Drinking and eating corpses belong to the level-1 kit: move, strike, drink, eat ([progression.md](progression.md#mechanic-ladder)). Eating is the Devour action. Open: whether drinking from a fountain is the same action as Collect (taking a puddle) or a new one.
+**Agreed** (2026-11-25). Drinking and eating corpses belong to the level-1 kit: move, strike, drink, eat ([progression.md](progression.md#mechanic-ladder)). Eating is the Devour action. Drinking is Gather ([actions.md](actions.md#gather)).
 
 ## Fountains
 
