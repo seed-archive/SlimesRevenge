@@ -1,10 +1,18 @@
 # Vision
 
-**Status:** Draft. Written from the game as it exists and from the user's brief (2026-11-25). Everything marked *Proposed* waits for the user's yes; the open decisions are at the end.
+**Status:** Agreed (2026-11-25). Parts still marked *Proposed* are suggestions the later sections may change.
 
 ## Pitch
 
-A turn-based tactics game on a small grid, for phones. You are a slime, and your body is a jar of liquids. Every hit you throw, every trap you lay, every step you take through danger is paid for with your own body — and every enemy you kill can be drunk back in.
+A turn-based tactics roguelike on a small grid, for phones. You are a slime, and your body is a jar of liquids. Every hit you throw and every trap you lay is paid for with your own body — and every enemy you kill can be drunk back in.
+
+## Story
+
+**Agreed** (details still open):
+
+- Everyone has wronged the slime: in every game the weakest monster, the one you farm on the first level, is a rat or a slime.
+- An alchemist (or a mage — both brew potions) lives in a tower and pours spent potions down a hole in the floor. It all flows into the cellar, mixes, and becomes a slime: you.
+- The goal of the game: get through the dungeon and reach the alchemist. What happens then — a talk, revenge, eating something out of him — is not decided and does not block anything.
 
 ## The fantasy
 
@@ -18,7 +26,39 @@ Every mechanic must serve at least one pillar. A feature that serves none is cut
 2. **Chemistry over arithmetic.** Liquids react with each other and with the world (water puts out fire, oil makes fire worse, acid eats armor). A clever combination beats a big number.
 3. **You are what you drink.** The liquid you carry most of shapes what you are (affinity). What you eat changes what you can do.
 4. **Make the room fight for you.** Traps, puddles, enemies that hate each other. The best fight is one where the slime barely gets touched.
-5. **Readable in one glance.** Small grids, few units, turn-based, every effect visible on the board. A turn is a decision, not a reflex.
+5. **Thrift is skill.** **Agreed.** Like a shotgun that fires three pellets whether you load one shell or three, a smart player gets the same effect for less of their body: the right puddle in the right cell, one spit that hits two enemies, an enemy lured into another's path. The actions and balance sections must leave room for such savings.
+6. **Readable in one glance.** Small grids, few units, turn-based, every effect visible on the board. A turn is a decision, not a reflex.
+
+## Run structure
+
+**Agreed.**
+
+- **The big idea:** a long descent through generated floors, in the spirit of *Sword of the Stars: The Pit* (the user's reference: about 40 floors). There are ways to skip floors and ways to pass something on from one character to the next. Designed in [progression.md](README.md) later; not built now.
+- **Now:** the arena (the duel, already in the game) and a generator of one dungeon, so the game can be played and tested end to end.
+
+## Death and difficulty
+
+**Agreed.**
+
+- **Softcore is the main mode.** On defeat the slime reappears next to the spawning pool and loses nothing.
+- **Iron Man** is permadeath: a defeat ends the run. It is chosen when a new game starts and stays on for that whole game; it cannot be turned off later.
+- **Difficulty changes what the player has to do, not the enemies' numbers.** Enemy hit points and damage are not the difficulty knob. Each level is defined by how many enemies at once a slime that just stands and trades hits ("face-tanks") survives:
+
+| Level | Face-tanking survives | Dies to | What the player must do |
+| --- | --- | --- | --- |
+| Easy | 1–2 enemies at once | 3 | Walk into a room, beat everyone, collect the liquid, move on. |
+| Normal | 1 enemy | 2 | Avoid fighting two at once; use terrain and puddles sometimes. |
+| Hard | none | 1 | Use the mechanics: pull enemies one by one, manage their vision range, lay a slowing puddle while fleeing, set traps, spend the body sparingly. |
+
+This table is the first balance target: [balance.md](README.md) must make it true by numbers, and a playtest of a room with 1, 2 and 3 enemies must confirm it.
+
+## Tone and setting
+
+**Agreed** direction, details open:
+
+- Between cartoon and grim, leaning to cartoon. Not horror: mechanics that read as creepy are out (for example, swallowing a living creature whole and digesting it while it is alive).
+- The run starts in the cellar and the sewers under the tower, then the scenery changes so it never feels like one long dungeon: the surface and grass, a town, a troll's cave. The terrain art already allows several biomes.
+- **Enemies are fantastic, not ordinary animals.** A rat, a cat and a dog as the first enemies do not sell the game: players choose a slime game for the unusual. The current monster art is to be redrawn; the slime itself reads as a jelly pudding and stays.
 
 ## Core loop
 
@@ -36,7 +76,7 @@ The loop has a built-in tension: spending makes you smaller and weaker, eating m
 ## Platform and controls
 
 - iOS and Android, landscape. Tap a cell for a context menu; swipe or tap an adjacent cell to move. Keyboard on desktop for development.
-- Short sessions: *Proposed* one room in 1–3 minutes, a run in 15–30.
+- Short sessions: *Proposed* one room in 1–3 minutes, a floor in 10–15.
 - Pixel art in the 32 px Fantasy Dreamland style already used for the tiles and creatures.
 
 ## What the game is not
@@ -46,10 +86,3 @@ The loop has a built-in tension: spending makes you smaller and weaker, eating m
 - Not real-time and not about reflexes.
 - Not a stat-grinding RPG: no levels or experience points; growth is volume and affinity.
 - Not a story-heavy game: the story frames the run, it does not stop it.
-
-## Open decisions
-
-1. **Run structure.** A roguelike run (generated rooms, death ends the run) or a handcrafted campaign of levels, or both? The room generator in the brief points to a roguelike.
-2. **The revenge.** Who wronged the slime and why does it want revenge? This sets the enemies, the places and the final goal.
-3. **Death.** Hardcore (a defeat ends the run) as the main mode and Softcore as an easier option, or the other way round?
-4. **Tone.** Dark and grim, or cute and funny? The current art and creatures (bats, mushrooms, mandragoras) fit both.
