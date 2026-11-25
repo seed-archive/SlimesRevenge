@@ -21,6 +21,14 @@ How the slime gains body: drinking, eating corpses, fountains.
 
 Targets, not rules of the code. Exact numbers come from balance (pending).
 
+## The first fight
+
+**Agreed** (2026-11-25).
+
+- The slime's starting volume may shrink with difficulty. Then the first fight is the hardest: the player needs a way to net at least +1 in the very first fight.
+- Oleg's example: start at 6, an enemy worth 3 volume: 6 − 3 + 3 = 6 — at best zero.
+- Enemy hit points on Hard are tuned against this: see [balance.md](balance.md#why-not-4-hp-on-hard).
+
 ## Swapping liquids
 
 **Agreed** (2026-11-25).

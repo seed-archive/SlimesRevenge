@@ -8,8 +8,8 @@
 
 ## Fast enemies
 
-**Agreed** (2026-11-25).
+2026-11-25.
 
-- A fast enemy may move and bite in one turn (a dash).
-- Such enemies have low hit points, so the slime can kill one in a turn and step back.
+- **Agreed:** a fast enemy may move and bite in one turn (a dash).
+- **Working, pending balance:** such enemies have low hit points, so the slime can kill one in a turn and step back. This is Oleg's assumption; balance checks it.
 - Their speed and hit points come from balance (pending).

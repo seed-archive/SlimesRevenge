@@ -16,6 +16,11 @@ Code that watches the game design. It plays fights by the game's real rules, man
 2. **How far each build gets.** For each build, the hardest difficulty it still passes, and the reason it fails on the next one (which enemy, which status, which turn).
 3. **Whether the agreed rules still hold.** Each agreed design rule is a check: green while the rule holds, red with the numbers when a change breaks it.
 
+**Agreed** (2026-11-25):
+
+- **Every level.** The guard works through all levels: one now, 20 later, with one skill unlocking on each; balance must hold on every level.
+- **Slices of balance:** economy (liquids) and damage (normal damage, skills, abilities). Which other slices are needed is decided by the simulator and balance sessions.
+
 Later, once levels and growth exist: **the acquisition graph** — which liquids a slime can obtain where, so a build that only works with lava is checked against the places lava can be found.
 
 ## Model

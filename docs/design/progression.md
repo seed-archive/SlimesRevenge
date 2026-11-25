@@ -28,6 +28,7 @@ The game grows like a tower: one level at a time, each built on the one below it
   - pouring puddles (not on level 1; it unlocks on a later level);
   - spit with range 1, 2 or 3 cells, the range set by balance — taken: level 2.
 - **Spit is the level-2 mechanic** (Agreed 2026-11-25): one new mechanic per level, and spit is the first after the level-1 kit.
+- **Balance computes two levels at once**, not only level 1 (Agreed 2026-11-25; [balance.md](balance.md)).
 - **Not decided yet:** the exact order of the mechanics after spit, which level each unlocks on, and every number. They come from the balance analysis, which is not done yet ([balance.md](balance.md)).
 
 ## Ideas
