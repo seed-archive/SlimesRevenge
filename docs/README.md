@@ -2,6 +2,10 @@
 
 Knowledge notes about the game and the code.
 
+## Design
+
+- [design/README.md](design/README.md) — the game design document: idea, mechanics, enemies, levels, balance, art brief. Written before the code.
+
 ## Game
 
 - [creatures.md](creatures.md) — the cast: hit points, armor, substances, devouring corpses.
