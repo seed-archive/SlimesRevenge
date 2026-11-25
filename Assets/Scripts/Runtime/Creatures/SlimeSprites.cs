@@ -51,6 +51,15 @@ namespace SlimesRevenge
 #if UNITY_EDITOR
         public static void ResetCacheForTests()
         {
+            // Frames come from Sprite.Create, so they live until destroyed; the sheet texture is an asset and stays.
+            foreach (var frames in walk.Values)
+            {
+                foreach (var frame in frames)
+                {
+                    Object.DestroyImmediate(frame);
+                }
+            }
+
             walk.Clear();
         }
 #endif
