@@ -1,6 +1,6 @@
 # Substances
 
-**Status:** Draft (2026-11-25). The inventory describes the game today. Stacking is **Agreed**. The two cycles and enemy vulnerabilities are *Proposed*: the user asked for them, the links between liquids are not decided yet.
+**Status:** Draft (2026-11-25). The inventory describes the game today. Stacking and puddles are **Agreed**. The two cycles and enemy vulnerabilities are *Proposed*: the user asked for them, the links between liquids are not decided yet.
 
 The liquids the slime is made of: what each does, and how they relate to each other.
 
@@ -25,10 +25,18 @@ Relations that already exist in the code: Water ⊣ Lava (puts it out, blocks it
 **Agreed** (2026-11-25).
 
 - Timed statuses stack in **strength, not in duration**. Every strike or puddle adds its own copy with its own timer; two copies hit twice as hard over the same turns.
-- Example: an enemy that steps into two lava puddles burns for 2 HP a turn, not 1 HP a turn for twice as long.
+- Example: an enemy that steps into two lava puddles in a row burns for 2 HP a turn, not 1 HP a turn for twice as long.
 - **Why:** a longer burn would leave the retreating slime cornered against a wall before the enemy dies. A stronger burn ends the fight while the slime still has room.
 - The code already works this way: [status-effects.md](../status-effects.md) (Накопление).
-- **Open, for the balance analysis:** Flammable copies multiply each other (×2, ×4, ×8). Whether the oil multiplier should grow that steeply is not decided.
+- **Flammable stacks additively.** Copies multiplying each other (×2, ×4, ×8, as the code does today) is far too strong; the direction is additive stacking (each copy adds to the bonus). The numbers come from balance (pending).
+- Burns stack by stepping through puddles in a row, not by two puddles on one cell (see below).
+
+## Puddles
+
+**Agreed** (2026-11-25).
+
+- **One cell holds one puddle, never two.** (The code already refuses a second puddle on an occupied cell: `Floor.TryPlacePuddle`.)
+- Stacking comes from a path of puddles: an enemy that walks through several puddles in a row collects one copy from each.
 
 ## Two cycles
 

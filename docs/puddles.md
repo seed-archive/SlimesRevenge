@@ -6,7 +6,7 @@
 | Лужа | Эффект при наступлении |
 | --- | --- |
 | Water | Всегда `AddStatus(Wet)`. Если есть `Burning`/`Corroding` — они `CancelsWith(Wet)` (снимаются, Wet не ставится). Иначе `Wet` (3 хода). |
-| Oil | Даёт `Instability` (−1 скорость, 3 хода) и `Flammable` (3 хода; урон от лавы и пульс `Burning` ×2 за каждый экземпляр: две лужи — ×4). |
+| Oil | Даёт `Instability` (−1 скорость, 3 хода) и `Flammable` (3 хода; урон от лавы и пульс `Burning` ×2 за каждый экземпляр: две лужи — ×4; по дизайну множитель должен складываться: [design/substances.md](design/substances.md#stacking)). |
 | Poison | Даёт `Poisoned` (3 хода, 1 HP/ход). Существа с `Poisonous` не получают `Poisoned`. |
 | Acid | Даёт `Corroding` с `Corrosion` кислоты (3 хода: сначала броня по `Corrosion`/ход, потом 1 HP/ход). Без мгновенного урона. |
 | Blood | Обычно ничего. При `Vampirism` — лечение на `Vampirism.HealAmount` (2 HP). Не гасит огонь и не даёт `Wet`. |

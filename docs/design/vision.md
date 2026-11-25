@@ -41,7 +41,7 @@ Every mechanic must serve at least one pillar. A feature that serves none is cut
 
 **Agreed.**
 
-- **Softcore is the main mode.** On defeat the slime reappears next to the spawning pool and loses nothing.
+- **Softcore is the main mode.** On defeat the slime reappears next to the spawning pool and loses nothing. The spawn has an unlimited Water pool; Iron Man has a reserve fountain of about 20 Water instead (number from balance, pending: [growth.md](growth.md#the-last-unit)).
 - **Iron Man** is permadeath: a defeat ends the run. It is chosen when a new game starts and stays on for that whole game; it cannot be turned off later.
 - **Difficulty changes what the player has to do.** Each difficulty level is defined by how many enemies at once a slime that just stands and trades hits ("face-tanks") survives — the table below is the target every level must meet.
 - **The levers: practically every parameter differs between levels**:
@@ -50,12 +50,15 @@ Every mechanic must serve at least one pillar. A feature that serves none is cut
   - enemy toughness (hit points);
   - any other parameter that turns out to matter.
 - How much each lever adds per level is not decided: the balance analysis computes it so that each level meets the table.
+- **The reference player** is a newcomer who walks up to a new mob and takes its hits to learn it. On Easy he survives them all and wins. On Hard a new tough mob must not be approached: one hit takes half his life.
 
 | Level | Face-tanking survives | Dies to | What the player must do |
 | --- | --- | --- | --- |
 | Easy | 1–2 enemies at once | 3 | Walk into a room, beat everyone, collect the liquid, move on. |
 | Normal | 1 enemy | 2 | Avoid fighting two at once; use terrain and puddles sometimes. |
 | Hard | none | 1 | Use the mechanics: pull enemies one by one, manage their vision range, lay a slowing puddle while fleeing, set traps, spend the body sparingly. |
+
+Open: enemies now come one at a time from spawners, with no packs ([enemies.md](enemies.md#no-groups)); how "enemies at once" in this table fits that is not decided yet.
 
 This table is the first balance target: [balance.md](README.md) must make it true by numbers, and a playtest of a room with 1, 2 and 3 enemies must confirm it.
 
@@ -69,7 +72,9 @@ This table is the first balance target: [balance.md](README.md) must make it tru
 
 ## Core loop
 
-*Proposed*, built from what the game already does plus the brief:
+**Agreed:** the core loop is **swapping liquids and capitalising on them**. Every fight should net body: the slime comes out bigger, and able to replace at least one unit it has with a better one. A fight that nets nothing starts a downward spiral. Targets per difficulty level are in [growth.md](growth.md); the numbers come from balance (pending).
+
+The steps below are *Proposed*, built from what the game already does plus the brief; they predate the spawner rule ([levels.md](levels.md)) and will be rewritten with it:
 
 1. **Enter a room.** See the enemies, the liquids on the floor, the fountains.
 2. **Plan.** Choose what to spend: a strike, a spit, a puddle as a trap, or simply moving into a better place.
