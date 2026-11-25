@@ -43,7 +43,8 @@ Targets, not rules of the code. Exact numbers come from balance (pending).
 
 **Agreed** (2026-11-25).
 
-- When the body is down to one unit, the fountains are empty and enemies remain, the slime still has to go and kill them itself. The rule that makes this possible comes from balance (pending).
+- When the body is down to one unit, the fountains are empty and enemies remain, the slime still has to go and kill them itself.
+- The rule that makes this possible is the **last-drop strike** (Working): with one unit left the slime strikes for 1 without spending it ([actions.md](actions.md#last-drop-strike)).
 - **Softcore:** an unlimited Water pool at the slime's spawning pool (not the enemies' spawners).
 - **Iron Man:** no unlimited Water; a reserve fountain of about 20 Water instead (number from balance, pending).
 
