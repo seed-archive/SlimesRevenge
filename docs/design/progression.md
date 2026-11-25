@@ -19,16 +19,16 @@ What changes between runs and inside a run beyond one room: worlds, difficulty, 
 The game grows like a tower: one level at a time, each built on the one below it. Here a *level* is a stage of the descent, not a difficulty level (Easy / Normal / Hard).
 
 - **Why.** The game needs progression. A slime that has every mechanic on level 1 leaves the player not knowing what to do and with no reason to go to level 2.
-- **Level 1 — the minimum kit**, balanced first: the slime has Water only and a Water affinity from the start; it can move, strike with Water, drink and eat corpses. No other liquid, no puddles, no spit. Whether level 1 has fountains follows from the level-economy calculation (simulator + balance, pending): [growth.md](growth.md).
+- **Level 1 — the minimum kit**, balanced first: the slime has Water only and a Water affinity from the start; it can move, strike with Water, drink and eat corpses. No other liquid, no puddles, no spit. Fountains on level 1: working number 1 flask ([balance.md](balance.md)), final from the level-economy calculation (pending): [growth.md](growth.md).
 - **Every next level adds one new mechanic** that the level cannot be passed without. Candidates:
   - a new liquid;
   - poison against blood;
   - setting on fire;
   - putting fire out;
   - pouring puddles (not on level 1; it unlocks on a later level);
-  - spit with range 1, 2 or 3 cells, the range set by balance.
-- **Spit comes late on purpose:** against weak enemies it is far too strong.
-- **Not decided yet:** the exact order of the mechanics, which level each unlocks on, and every number. They come from the balance analysis, which is not done yet ([balance.md](README.md)).
+  - spit with range 1, 2 or 3 cells, the range set by balance — taken: level 2.
+- **Spit is the level-2 mechanic** (Agreed 2026-11-25): one new mechanic per level, and spit is the first after the level-1 kit.
+- **Not decided yet:** the exact order of the mechanics after spit, which level each unlocks on, and every number. They come from the balance analysis, which is not done yet ([balance.md](balance.md)).
 
 ## Ideas
 
@@ -63,4 +63,4 @@ Recorded, not asked yet — they wait until volume, affinity and growth are desi
 1. What essences are for.
 2. Origin liquid: locked first unit, or an innate affinity without locking.
 3. Chest, personal fountain, or both; where they stand.
-4. Mechanic ladder: the order of the mechanics, the level each unlocks on, spit range — from the balance analysis.
+4. Mechanic ladder: the order of the mechanics after spit, the level each unlocks on, spit range — from the balance analysis.

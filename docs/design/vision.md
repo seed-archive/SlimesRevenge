@@ -48,6 +48,7 @@ Every mechanic must serve at least one pillar. A feature that serves none is cut
   - enemy vision range;
   - the number of enemies;
   - enemy toughness (hit points);
+  - room size;
   - any other parameter that turns out to matter.
 - How much each lever adds per level is not decided: the balance analysis computes it so that each level meets the table.
 - **The reference player** is a newcomer who walks up to a new mob and takes its hits to learn it. On Easy he survives them all and wins. On Hard a new tough mob must not be approached: one hit takes half his life.
@@ -58,9 +59,9 @@ Every mechanic must serve at least one pillar. A feature that serves none is cut
 | Normal | 1 enemy | 2 | Avoid fighting two at once; use terrain and puddles sometimes. |
 | Hard | none | 1 | Use the mechanics: pull enemies one by one, manage their vision range, lay a slowing puddle while fleeing, set traps, spend the body sparingly. |
 
-Open: enemies now come one at a time from spawners, with no packs ([enemies.md](enemies.md#no-groups)); how "enemies at once" in this table fits that is not decided yet.
+There are no packs ([enemies.md](enemies.md#no-groups)): "enemies at once" happens when the slime aggroes several roaming enemies, by running through the map or by standing where more than one sees it. The table stays as the target.
 
-This table is the first balance target: [balance.md](README.md) must make it true by numbers, and a playtest of a room with 1, 2 and 3 enemies must confirm it.
+This table is the first balance target: [balance.md](balance.md) must make it true by numbers, and a playtest of a room with 1, 2 and 3 enemies must confirm it.
 
 ## Tone and setting
 

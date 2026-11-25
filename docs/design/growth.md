@@ -11,15 +11,25 @@ How the slime gains body: drinking, eating corpses, fountains.
 - The core loop is swapping liquids and capitalising on them ([vision.md](vision.md#core-loop)).
 - Every fight should net body, and let the slime replace at least one unit it already has.
 - A fight that nets nothing starts a downward spiral.
-- Open: the Hard target allows 0, while a 0 fight starts the spiral; how the two fit is not decided yet.
+- On Hard a single fight may net under +1 (for example 0), but **on average** a Hard fight nets slightly above 0 (for example +1…+3 over 3 enemies is fine; +4 is too generous).
 
 | Difficulty | Net body per fight (target) |
 | --- | --- |
 | Easy | +1…+2 units |
 | Normal | +1 unit |
-| Hard | 0…+1 unit |
+| Hard | slightly above 0 on average |
 
 Targets, not rules of the code. Exact numbers come from balance (pending).
+
+## Swapping liquids
+
+**Agreed** (2026-11-25).
+
+- A full slime swaps a liquid by pouring a puddle and drinking the new liquid.
+- Liquid is never lost: what the slime pours stays on the floor until someone takes it.
+- The slime's own puddle gives it no buff and no debuff. Anyone else who steps in gets the effect, mostly a debuff.
+- Code today ([puddles.md](../puddles.md)): the slime takes no status from any puddle, not only its own; a non-slime that steps in takes the effect and the puddle disappears.
+- Open: the level-1 kit has no pouring, so swapping is not possible on level 1; on which level pouring arrives is not decided yet.
 
 ## The last unit
 
@@ -40,4 +50,4 @@ Targets, not rules of the code. Exact numbers come from balance (pending).
 - **Small flasks** in the alchemist's lab: one drink each.
 - **Large tanks** (for example a body in formaldehyde): several drinks.
 - A fountain holds one liquid type or several.
-- Whether level 1 has fountains, and how many, follows from the level-economy calculation (simulator + balance, pending).
+- Fountains on level 1: the working number is 1 flask ([balance.md](balance.md)); final numbers from the level-economy calculation (simulator + balance, pending).
