@@ -22,12 +22,12 @@ Assets/
   Scenes/                 # Splash (bootstrap) → Main (menu) → Game
   Localization/Resources/ # en / ru string tables
   Resources/              # Runtime-loaded sprites (animals, status icons)
-docs/                     # Design / architecture notes (human + agent), index in docs/README.md
+docs/                     # Feature / architecture notes, index in docs/README.md;
+                          # session files now/plan/questions/missing.md (git-ignored, local)
 scripts/                  # play.sh, stop.sh, build.sh, format.sh
 .github/workflows/        # GameCI EditMode tests + mobile builds
 .claude/rules/            # Agent rules (see below)
 .claude/skills/           # Agent procedures (see below)
-PLAN.md                   # Agent plan: findings, debt, questions (git-ignored, local)
 ```
 
 Domain docs (read before changing the matching feature):
@@ -50,7 +50,7 @@ Rules live in [`.claude/rules/`](.claude/rules/). Rules without `paths` always a
 | --- | --- |
 | [`workflow`](.claude/rules/workflow.md) | Task flow, Definition of Done, reporting, git (base branch `dev`). |
 | [`kiss-dry-yagni`](.claude/rules/kiss-dry-yagni.md) | Smallest change; simplification pass over the diff. |
-| [`documentation`](.claude/rules/documentation.md) | `docs/`, ADRs, `AGENTS.md`, and the plan file `PLAN.md`. |
+| [`documentation`](.claude/rules/documentation.md) | `docs/`, feature notes after every turn, ADRs, `AGENTS.md`, and the session files (`docs/now.md`, `plan.md`, `questions.md`, `missing.md`). |
 | [`versions`](.claude/rules/versions.md) | Packages through Renovate; the Unity version changed by hand everywhere; vendored libraries. |
 | [`repository-boundaries`](.claude/rules/repository-boundaries.md) | The repository is self-contained. |
 | [`play-mode-unity`](.claude/rules/play-mode-unity.md) | Play Mode: `open -na`, never a child of the agent shell. |

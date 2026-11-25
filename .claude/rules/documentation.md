@@ -10,11 +10,11 @@ Context ends; project knowledge must not. Anything whose loss would force someon
 | How to build, play and test, for a person | `README.md` |
 | Lasting knowledge about the game and the code | `docs/<topic>.md`, `docs/architecture/<topic>.md`, index in `docs/README.md` |
 | Decisions a reader could take for a mistake | `docs/adr/NNNN-<title>.md` |
-| Findings outside the task's scope, accepted debt, follow-ups, questions for the user | `PLAN.md` in the repository root — git-ignored, local to this checkout, never committed |
+| Where the work stands, findings outside the task's scope, follow-ups, questions for the user, input only an outside party can supply | the four session files `docs/now.md`, `docs/plan.md`, `docs/questions.md`, `docs/missing.md` — git-ignored (the repository is public), local to this checkout |
 | Rules for agents | `.claude/rules/` |
 | Repeatable procedures for agents | `.claude/skills/<name>/SKILL.md` |
 
-Do not create task-, plan- or status-files in `docs/`.
+Do not create other task-, plan- or status-files in `docs/`.
 
 Write new notes in English, short sentences. Existing notes in Russian stay as they are; continue a note in its own language.
 
@@ -71,20 +71,32 @@ What becomes easier, harder, or must not be changed without revisiting this ADR.
 
 Before changing code that an ADR covers, read the ADR. If the change contradicts it, write a new ADR that supersedes it (set the old one's status to `superseded by NNNN`); do not edit the decision of an accepted ADR.
 
-## The plan file (`PLAN.md`)
+## Feature notes (after every turn)
 
-Write the item into `PLAN.md` in the same turn you notice it, before you answer. Mentioning it in the reply is not a record: only the plan file is. A mistake of your own (a missed finding, a wrong claim, a broken build you let through) is recorded the same way.
+`docs/` describes how each feature of the game works, one feature per file (`docs/<feature>.md`, listed in `docs/README.md`).
 
-While working on a task you notice things that are not part of it: a bug, a test that never runs, a wrong doc, a rule the code breaks, a missing file. They are out of scope, so you do not fix them now, and they are not ignored either. Write each one down, so it is picked up later.
+- After every turn that changes the repository (code, tests, config, a commit), bring the notes of the features it touched up to date before the turn ends. A feature without a note gets one now, for the whole feature.
+- A note says what the feature is for, its entry points, state and transitions, invariants and limits (by constant or field name), and the edge cases a change must respect.
+- A change with no effect on any feature (formatting, CI, agent rules) says so in the report instead.
 
-- Sections: **Open** (to do), **Accepted** (debt kept on purpose, with the reason and when to revisit), **Needs the user** (questions and decisions).
+## Questions to the user
+
+1. **Write first, then ask.** Before asking the user anything, write it in the same turn as its own item in `docs/questions.md`: date, the question in one sentence, the options, what waits on it. The work it concerns gets its own item in `docs/plan.md`.
+2. **Every unanswered question**, whatever its weight, stays there and is asked again in the next report until it is answered. Then remove it and write the answer where it belongs (a note, an ADR, the item it unblocks).
+
+## The session files
+
+`docs/now.md` (where the work stands, rewritten after every finished step), `docs/plan.md` (the work that is left), `docs/questions.md` (every question waiting for the user), `docs/missing.md` (what only an outside party can supply: a license, a store account, a key). Each opens with a `**Checked:** YYYY-MM-DD` line, updated even when nothing is new. They are git-ignored and never committed (the repository is public); committed files do not link to them. Knowledge that must outlive them goes into a note or an ADR.
+
+Write the item in the same turn you notice it, before you answer. Mentioning it in the reply is not a record. A mistake of your own (a missed finding, a wrong claim, a broken build you let through) is recorded the same way.
+
+While working on a task you notice things that are not part of it: a bug, a test that never runs, a wrong doc, a rule the code breaks, a missing file. They are out of scope, so you do not fix them now, and they are not ignored either.
+
+- `docs/plan.md` sections: **Open** (to do) and **Accepted** (debt kept on purpose, with the reason and when to revisit).
 - One item per finding: where (`file:line`), what is wrong and what it causes, the proposed fix if you have one, and what it waits for.
-- An item you cannot judge or fix without more information or a decision goes under **Needs the user**, with the question in one sentence, and you tell the user about it in your report. Do not leave it for later silently.
-- Every question you asked the user that is still unanswered also goes under **Needs the user**, with the date it was asked and what waits on it. Ask it again in your next report; remove it once answered, and write the answer where it belongs (a note, an ADR, the item it unblocks).
 - Data loss (saves, serialized fields, scene references) is marked as such and named in the report every time until it is taken into work.
-- Remove an item when it is done or becomes a GitHub issue or PR (link it). `PLAN.md` is not a status log or a history: what was merged is in git.
-- `PLAN.md` is git-ignored (`/PLAN.md` in `.gitignore`) and never committed: it is this checkout's working plan. Committed files do not link to it. Knowledge that must outlive it goes into `docs/` or an ADR.
+- Remove an item when it is done or becomes a GitHub issue or PR (link it). The session files are not a status log or a history: what was merged is in git.
 
 ## Before finishing a task
 
-Check whether the task changed something a note, an ADR, `AGENTS.md`, `README.md` or a rule states. Update them in the same change, and add follow-ups to `PLAN.md` instead of fixing unrelated things.
+Check whether the task changed something a note, an ADR, `AGENTS.md`, `README.md` or a rule states. Update them in the same change, and add follow-ups to `docs/plan.md` instead of fixing unrelated things.
