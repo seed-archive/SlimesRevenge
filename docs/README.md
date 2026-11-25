@@ -13,6 +13,7 @@ Knowledge notes about the game and the code.
 - [status-effects.md](status-effects.md) — status catalog: strike, puddle, dominance, innate.
 - [slime-dominance.md](slime-dominance.md) — dominant substance (≥ 80% of volume) and its statuses.
 - [strike-vs-puddle.md](strike-vs-puddle.md) — what a strike applies versus a floor puddle.
+- [slime-appearance.md](slime-appearance.md) — the slime's look from its volume, sheets and walk frames.
 - [puddles.md](puddles.md) — floor puddles.
 - [armor.md](armor.md) — armor, corrosion, damage reduction.
 - [cell-menu.md](cell-menu.md) — the cell action menu.
