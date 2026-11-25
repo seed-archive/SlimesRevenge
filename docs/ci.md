@@ -11,6 +11,8 @@ GitHub Actions in `.github/workflows/`. The base branch is `dev`; releases go to
 | `unity-editmode.yml` | `workflow_call` only | EditMode tests in GameCI |
 | `activation.yml` | manual | requests a Unity manual activation file |
 
+`dev` is protected: a merge needs the checks `test / Test` and `Format` to pass (`strict` off, so the branch need not be up to date; admins can bypass). Auto-merge is enabled: `gh pr merge --squash --auto` waits for both checks. A direct push to `dev` is rejected for non-admins; admins bypass the protection, so agents still never push to `dev` (`workflow` rule).
+
 Mobile builds run only from `build.yml`, so work on `dev` never builds Android or iOS. A concurrency group per workflow and ref cancels the older run when a new push arrives.
 
 ## EditMode job (`unity-editmode.yml`)
