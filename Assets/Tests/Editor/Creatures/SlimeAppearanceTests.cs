@@ -90,6 +90,26 @@ namespace SlimesRevenge.Tests
             Assert.AreEqual(water33.rect, frames[1].rect);
         }
 
+        [Test]
+        public void ResetCacheForTests_DestroysCreatedFrames_KeepsTheSheet()
+        {
+            var sheet = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Art/Slimes/Water.png");
+            Assert.IsNotNull(sheet);
+            var before = SlimeSprites.Walk(sheet, WalkFacing.South);
+            Assert.IsNotEmpty(before);
+
+            SlimeSprites.ResetCacheForTests();
+
+            foreach (var frame in before)
+            {
+                Assert.IsTrue(frame == null, "a cached frame survived the reset");
+            }
+            Assert.IsTrue(sheet != null && sheet.texture != null, "the source sheet was destroyed");
+            var after = SlimeSprites.Walk(sheet, WalkFacing.South);
+            Assert.AreEqual(FdrSheetLayout.WalkFrameCount, after.Length);
+            Assert.That(after, Has.All.Matches<Sprite>(frame => frame != null));
+        }
+
         private static Volume Filled(params Substance[] substances)
         {
             var volume = new Volume();
