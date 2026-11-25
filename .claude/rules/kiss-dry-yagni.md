@@ -44,7 +44,7 @@ During a task the change usually touches only the code it needs. The pass looks 
 
 1. Read the full diff against `dev` (`git diff dev...` plus uncommitted changes) plus the classes and methods the diff touches.
 2. Look for: new code that duplicates something that already exists; helpers with one caller; parameters, fields, branches or types nothing reads; code made obsolete by the change; neighbouring code in the touched flow that can now be simpler.
-3. Make the reductions that stay inside the task's flow. Record larger cleanups outside the flow in `PLAN.md` instead of doing them.
+3. Make the reductions that stay inside the task's flow. Record larger cleanups outside the flow in `docs/plan.md` instead of doing them.
 4. Re-run the checks the reductions affect. A simplification that was not re-verified is not done.
 
 Expect the pass to remove 5–10% of new code. If it removes nothing, say what you checked.

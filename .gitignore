@@ -57,5 +57,8 @@ scripts/out/
 # Local Unity AI Assistant editor settings
 ProjectSettings/Packages/com.unity.ai.assistant/
 
-# Agent plan: local to each checkout, never committed
-/PLAN.md
+# Agent session files (public repo: never committed)
+/docs/now.md
+/docs/plan.md
+/docs/questions.md
+/docs/missing.md

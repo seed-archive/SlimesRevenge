@@ -7,9 +7,9 @@
 5. **Simplify** — KISS / DRY / YAGNI pass over the whole diff (`kiss-dry-yagni` rule). Re-run the affected checks.
 6. **Review** — the change is reviewed by someone who did not write it (the user, or a separate subagent given the requirement, the criteria and the diff base). Fix or answer every finding. Merge only after approval. The AI / combat / status checklist in `AGENTS.md` is part of the review.
 7. **Document** — `docs/` notes, ADRs, `AGENTS.md`, `README.md` (`documentation` rule).
-8. **Report** — what changed, the checks run with their outcome, what is left, and every question to the user that is still unanswered (from "Needs the user" in `PLAN.md`, asked again). Follow-ups go to `PLAN.md`, not into code.
+8. **Report** — what changed, the checks run with their outcome, what is left, and every question to the user that is still unanswered (from `docs/questions.md`, asked again). Follow-ups go to `docs/plan.md`, not into code.
 
-Problems noticed outside the task's scope are not fixed silently and not dropped: report them and add them to `PLAN.md`. A question to the user is not dropped either when it stays unanswered: it goes under "Needs the user" in `PLAN.md` with its date and is asked again (`documentation` rule, "The plan file").
+Problems noticed outside the task's scope are not fixed silently and not dropped: report them and add them to `docs/plan.md`. A question to the user is not dropped either when it stays unanswered: it goes into `docs/questions.md` with its date and is asked again (`documentation` rule, "Questions to the user").
 
 ## Definition of Done
 
