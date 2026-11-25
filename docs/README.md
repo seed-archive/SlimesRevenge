@@ -18,3 +18,7 @@ Knowledge notes about the game and the code.
 - [architecture/dependency-inversion.md](architecture/dependency-inversion.md) — statuses apply via hooks; the board does not need a controlled player.
 - [architecture/action-log.md](architecture/action-log.md) — the action log.
 - [architecture/popup-cards.md](architecture/popup-cards.md) — popup cards.
+
+## Project
+
+- [ci.md](ci.md) — GitHub Actions: EditMode tests, the CSharpier format check, mobile builds on `main`.

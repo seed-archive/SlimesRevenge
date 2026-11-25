@@ -40,7 +40,7 @@ Default branch: **`dev`**. Releases: **`main`**.
 
 | Workflow | When | What |
 | --- | --- | --- |
-| [`test.yml`](.github/workflows/test.yml) | Push/PR to `dev`/`main` | EditMode tests |
+| [`test.yml`](.github/workflows/test.yml) | Push/PR to `dev`/`main` | EditMode tests + CSharpier format check |
 | [`build.yml`](.github/workflows/build.yml) | Push/`workflow_dispatch` on `main` | Tests + Android + iOS |
 
 Secrets: `UNITY_LICENSE`, `UNITY_EMAIL`, `UNITY_PASSWORD` — see [GameCI activation](https://game.ci/docs/github/activation).
