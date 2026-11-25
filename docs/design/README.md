@@ -21,7 +21,7 @@ Written in this order: each layer depends on the one above it.
 
 | # | Section | Covers | Status |
 | --- | --- | --- | --- |
-| 1 | [vision.md](vision.md) | The idea: pitch, fantasy, pillars, core loop, platform, what the game is not | Draft |
+| 1 | [vision.md](vision.md) | The idea: pitch, story, pillars, run structure, death and difficulty, tone, core loop | Agreed |
 | 2 | turn-structure.md | Turns, initiative, speed, what one action costs, how a room plays out | Not started |
 | 3 | volume.md | The slime's body: units, capacity, volume = life = ammo, layered vs proportional body, how size grows | Not started |
 | 4 | substances.md | Every liquid: strike effect, puddle effect, dominance, interaction matrix (water vs fire, oil + lava, …) | Not started |
@@ -31,8 +31,8 @@ Written in this order: each layer depends on the one above it.
 | 8 | combat.md | Damage, armor, death, corpses, decay, the kill → eat loop | Not started |
 | 9 | statuses.md | Every status as a design (purpose, counterplay); today's catalog is [status-effects.md](../status-effects.md) | Not started |
 | 10 | enemies.md | The roster: role, abilities, affinity, behavior archetype, what each drops; a template for new enemies | Not started |
-| 11 | levels.md | The room generator: room shapes, corridors, placement of enemies, fountains and hazards, difficulty curve | Not started |
-| 12 | progression.md | Run structure, campaign, modes (Hardcore / Softcore, duel), what carries over between runs | Not started |
+| 11 | levels.md | The room generator: room shapes, corridors, placement of enemies, fountains and hazards, difficulty curve; first target is one dungeon for playtests | Not started |
+| 12 | progression.md | The long descent (~40 floors), skipping floors, passing things between characters, difficulty levels and Iron Man, the arena | Not started |
 | 13 | balance.md | Formulas and numbers in one place, the balance spreadsheet, how a change is checked | Not started |
 | 14 | art-brief.md | The image-generator spec: sheet layout, palette, per-creature brief template, so another model can draw every asset | Not started |
 | 15 | tools.md | Game-design tools used here and why (spreadsheets, flow and economy modelling, level editors) | Not started |
