@@ -146,34 +146,38 @@ namespace SlimesRevenge
             gg.collision.heightCheck = false;
             astar.Scan(gg);
 
-            for (var z = 0; z < world.Height; z++)
+            // Direct node edits run inside a work item: they mark nodes dirty, and A*
+            // recomputes connected components for dirty nodes once work items finish.
+            astar.AddWorkItem(() =>
             {
-                for (var x = 0; x < world.Width; x++)
+                for (var z = 0; z < world.Height; z++)
                 {
-                    var cell = new Vector2Int(x, z);
-                    var node = gg.GetNode(x, z);
-                    if (node == null)
+                    for (var x = 0; x < world.Width; x++)
                     {
-                        continue;
-                    }
+                        var cell = new Vector2Int(x, z);
+                        var node = gg.GetNode(x, z);
+                        if (node == null)
+                        {
+                            continue;
+                        }
 
-                    node.Walkable = cell == start || !blocked(cell);
-                    if (node.Walkable)
-                    {
-                        node.Penalty = FloorPenalty(world, cell, walker);
+                        node.Walkable = cell == start || !blocked(cell);
+                        if (node.Walkable)
+                        {
+                            node.Penalty = FloorPenalty(world, cell, walker);
+                        }
                     }
                 }
-            }
 
-            for (var z = 0; z < world.Height; z++)
-            {
-                for (var x = 0; x < world.Width; x++)
+                for (var z = 0; z < world.Height; z++)
                 {
-                    gg.CalculateConnections(x, z);
+                    for (var x = 0; x < world.Width; x++)
+                    {
+                        gg.CalculateConnections(x, z);
+                    }
                 }
-            }
-
-            astar.FloodFill();
+            });
+            astar.FlushWorkItems();
             return gg;
         }
 

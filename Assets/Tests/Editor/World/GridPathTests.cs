@@ -109,6 +109,35 @@ namespace SlimesRevenge.Tests
             Assert.AreEqual(2, GridStep.Chebyshev(dog, path[1]));
         }
 
+        [Test]
+        public void GoalInsideAClosedRing_HasNoPath()
+        {
+            var world = World.CreateGrass();
+            var dog = new Vector2Int(1, 1);
+            var goal = new Vector2Int(6, 6);
+            var ring = new HashSet<Vector2Int>();
+            for (var y = -1; y <= 1; y++)
+            {
+                for (var x = -1; x <= 1; x++)
+                {
+                    if (x != 0 || y != 0)
+                    {
+                        ring.Add(goal + new Vector2Int(x, y));
+                    }
+                }
+            }
+
+            var goals = new[] { goal };
+            Assert.IsNull(GridPath.Find(world, dog, goals, ring.Contains));
+            Assert.IsFalse(GridPath.TryWalk(world, dog, goals, ring.Contains, 2, out _));
+
+            ring.Remove(goal + Vector2Int.left);
+            var path = GridPath.Find(world, dog, goals, ring.Contains);
+            Assert.IsNotNull(path, "One gap in the ring opens a path.");
+            Assert.AreEqual(goal, path[path.Count - 1]);
+            Assert.Contains(goal + Vector2Int.left, path);
+        }
+
         private static List<Vector2Int> Approach(
             World world,
             Vector2Int player,
