@@ -22,7 +22,7 @@ Written in this order: each layer depends on the one above it.
 | # | Section | Covers | Status |
 | --- | --- | --- | --- |
 | 1 | [vision.md](vision.md) | The idea: pitch, story, pillars, run structure, death and difficulty, tone, core loop | Agreed |
-| 2 | turn-structure.md | Turns, initiative, speed, what one action costs, how a room plays out | Not started |
+| 2 | [turn-structure.md](turn-structure.md) | Turns, initiative, speed, what one action costs, vision | Draft — agreed except action points (3 open decisions) |
 | 3 | volume.md | The slime's body: units, capacity, volume = life = ammo, layered vs proportional body, how size grows | Not started |
 | 4 | substances.md | Every liquid: strike effect, puddle effect, dominance, interaction matrix (water vs fire, oil + lava, …) | Not started |
 | 5 | actions.md | Everything the slime does: move, strike, spit (ranged), drop a puddle / set a trap, collect, devour, wait | Not started |
@@ -36,6 +36,12 @@ Written in this order: each layer depends on the one above it.
 | 13 | balance.md | Formulas and numbers in one place, the balance spreadsheet, how a change is checked | Not started |
 | 14 | art-brief.md | The image-generator spec: sheet layout, palette, per-creature brief template, so another model can draw every asset | Not started |
 | 15 | tools.md | Game-design tools used here and why (spreadsheets, flow and economy modelling, level editors) | Not started |
+
+## References
+
+Breakdowns of games the design borrows ideas from (mechanics in spirit, never content or look):
+
+- [references/the-pit.md](references/the-pit.md) — *Sword of the Stars: The Pit*: run structure, time, survival pressure, meta-progression.
 
 ## What exists in the game today
 
