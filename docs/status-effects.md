@@ -13,7 +13,23 @@
 | `BodyTrait` | `Forever` | Маркеры тела / доминанты |
 | `InnateTrait` | `Forever` | Видовые черты; таймер и смена доминанты их не снимают |
 
-Константы: `StatusEffect.Forever = -1`, `Flammable.DamageMultiplier = 2`, `Vampirism.HealAmount = 2`.
+Константы: `StatusEffect.Forever = -1`, `Flammable.DamageMultiplier = 2` (на **каждый** экземпляр), `Vampirism.HealAmount = 2`.
+
+## Накопление (стак)
+
+`StatusQueue.Add` не сливает одинаковые статусы и не обновляет таймер: каждый удар или лужа (оба через `Substance.Apply`) добавляет **новый** экземпляр со своим таймером (3 хода). Остановить добавление могут только `Blocks` и `CancelsWith`. Проверяют тесты `ThreeLavas_StackThreeBurningOnEnemy`, `TimedStatuses_Stack_AndFlammableMultiplies`, `TwoFlammable_QuadrupleBurningPulse` (`StatusTests`).
+
+| Статус | N экземпляров дают |
+| --- | --- |
+| `Burning`, `Poisoned` | N пульсов по 1 HP за ход |
+| `Corroding` | N пульсов за ход (каждый — strip брони или 1 HP) |
+| `Flammable` | множитель `2^N`: удар Lava и каждый пульс Burning ×2, ×4, ×8… (`ModifyIncomingHarm` по очереди у каждого экземпляра) |
+| `Instability` | `Speed − N`, не ниже 0 |
+| `Wet` | эффекта нет; любой Wet гасит все Burning / Corroding |
+
+Forever `Flammable` доминантной Oil у слайма множит только если в очереди нет timed `Flammable` (`VolumeDominance.ModifyIncomingHarm`).
+
+Накопление задумано: статусы стакаются по силе, а не по длительности (решение дизайна, [design/substances.md](design/substances.md#stacking)). Насколько круто должен расти множитель `Flammable` (2^N) — решит анализ баланса.
 
 Поиск `FindStatus<T>`: innate ≫ Forever (доминанта) ≫ оставшиеся ходы таймера.
 
@@ -61,6 +77,7 @@
 | **Acid** | `Corroding` (corrosion 1) | только Retaliation |
 | **Lava** | `Burning` (если нет Fireproof) | только Retaliation |
 | **Blood** | heal через уже имеющийся Vampirism (`NotifyReceivedSubstance`), **статус не вешает** | `Regeneration` в очередь; Retaliation |
+| **Mercury** | ничего (`OnApply` пуст) | `Invisible` (Find); Retaliation с пустым retort |
 
 Базовый `Substance.FindDominanceStatus`: для **любого** доминанта — `Retaliation` с клоном этой субстанции как `Retort`.
 
@@ -81,7 +98,7 @@
 
 #### Burning
 
-- **Эффект:** каждый ход владельца — 1 HP (броня как DR на пульс **не** действует). При `Flammable` урон ×2.
+- **Эффект:** каждый ход владельца — 1 HP (броня как DR на пульс **не** действует). Каждый `Flammable` удваивает пульс (×2^N).
 - **Взаимодействия:** гасится Wet; блокируется `Fireproof` и доминантной водой.
 - **Длительность:** 3 хода.
 - **Накладывает:** Lava — удар и лужа.
@@ -108,7 +125,7 @@
 
 #### Flammable
 
-- **Эффект:** удваивает `Lava.StrikePower` и пульсы `Burning` (`Creature.ModifyIncomingHarm` ← `Flammable`).
+- **Эффект:** удваивает `Lava.StrikePower` и пульсы `Burning` (`Creature.ModifyIncomingHarm` ← `Flammable`). Экземпляры стакаются и множатся: два — ×4, три — ×8.
 - **Длительность:**
   - **3 хода** — с удара/лужи Oil;
   - **Forever** — пока Oil доминантен у слайма (`FindDominanceStatus`, не обязательно в очереди).
@@ -135,6 +152,12 @@
 - **Длительность:** Forever в очереди; снимается при смене доминанта (`ClearedWhenDominanceChanges`).
 - **Накладывает:** `Blood.ApplyDominance` (вставка в начало очереди). Только слайм с доминантной кровью.
 
+#### Invisible
+
+- **Эффект:** `BlocksDetectionFrom` — мобы без аггро не видят слайма: нет Chase и Attack, даже вплотную. Моб с аггро (ударенный слаймом) видит его. Подробнее: [behavior.md](behavior.md#невидимость-доминантная-mercury).
+- **Длительность:** Forever, пока Mercury доминантна (пассив Find).
+- **Накладывает:** только доминантная Mercury у слайма.
+
 #### Retaliation
 
 - **Эффект:** при ударе по носителю (пока жив) на атакующего вызывается `Retort.Apply` — тот же пайплайн статусов, что у вещества-доминанта.
@@ -159,6 +182,17 @@ AI fear/hate (моб↔моб) и personality к слайму: [behavior.md](beh
 
 **Blood** вампиризм **не** вешает: `NotifyReceivedSubstance` → уже имеющийся `Vampirism`. Карточка: Applies пуста; Dominance — Regeneration + Retaliation.
 
+### Vampirism и Blood
+
+`Vampirism` лечит `HealAmount` (2, не выше `MaxHitPoints`) каждый раз, когда носитель получает Blood:
+
+- **Удар Blood по носителю:** 1 урона, затем, если цель жива, `Blood.Apply` → +2. С 2+ HP так не убить (Bat: 3 → 2 → 3); с 1 HP удар убивает раньше лечения.
+- **Retaliation доминантной Blood:** носитель бьёт слайма → retort `Blood.Apply` на атакующего → +2.
+- **Лужа Blood:** +2.
+- **Свой укус:** сбитый с слайма верхний юнит — Blood (`OnOwnerStruckVolumeTip`) → +2.
+
+Убить носителя можно другими субстанциями (без лечения; Lava бьёт ×2 за каждый `Flammable`), DoT или ударом Blood, когда осталось 1 HP.
+
 Слайм врождённых статусов не имеет — только объём и доминанта.
 
 ---
@@ -178,6 +212,7 @@ AI fear/hate (моб↔моб) и personality к слайму: [behavior.md](beh
 | Regeneration | — | — | Blood (очередь) | — |
 | Retaliation | — | — | любой доминант | — |
 | Vampirism | — | — | — | Bat; Drink с Blood |
+| Invisible | — | — | Mercury | — |
 | Poisonous / fears / hates | — | — | — | таблица innate |
 
 ---

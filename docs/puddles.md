@@ -6,11 +6,14 @@
 | Лужа | Эффект при наступлении |
 | --- | --- |
 | Water | Всегда `AddStatus(Wet)`. Если есть `Burning`/`Corroding` — они `CancelsWith(Wet)` (снимаются, Wet не ставится). Иначе `Wet` (3 хода). |
-| Oil | Даёт `Instability` (−1 скорость, 3 хода) и `Flammable` (3 хода; урон от лавы и пульс `Burning` ×2). |
+| Oil | Даёт `Instability` (−1 скорость, 3 хода) и `Flammable` (3 хода; урон от лавы и пульс `Burning` ×2 за каждый экземпляр: две лужи — ×4). |
 | Poison | Даёт `Poisoned` (3 хода, 1 HP/ход). Существа с `Poisonous` не получают `Poisoned`. |
 | Acid | Даёт `Corroding` с `Corrosion` кислоты (3 хода: сначала броня по `Corrosion`/ход, потом 1 HP/ход). Без мгновенного урона. |
 | Blood | Обычно ничего. При `Vampirism` — лечение на `Vampirism.HealAmount` (2 HP). Не гасит огонь и не даёт `Wet`. |
-| Lava | Если есть `Wet` — снимает `Wet` без `Burning`. Иначе даёт `Burning` (3 хода, 1 HP/ход; 2 HP/ход при `Flammable`). Не накладывается при `Fireproof`. |
+| Lava | Если есть `Wet` — снимает `Wet` без `Burning`. Иначе даёт `Burning` (3 хода, 1 HP/ход; ×2 за каждый `Flammable`). Не накладывается при `Fireproof`. |
+| Mercury | Ничего. |
+
+Каждая лужа добавляет новый экземпляр статуса, повторные стакаются: [status-effects.md](status-effects.md#накопление-стак).
 
 ## Приоритет пути (A*)
 
@@ -18,5 +21,5 @@
 
 | Лужа | FloorPriority | Исключения |
 | --- | ---: | --- |
-| Water / Blood / Oil | 10 (`MildFloorPriority`) | Для `FearsWater` (кошка) вода = 100 |
+| Water / Blood / Oil / Mercury | 10 (`MildFloorPriority`) | Для `FearsWater` (кошка) вода = 100 |
 | Poison / Acid / Lava | 100 (`DamageOverTimeFloorPriority`) | Для `Poisonous` приоритет яда = 0 |

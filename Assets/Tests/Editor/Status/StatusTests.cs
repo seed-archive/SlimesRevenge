@@ -168,6 +168,37 @@ namespace SlimesRevenge.Tests
         }
 
         [Test]
+        public void TimedStatuses_Stack_AndFlammableMultiplies()
+        {
+            var dog = TestCreatures.Aggressive(spawned, Vector2Int.zero);
+            Assert.AreEqual(2, dog.Speed);
+            new Oil().Apply(dog);
+            new Oil().Apply(dog);
+            new Poison().Apply(dog);
+            new Poison().Apply(dog);
+            new Acid().Apply(dog);
+            new Acid().Apply(dog);
+
+            Assert.AreEqual(2, dog.CountStatus<Flammable>());
+            Assert.AreEqual(2, dog.CountStatus<Poisoned>());
+            Assert.AreEqual(2, dog.CountStatus<Corroding>());
+            Assert.AreEqual(4, new Lava().StrikePower(dog), "two Flammable: 1 × 2 × 2");
+            Assert.AreEqual(0, dog.Speed, "two Instability: 2 − 2");
+        }
+
+        [Test]
+        public void TwoFlammable_QuadrupleBurningPulse()
+        {
+            var dog = TestCreatures.Aggressive(spawned, Vector2Int.zero);
+            dog.AddStatus(new Flammable());
+            dog.AddStatus(new Flammable());
+            dog.AddStatus(new Burning());
+            var before = dog.HitPoints;
+            dog.RefreshStatuses();
+            Assert.AreEqual(before - 4, dog.HitPoints);
+        }
+
+        [Test]
         public void Water_ClearsAllBurning_KeepsOilStatuses()
         {
             var dog = TestCreatures.Aggressive(spawned, Vector2Int.zero);

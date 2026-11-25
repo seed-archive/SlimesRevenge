@@ -23,13 +23,15 @@ Personality focus — `CreatureTurnContext.Player` — **nullable**. Без иг
 
 | Personality | Кто | К слайму | Аггро после контакта |
 | --- | --- | --- | --- |
-| **Aggressive** | Dog | Всегда враждебен: в vision — **Chase**, вплотную — **Attack**. Вне vision — **WanderOrIdle** (может постоять или отойти). | **Липкий.** Сама бежит на слайма; отошёл — догоняет и кусает до конца (Speed 2 vs 1). |
-| **Passive** | Cat, Scorpion, Bat | Игнор (**WanderOrIdle**), пока слайм не ударит → `MarkAggro`, дальше как Aggressive | **Липкий.** Отошёл — аггро **не** сбрасывается, кошка продолжает гнать/бить. |
-| **Cowardly** | Rat | В vision — **Flee**. Вплотную **и** в бою — один **Attack**. Вне vision — WanderOrIdle | **Не липкий.** Слайм отошёл → `ClearAggro` → снова **Flee** (пока видит). |
+| **Aggressive** | Mushroom, Undine, Cactus, Mandragora, Eye (умолчание `Creature.Personality`); отставной Dog | Всегда враждебен: в vision — **Chase**, вплотную — **Attack**. Вне vision — **WanderOrIdle** (может постоять или отойти). | **Липкий.** Сама бежит на слайма; отошёл — догоняет и кусает до конца (отставной Dog со Speed 2 догоняет слайма со Speed 1). |
+| **Passive** | Bat; отставные Cat, Scorpion | Игнор (**WanderOrIdle**), пока слайм не ударит → `MarkAggro`, дальше как Aggressive | **Липкий.** Отошёл — аггро **не** сбрасывается, моб продолжает гнать/бить. |
+| **Cowardly** | отставной Rat | В vision — **Flee**. Вплотную **и** в бою — один **Attack**. Вне vision — WanderOrIdle | **Не липкий.** Слайм отошёл → `ClearAggro` → снова **Flee** (пока видит). |
 
 Аналогия: Cowardly *как будто* «боится слайма», но статуса `FearsSlimes` нет. Aggressive *как будто* «ненавидит слаймов», статуса `HatesSlimes` тоже нет — только personality + `MarkAggro`.
 
-Скорость: Dog **Speed 2**, слайм **1** — собака должна догонять, если слайм не за стеной / вне vision.
+Personality задаётся переопределением `Creature.Personality`; кто его не переопределяет — **Aggressive** (так все пять заглушек живого состава). Состав и отставные: [creatures.md](creatures.md).
+
+Скорость: у живого состава и слайма **1**; у отставного Dog **Speed 2** — он догоняет, если слайм не за стеной / вне vision.
 
 ### Аггро и память
 
@@ -41,6 +43,8 @@ Personality focus — `CreatureTurnContext.Player` — **nullable**. Без иг
 - Вне зрения агроенный Aggressive/Passive идёт к `PursuitCell`, пока память не истечёт.
 
 ## Fear / hate → моб ↔ моб
+
+Все пары fear/hate сейчас только у отставных зверей; в живом составе их нет, мобы друг с другом не дерутся.
 
 Редирект только когда personality-граф вернул **Wander** или **Idle** (`CreatureHunt.Redirect`). Порядок: **страх (Flee)** → **добыча (Chase/Attack)** → преследование по `PursuitCell`.
 
@@ -59,6 +63,14 @@ Personality focus — `CreatureTurnContext.Player` — **nullable**. Без иг
 ## Зрение и дуэль
 
 - Vision: Chebyshev ≤ `VisionRange` (по умолчанию 5), без LOS-стен в текущей модели.
+- Обнаружение: `CreatureMoves.CanSee` = в радиусе **и** `target.IsDetectedBy(observer)`. Условия графа `PlayerInVision` и `PlayerAdjacent` оба требуют обнаружения, так что необнаруженного слайма моб не видит, не гонит и не кусает, даже стоя вплотную.
+
+### Невидимость (доминантная Mercury)
+
+- Когда Mercury доминантна у слайма (≥ 80% объёма), пассив доминанты `Invisible` (`BlocksDetectionFrom`) скрывает слайма от всех мобов.
+- Исключение: моб с аггро (`Aggroed`) видит слайма всегда. Аггро даёт удар слайма по мобу (`TurnManager.TryAttack` → `MarkAggro`) или собственная атака моба.
+- Итог в бою: пока слайм не ударил моба, тот его игнорирует — нет Chase, нет Attack, только Wander/Idle. Ударенный Aggressive / Passive моб помнит аггро и дальше видит слайма; Cowardly сбрасывает аггро вне ближнего боя (`ClearAggro`): кусать уже не может, но ещё до `PursuitMemoryTurns` ходов идёт к последней клетке слайма (`PursuitCell` из `CreatureHunt.AfterAct` → `Redirect` → Chase).
+- Субстанцию Mercury на ударе и в луже статусов не вешает; см. [status-effects.md](status-effects.md).
 - Дуэль: карта `15×5`, `RunConfig.DuelSeparation = 7` — старт **за** vision. Пока слайм не войдёт в пятёрку клеток, Aggressive стоит/бродит; как только увидел — сокращает дистанцию и кусает.
 
 ## Сценарии (контракт тестов)
@@ -76,7 +88,20 @@ Personality focus — `CreatureTurnContext.Player` — **nullable**. Без иг
 
 Код: `Assets/Tests/Editor/Behavior/BehaviorRulesTests.cs` (+ смежные в `CreatureAiTests` / `CreatureSelectExecuteTests`).
 
-Chase идёт через `GridPath` (A* Pathfinding Project). Самописной «best toward» / кольцевой эвристики для шага **нет** — см. `.claude/rules/behavior-astar-architecture.md`. Temp `AstarPath` всегда `DestroyImmediate`, иначе в Play Mode следующий chase молча падает.
+Chase идёт через `GridPath` (A* Pathfinding Project).
+
+### Выбор пути при равной длине (`GridPath.ShortestAstarPath`)
+
+Цели — набор клеток (для Chase — свободные клетки вокруг цели, `ApproachCells`; для Flee — точка бегства). На **каждую** цель делается отдельный запрос `ABPath`; из найденных путей берётся лучший по правилам, по порядку:
+
+1. Меньше клеток в пути (длина в шагах, а не стоимость A*).
+2. Только Flee: больше выигрыш расстояния от угрозы после первого шага (Chebyshev).
+3. Больше «раннее продвижение»: Chebyshev от старта до второй клетки пути (при пути в одну клетку — до первой).
+4. Цель с меньшим `x`, затем меньшим `y`.
+
+Внутри одного запроса путь выбирает сам пакет: сетка 8 соседей, диагональ дороже прямого шага (стоимость пакета, ≈ √2), штраф клетки = `Substance.FloorPriorityFor(walker) × 1000` за лужу; эвристика и порядок обхода — умолчания `AstarPath`, `GridPath` их не задаёт. Ходом моб проходит не больше `Speed` клеток этого пути (`TryWalk`).
+
+Самописной «best toward» / кольцевой эвристики для шага **нет** — см. `.claude/rules/behavior-astar-architecture.md`. Temp `AstarPath` всегда `DestroyImmediate`, иначе в Play Mode следующий chase молча падает.
 
 ## Ключевой код
 
