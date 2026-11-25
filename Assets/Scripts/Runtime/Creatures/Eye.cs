@@ -9,7 +9,9 @@ namespace SlimesRevenge
             volume.Fill(new Water());
         }
 
-        private void Awake()
+        private void Awake() => SetUpBody();
+
+        public override void SetUpBody()
         {
             SetMaxHitPoints(5);
             if (Volume.UnitCount == 0)

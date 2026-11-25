@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Slime's Revenge — design guard</title>
+<style>
+  :root {
+    --bg: #fbfaf7; --fg: #1f1d1a; --muted: #6b665e; --line: #e4e0d8; --panel: #ffffff;
+    --win: 142 52% 40%; --lose: 4 66% 50%;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #161513; --fg: #ece8e1; --muted: #9a948a; --line: #2e2b27; --panel: #1f1d1a; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg);
+         font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 1200px; margin: 0 auto; padding: 32px 24px 64px; }
+  h1 { font-size: 22px; margin: 0 0 4px; }
+  .meta { color: var(--muted); margin: 0 0 24px; }
+  .note { color: var(--muted); max-width: 760px; margin: 0 0 20px; }
+  .scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); }
+  table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+  th, td { padding: 6px 8px; border-bottom: 1px solid var(--line); text-align: center; white-space: nowrap; }
+  thead th { position: sticky; top: 0; background: var(--panel); font-weight: 600; }
+  th.group { border-left: 1px solid var(--line); }
+  td.first, th.first { text-align: left; position: sticky; left: 0; background: var(--panel); font-weight: 600; }
+  td.cell { cursor: pointer; min-width: 64px; border-left: 1px solid var(--line); }
+  td.cell:hover { outline: 2px solid var(--fg); outline-offset: -2px; }
+  td.cell .rate { font-weight: 600; }
+  td.cell .sub { display: block; font-size: 11px; opacity: .8; }
+  .legend { display: flex; gap: 8px; align-items: center; color: var(--muted); margin: 12px 0 0; }
+  .swatch { width: 120px; height: 10px; border-radius: 5px;
+            background: linear-gradient(90deg, hsl(var(--lose)), hsl(48 80% 55%), hsl(var(--win))); }
+  #detail { margin-top: 20px; padding: 16px; border: 1px solid var(--line); border-radius: 8px;
+            background: var(--panel); min-height: 64px; }
+  #detail dl { display: grid; grid-template-columns: max-content 1fr; gap: 4px 16px; margin: 8px 0 0; }
+  #detail dt { color: var(--muted); }
+  .missing { color: hsl(var(--lose)); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Design guard — build matrix</h1>
+  <p class="meta" id="meta"></p>
+  <p class="note">Each cell is one build (row) against one encounter (column), played by the
+    face-tank policy over several seeds with the game's real rules. The number is the share of
+    fights won; below it, the units of body left on average. Click a cell for details.</p>
+  <div class="scroll"><table id="matrix"></table></div>
+  <div class="legend"><span>lost</span><span class="swatch"></span><span>won</span></div>
+  <section id="detail"><span class="meta">Click a cell to see the fight summary.</span></section>
+</main>
+<script src="data.js"></script>
+<script>
+  const data = window.DESIGN_GUARD;
+  const meta = document.getElementById("meta");
+  if (!data) {
+    meta.innerHTML = '<span class="missing">No data.js next to this page: run the EditMode tests first.</span>';
+  } else {
+    meta.textContent = `Policy: ${data.policy} · ${data.actionsPerRound} action per round · ` +
+      `${data.seeds} seeds per cell · commit ${data.commit} · ${data.generatedUtc}`;
+    render(data);
+  }
+
+  function colour(rate) {
+    // red (0) → yellow (0.5) → green (1)
+    const hue = Math.round(4 + rate * 138);
+    return `hsl(${hue} 60% ${rate > 0.85 || rate < 0.15 ? 42 : 48}%)`;
+  }
+
+  function render(data) {
+    const byKey = new Map(data.cells.map(c => [c.build + "|" + c.encounter, c]));
+    const enemies = [...new Set(data.cells.map(c => c.enemy))];
+    const counts = [...new Set(data.cells.map(c => c.enemies))].sort((a, b) => a - b);
+    const table = document.getElementById("matrix");
+
+    let head = '<thead><tr><th class="first" rowspan="2">Build</th>';
+    for (const enemy of enemies) head += `<th class="group" colspan="${counts.length}">${enemy}</th>`;
+    head += "</tr><tr>";
+    for (const _ of enemies) for (const n of counts) head += `<th class="group">${n}×</th>`;
+    head += "</tr></thead>";
+
+    let body = "<tbody>";
+    for (const build of data.builds) {
+      body += `<tr><td class="first">${build}</td>`;
+      for (const enemy of enemies) {
+        for (const n of counts) {
+          const cell = byKey.get(build + "|" + n + "× " + enemy);
+          if (!cell) { body += '<td class="cell">—</td>'; continue; }
+          body += `<td class="cell" style="background:${colour(cell.winRate)};color:#fff"
+                    data-key="${build}|${cell.encounter}">
+                    <span class="rate">${Math.round(cell.winRate * 100)}%</span>
+                    <span class="sub">${cell.avgUnitsLeft.toFixed(1)} u</span></td>`;
+        }
+      }
+      body += "</tr>";
+    }
+    table.innerHTML = head + body + "</tbody>";
+
+    table.addEventListener("click", e => {
+      const td = e.target.closest("td.cell[data-key]");
+      if (!td) return;
+      const c = byKey.get(td.dataset.key);
+      document.getElementById("detail").innerHTML = `
+        <strong>${c.build}</strong> against <strong>${c.encounter}</strong>
+        <dl>
+          <dt>Won</dt><dd>${Math.round(c.winRate * 100)}% of ${data.seeds} fights</dd>
+          <dt>Rounds</dt><dd>${c.avgRounds.toFixed(1)} on average</dd>
+          <dt>Body spent on strikes</dt><dd>${c.avgUnitsSpent.toFixed(1)} units</dd>
+          <dt>Body left</dt><dd>${c.avgUnitsLeft.toFixed(1)} units</dd>
+          <dt>Most common cause of a loss</dt><dd>${c.cause || "—"}</dd>
+        </dl>`;
+    });
+  }
+</script>
+</body>
+</html>

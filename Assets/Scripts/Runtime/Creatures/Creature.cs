@@ -440,6 +440,13 @@ namespace SlimesRevenge
 
         protected virtual void SeedInnateTraits() { }
 
+        /// <summary>
+        /// Sets the body a creature starts with: hit points, starting volume, innate traits.
+        /// Unity calls it from <c>Awake</c>; code that spawns creatures outside Play Mode
+        /// (the design guard) calls it directly.
+        /// </summary>
+        public virtual void SetUpBody() { }
+
         protected void EnsureInnate<T>()
             where T : InnateTrait, new()
         {

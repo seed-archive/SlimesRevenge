@@ -11,7 +11,9 @@ namespace SlimesRevenge
             volume.Fill(new Blood(), new Blood());
         }
 
-        private void Awake()
+        private void Awake() => SetUpBody();
+
+        public override void SetUpBody()
         {
             SetMaxHitPoints(3);
             if (Volume.UnitCount == 0)
