@@ -81,7 +81,7 @@ The steps below are *Proposed*, built from what the game already does plus the b
 2. **Plan.** Choose what to spend: a strike, a spit, a puddle as a trap, or simply moving into a better place.
 3. **Fight.** Turn by turn; enemies react by their character (aggressive, passive, cowardly) and by whom they hate or fear.
 4. **Kill and eat.** Corpses and their blood refill the volume and can change its mix.
-5. **Drink and shape.** Fountains and puddles let you choose which liquid to grow; the dominant liquid gives an affinity.
+5. **Drink and shape.** Fountains (and later puddles) let you choose which liquid to grow; the dominant liquid gives an affinity.
 6. **Leave stronger or different**, into the next room.
 
 The loop has a built-in tension: spending makes you smaller and weaker, eating makes you bigger but takes turns, and the liquid you eat is not always the one you want.

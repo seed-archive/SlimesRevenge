@@ -25,7 +25,7 @@ Written in this order: each layer depends on the one above it.
 | 2 | [turn-structure.md](turn-structure.md) | Turns, initiative, speed, what one action costs, vision | Agreed |
 | 3 | [volume.md](volume.md) | The slime's body: units, capacity, volume = life = ammo, layered vs proportional body, how size grows | Draft — body order and swap Agreed |
 | 4 | [substances.md](substances.md) | Every liquid today; stacking (strength, not duration; Flammable additive); one puddle per cell; the two cycles (strengthens / suppresses, after *wu xing*); enemy vulnerability from body liquid | Draft — stacking and puddles Agreed; 4 open decisions |
-| 5 | [actions.md](actions.md) | Everything the slime does: move, strike, spit (ranged), drop a puddle / set a trap, collect, devour, wait | Draft — Gather (drink = collect) and Swap Agreed |
+| 5 | [actions.md](actions.md) | Everything the slime does: move, strike, spit (ranged), drop a puddle / set a trap, gather (drink / collect), swap, devour, wait | Draft — Gather (drink = collect) and Swap Agreed |
 | 6 | affinity.md | Slime affinity (one liquid outweighs the others: thresholds, tiers, perks) and enemy affinities | Not started |
 | 7 | [growth.md](growth.md) | Gaining volume: net body per fight, eating corpses and blood, collecting puddles, fountains (flasks and tanks, rate, which liquids), growing capacity | Draft — net-body targets, swapping liquids, the last unit (spawn pool / reserve fountain), drink/eat in the level-1 kit, fountain kinds Agreed; numbers from balance (pending) |
 | 8 | combat.md | Damage, armor, death, corpses, decay, the kill → eat loop | Not started |
