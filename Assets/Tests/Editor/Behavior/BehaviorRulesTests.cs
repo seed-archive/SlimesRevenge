@@ -190,7 +190,11 @@ namespace SlimesRevenge.Tests
             Assert.AreEqual(10, player.Volume.UnitCount);
 
             Assert.IsTrue(turns.TryWait());
-            Assert.AreEqual(10, player.Volume.UnitCount, "Invisible slime adjacent must not be bitten.");
+            Assert.AreEqual(
+                10,
+                player.Volume.UnitCount,
+                "Invisible slime adjacent must not be bitten."
+            );
             Assert.IsFalse(dog.Aggroed);
 
             dog.MarkAggro();

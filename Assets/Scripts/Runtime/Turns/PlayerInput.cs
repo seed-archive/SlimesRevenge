@@ -66,7 +66,12 @@ namespace SlimesRevenge
 
         private void Update()
         {
-            if (turns == null || !turns.IsWaitingForInput || this.Slime == null || !this.Slime.IsAlive)
+            if (
+                turns == null
+                || !turns.IsWaitingForInput
+                || this.Slime == null
+                || !this.Slime.IsAlive
+            )
             {
                 return;
             }
