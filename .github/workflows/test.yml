@@ -23,3 +23,15 @@ jobs:
   test:
     uses: ./.github/workflows/unity-editmode.yml
     secrets: inherit
+
+  format:
+    name: Format
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: 8.0.x
+
+      - run: ./scripts/format.sh check
