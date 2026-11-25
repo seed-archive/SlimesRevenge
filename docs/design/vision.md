@@ -1,6 +1,6 @@
 # Vision
 
-**Status:** Draft — the user's answers of 2026-11-25 are recorded below and marked **Agreed**; parts marked *Proposed* still wait for a yes. Open decisions are at the end.
+**Status:** Agreed (2026-11-25). Parts still marked *Proposed* are suggestions the later sections may change.
 
 ## Pitch
 
@@ -41,7 +41,7 @@ Every mechanic must serve at least one pillar. A feature that serves none is cut
 **Agreed.**
 
 - **Softcore is the main mode.** On defeat the slime reappears next to the spawning pool and loses nothing.
-- **Iron Man** is the permadeath option: a defeat ends the run.
+- **Iron Man** is permadeath: a defeat ends the run. It is chosen when a new game starts and stays on for that whole game; it cannot be turned off later.
 - **Difficulty changes what the player has to do, not the enemies' numbers.** Enemy hit points and damage are not the difficulty knob. Each level is defined by how many enemies at once a slime that just stands and trades hits ("face-tanks") survives:
 
 | Level | Face-tanking survives | Dies to | What the player must do |
@@ -86,7 +86,3 @@ The loop has a built-in tension: spending makes you smaller and weaker, eating m
 - Not real-time and not about reflexes.
 - Not a stat-grinding RPG: no levels or experience points; growth is volume and affinity.
 - Not a story-heavy game: the story frames the run, it does not stop it.
-
-## Open decisions
-
-1. **Iron Man and the levels.** Is Iron Man a switch on top of any level (Easy + Iron Man is allowed), or a fourth level on top of Hard?

@@ -21,7 +21,7 @@ Written in this order: each layer depends on the one above it.
 
 | # | Section | Covers | Status |
 | --- | --- | --- | --- |
-| 1 | [vision.md](vision.md) | The idea: pitch, story, pillars, run structure, death and difficulty, tone, core loop | Draft — mostly agreed, 1 open decision |
+| 1 | [vision.md](vision.md) | The idea: pitch, story, pillars, run structure, death and difficulty, tone, core loop | Agreed |
 | 2 | turn-structure.md | Turns, initiative, speed, what one action costs, how a room plays out | Not started |
 | 3 | volume.md | The slime's body: units, capacity, volume = life = ammo, layered vs proportional body, how size grows | Not started |
 | 4 | substances.md | Every liquid: strike effect, puddle effect, dominance, interaction matrix (water vs fire, oil + lava, …) | Not started |
