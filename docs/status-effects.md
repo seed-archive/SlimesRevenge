@@ -29,6 +29,8 @@
 
 Forever `Flammable` доминантной Oil у слайма множит только если в очереди нет timed `Flammable` (`VolumeDominance.ModifyIncomingHarm`).
 
+Накопление задумано: статусы стакаются по силе, а не по длительности (решение дизайна, [design/substances.md](design/substances.md#stacking)). Насколько круто должен расти множитель `Flammable` (2^N) — решит анализ баланса.
+
 Поиск `FindStatus<T>`: innate ≫ Forever (доминанта) ≫ оставшиеся ходы таймера.
 
 ---

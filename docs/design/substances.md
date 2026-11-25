@@ -1,6 +1,6 @@
 # Substances
 
-**Status:** Draft (2026-11-25). The inventory describes the game today. The two cycles and enemy vulnerabilities are *Proposed*: the user asked for them, the links between liquids are not decided yet.
+**Status:** Draft (2026-11-25). The inventory describes the game today. Stacking is **Agreed**. The two cycles and enemy vulnerabilities are *Proposed*: the user asked for them, the links between liquids are not decided yet.
 
 The liquids the slime is made of: what each does, and how they relate to each other.
 
@@ -19,6 +19,16 @@ The liquids the slime is made of: what each does, and how they relate to each ot
 Every dominant liquid also gives **Retaliation**: whoever strikes the slime receives that liquid's effect. Details: [status-effects.md](../status-effects.md), [strike-vs-puddle.md](../strike-vs-puddle.md), [armor.md](../armor.md).
 
 Relations that already exist in the code: Water ⊣ Lava (puts it out, blocks it), Oil → Lava (fire burns twice as hard on oil), Acid ⊣ armor.
+
+## Stacking
+
+**Agreed** (2026-11-25).
+
+- Timed statuses stack in **strength, not in duration**. Every strike or puddle adds its own copy with its own timer; two copies hit twice as hard over the same turns.
+- Example: an enemy that steps into two lava puddles burns for 2 HP a turn, not 1 HP a turn for twice as long.
+- **Why:** a longer burn would leave the retreating slime cornered against a wall before the enemy dies. A stronger burn ends the fight while the slime still has room.
+- The code already works this way: [status-effects.md](../status-effects.md) (Накопление).
+- **Open, for the balance analysis:** Flammable copies multiply each other (×2, ×4, ×8). Whether the oil multiplier should grow that steeply is not decided.
 
 ## Two cycles
 
