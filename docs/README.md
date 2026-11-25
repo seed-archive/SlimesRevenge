@@ -12,6 +12,7 @@ Knowledge notes about the game and the code.
 - [puddles.md](puddles.md) — floor puddles.
 - [armor.md](armor.md) — armor, corrosion, damage reduction.
 - [cell-menu.md](cell-menu.md) — the cell action menu.
+- [softcore-revive.md](softcore-revive.md) — defeat in Hardcore vs Softcore, what a revive restores.
 
 ## Architecture
 
