@@ -1,16 +1,18 @@
 namespace SlimesRevenge
 {
     /// <summary>
-    /// Softcore defeat recovery. Spawn pool placement is not implemented yet —
-    /// wire <see cref="TryContinue"/> to <see cref="TurnManager.TrySoftcoreContinue"/> at bootstrap.
+    /// Softcore defeat recovery, bound to <see cref="TurnManager.TrySoftcoreContinue"/> by
+    /// <see cref="WorldView"/>. The slime revives on the cell where it died: spawn pool
+    /// placement is not implemented yet.
     /// </summary>
     public static class SoftcoreRevive
     {
         public const int SpawnPoolWater = 5;
 
         /// <summary>
-        /// Abort any in-progress meal, clear statuses, halve liquid, refill with water,
-        /// and reactivate the player. Returns true when revive succeeded.
+        /// Abort any in-progress meal, clear statuses, replace the volume with
+        /// <see cref="SpawnPoolWater"/> units of water, and reactivate the player.
+        /// Returns true when revive succeeded.
         /// </summary>
         public static bool TryContinue(TurnManager turns, Creature player, World world)
         {
@@ -23,8 +25,6 @@ namespace SlimesRevenge
             player.FindStatus<Digesting>()?.Abort();
             player.ClearAllStatuses();
 
-            player.Volume.Halve();
-
             // TODO(SpawnPool): place the slime on a cell adjacent to the spawning pool.
             // Binding sketch once SpawnPool exists on the level:
             //   var poolCell = world.SpawnPoolCell;
@@ -34,7 +34,11 @@ namespace SlimesRevenge
             _ = turns;
             _ = world;
 
-            player.Volume.Fill(new Water(), new Water(), new Water(), new Water(), new Water());
+            player.Volume.Clear();
+            for (var i = 0; i < SpawnPoolWater; i++)
+            {
+                player.Volume.Add(new Water());
+            }
 
             if (!player.gameObject.activeSelf)
             {
