@@ -43,7 +43,7 @@ Devour starts a Digesting status whose length equals the corpse's units. The sli
 5. **Fast enemies are escaped by slowing them** — Oil's Instability (−1 speed), as the game does today.
 6. **The enemy order is shown on the board.** Each enemy shows when it moves next, so the player can plan around it.
 7. **Walls block line of sight.** Vision is a square of `VisionRange` cut by walls. Pulling enemies one by one and hiding from their sight are the Hard level's core skills.
-8. **A fast enemy may move and bite in one turn (a dash)** Low hit points to match is a working assumption, pending balance: [enemies.md](enemies.md#fast-enemies). Today no creature moves and attacks in one turn.
+8. **A fast enemy may move and bite in one turn (a dash).** Low hit points to match is a working assumption, pending balance: [enemies.md](enemies.md#fast-enemies). Today no creature moves and attacks in one turn.
 
 ### Action points
 
