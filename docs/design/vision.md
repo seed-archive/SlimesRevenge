@@ -41,7 +41,7 @@ Every mechanic must serve at least one pillar. A feature that serves none is cut
 
 **Agreed.**
 
-- **Softcore is the main mode.** On defeat the slime reappears next to the spawning pool and loses nothing. The spawn has an unlimited Water pool; Iron Man has a reserve fountain of about 20 Water instead ([growth.md](growth.md#the-last-unit)).
+- **Softcore is the main mode.** On defeat the slime reappears next to the spawning pool and loses nothing. The spawn has an unlimited Water pool; Iron Man has a reserve fountain of about 20 Water instead (number from balance, pending: [growth.md](growth.md#the-last-unit)).
 - **Iron Man** is permadeath: a defeat ends the run. It is chosen when a new game starts and stays on for that whole game; it cannot be turned off later.
 - **Difficulty changes what the player has to do.** Each difficulty level is defined by how many enemies at once a slime that just stands and trades hits ("face-tanks") survives — the table below is the target every level must meet.
 - **The levers: practically every parameter differs between levels**:
