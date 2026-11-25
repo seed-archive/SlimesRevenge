@@ -25,7 +25,7 @@ Later, once levels and growth exist: **the acquisition graph** — which liquids
 | **Build** | The slime's volume: how many units of each liquid (for example 10 Water, 10 Lava, the starting mix), later plus affinity and origin. |
 | **Encounter** | The enemies of one fight: kinds and counts, their start cells; later room shape, puddles, fountains. |
 | **Policy** | How the simulated slime plays. *Face-tank*: walk to the nearest enemy and strike with its best liquid until it dies. Later: *kite* (strike and step back), *trap* (pour before the enemy steps), *pull* (wake one enemy at a time). |
-| **Difficulty** | The set of encounters a level puts in a room. Defined in balance; until then, encounters of 1, 2 and 3 enemies stand in for Easy / Normal / Hard (the face-tank table in [vision.md](vision.md)). |
+| **Difficulty** | The encounters a level puts in a room and the enemy parameters it changes (vision range, hit points, …). Defined in balance; until then, encounters of 1, 2 and 3 enemies stand in for Easy / Normal / Hard (the face-tank table in [vision.md](vision.md)) — this stand-in varies only the number of enemies. |
 | **Outcome** | Win or loss, turns, units spent and left, enemies killed, the cause of the slime's death. |
 
 ## How it works

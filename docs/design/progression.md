@@ -8,7 +8,7 @@ What changes between runs and inside a run beyond one room: worlds, difficulty, 
 
 - **The long descent** through generated floors (~40) is the big idea; now: the arena and one generated dungeon ([vision.md](vision.md)).
 - **Softcore is the main mode; Iron Man** (permadeath) is chosen at the start of a game and cannot be turned off ([vision.md](vision.md)).
-- **Difficulty levels** Easy / Normal / Hard differ in how many enemies a face-tanking slime survives, not in enemy numbers ([vision.md](vision.md)).
+- **Difficulty levels** Easy / Normal / Hard are defined by how many enemies a face-tanking slime survives. To get there they differ in practically every parameter: enemy vision range, number of enemies, enemy toughness (hit points), and any other parameter that turns out to matter. The amount per level comes from the balance analysis ([vision.md](vision.md)).
 - **No separate survival meter.** No hunger or similar clock: spending the body to kill already is the survival pressure. (The reference game's hunger is deliberately not taken: [references/the-pit.md](references/the-pit.md).)
 - **Meta-progression is wanted.** Something should carry over between runs; what exactly is open (ideas below).
 

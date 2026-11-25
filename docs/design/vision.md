@@ -42,7 +42,13 @@ Every mechanic must serve at least one pillar. A feature that serves none is cut
 
 - **Softcore is the main mode.** On defeat the slime reappears next to the spawning pool and loses nothing.
 - **Iron Man** is permadeath: a defeat ends the run. It is chosen when a new game starts and stays on for that whole game; it cannot be turned off later.
-- **Difficulty changes what the player has to do, not the enemies' numbers.** Enemy hit points and damage are not the difficulty knob. Each level is defined by how many enemies at once a slime that just stands and trades hits ("face-tanks") survives:
+- **Difficulty changes what the player has to do.** Each difficulty level is defined by how many enemies at once a slime that just stands and trades hits ("face-tanks") survives — the table below is the target every level must meet.
+- **The levers: practically every parameter differs between levels**:
+  - enemy vision range;
+  - the number of enemies;
+  - enemy toughness (hit points);
+  - any other parameter that turns out to matter.
+- How much each lever adds per level is not decided: the balance analysis computes it so that each level meets the table.
 
 | Level | Face-tanking survives | Dies to | What the player must do |
 | --- | --- | --- | --- |
