@@ -4,12 +4,10 @@
 
 ## No groups
 
-**Agreed** (2026-11-25). There are no enemy groups or packs (the game is not XCOM). Enemies come one at a time: they roam the map from spawners and the player lures them one by one ([levels.md](levels.md)). Enemies met in a corridor count as singles.
+**Agreed** (2026-11-25). There are no enemy groups or packs (the game is not XCOM). Enemies are roaming singles from spawners. The slime can aggro several at a time (by running through the map, or by standing where more than one sees it); luring them one by one is the counter ([levels.md](levels.md)). Enemies met in a corridor count as singles.
 
 ## Fast enemies
 
-**Agreed** (2026-11-25).
-
-- A fast enemy may move and bite in one turn (a dash).
-- Such enemies have low hit points, so the slime can kill one in a turn and step back.
+- **Agreed:** a fast enemy may move and bite in one turn (a dash).
+- **Working, pending balance:** such enemies have low hit points, so the slime can kill one in a turn and step back. This is Oleg's assumption; balance checks it.
 - Their speed and hit points come from balance (pending).

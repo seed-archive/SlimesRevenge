@@ -16,6 +16,11 @@ Code that watches the game design. It plays fights by the game's real rules, man
 2. **How far each build gets.** For each build, the hardest difficulty it still passes, and the reason it fails on the next one (which enemy, which status, which turn).
 3. **Whether the agreed rules still hold.** Each agreed design rule is a check: green while the rule holds, red with the numbers when a change breaks it.
 
+**Agreed** (2026-11-25):
+
+- **Every level.** The guard works through all levels: one now, 20 later, with one skill unlocking on each; balance must hold on every level.
+- **Slices of balance:** economy (liquids) and damage (normal damage, skills, abilities). Which other slices are needed is decided by the simulator and balance sessions.
+
 Later, once levels and growth exist: **the acquisition graph** — which liquids a slime can obtain where, so a build that only works with lava is checked against the places lava can be found.
 
 ## Model
@@ -25,7 +30,7 @@ Later, once levels and growth exist: **the acquisition graph** — which liquids
 | **Build** | The slime's volume: how many units of each liquid (for example 10 Water, 10 Lava, the starting mix), later plus affinity and origin. |
 | **Encounter** | The enemies of one fight: kinds and counts, their start cells; later room shape, puddles, fountains. |
 | **Policy** | How the simulated slime plays. *Face-tank*: walk to the nearest enemy and strike with its best liquid until it dies. Later: *kite* (strike and step back), *trap* (pour before the enemy steps), *pull* (wake one enemy at a time). |
-| **Difficulty** | The encounters a level puts in a room and the enemy parameters it changes (vision range, hit points, …). Defined in balance; until then, encounters of 1, 2 and 3 enemies stand in for Easy / Normal / Hard (the face-tank table in [vision.md](vision.md)) — this stand-in varies only the number of enemies. |
+| **Difficulty** | The encounters a level puts in a room and the enemy parameters it changes (vision range, hit points, …). Defined in balance (level-1 working numbers: [balance.md](balance.md)); until the guard reads them, encounters of 1, 2 and 3 enemies stand in for Easy / Normal / Hard (the face-tank table in [vision.md](vision.md)) — this stand-in varies only the number of enemies. |
 | **Outcome** | Win or loss, turns, units spent and left, enemies killed, the cause of the slime's death. |
 
 ## How it works
