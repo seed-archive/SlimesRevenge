@@ -1,6 +1,6 @@
 # Turn structure
 
-**Status:** Draft (2026-11-25). "Today" describes the code; *Proposed* parts and the open decisions wait for the user.
+**Status:** Draft (2026-11-25). "Today" describes the code; the design below is **Agreed** except the open decisions about action points.
 
 How time passes: who acts when, what one action costs, how fast things move and how far they see. Every other section counts in turns, so this one comes first.
 
@@ -34,16 +34,18 @@ Devour starts a Digesting status whose length equals the corpse's units. The sli
 
 ## Design
 
-*Proposed*:
+**Agreed** (2026-11-25):
 
-1. **Keep strict turns: the slime, then everyone else.** It is the easiest to read on a phone and every move is a decision (pillar *Readable in one glance*). No real-time timers, no undo.
-2. **One action per turn for the slime**, with one exception below (open decision 1).
-3. **Speed stays "cells per move"** for now. Fast enemies (Speed 2) are what makes fleeing dangerous; the counter is slowing them (Instability from oil). This gives the Hard level its "slow them and get away" play without new rules.
-4. **Walls block sight** once rooms have walls (open decision 3). Without it, "pull enemies one by one" and "manage their vision" — the Hard level's core skills — are impossible.
-5. **The enemy order is shown.** A small number or an arrow on each enemy tells which one moves next, so the player can plan around it.
+1. **Strict turns: the slime, then everyone else.** No real-time timers, no undo. This is how the game already works.
+2. **The slime gets several actions per round (action points).** One action per round makes a fleeing puddle impossible: pouring costs the step the pursuer needs to catch up. With several actions the slime can step, pour behind itself and step again before the enemies move. How many, and whether the number can grow, is open (below). The reference game's time model is analysed in [references/the-pit.md](references/the-pit.md); a fixed "four actions" rule is not confirmed there.
+3. **Enemies keep one move per round, measured in cells.** Speed stays "cells per move": slow enemies walk 1 cell, fast ones 2. There is no "acts every N turns" property.
+4. **Slow enemies die to effects, not to strikes.** The intended play: pour lava where the slow enemy will step, then walk away while it burns. On Hard this is a tactic the player must use; balance must make a slow enemy too dangerous to face-tank and easy to burn, poison or dissolve.
+5. **Fast enemies are escaped by slowing them** — Oil's Instability (−1 speed), as the game does today.
+6. **The enemy order is shown on the board.** Each enemy shows when it moves next, so the player can plan around it.
+7. **Walls block line of sight.** Vision is a square of `VisionRange` cut by walls. Pulling enemies one by one and hiding from their sight are the Hard level's core skills.
 
 ## Open decisions
 
-1. **Puddle while fleeing.** If pouring a puddle costs a whole turn, a fleeing slime loses a step and the pursuer catches it, so the "slowing puddle while running away" tactic does not work. Options: (a) a *trail* action — move one cell and leave a puddle on the cell you left, costing one unit and one turn (recommended); (b) pouring stays a full turn and slowing is only for traps prepared in advance.
-2. **Slow enemies.** Should some enemies act only every second turn (a slow mushroom), on top of cells-per-move speed? Options: (a) yes, an "acts every N turns" property (recommended, gives a clear weak-but-tanky archetype); (b) no, speed only.
-3. **Line of sight.** Do walls block vision? Options: (a) yes (recommended, needed for the Hard level); (b) no, vision stays a plain square.
+1. **How many action points per round?** The number is set by the face-tank table in [vision.md](vision.md) and checked in balance; it needs a starting value to build and test with.
+2. **Can the number grow, and for what?** Candidates: a smaller slime is quicker (fewer units → more points), so being thin is a choice and not only a danger; an affinity perk; finds or rewards on the descent.
+3. **Do all actions cost the same?** One point each (easiest to read), or heavier actions cost more (for example, starting to devour or spitting).
