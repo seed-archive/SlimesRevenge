@@ -35,6 +35,22 @@ Later, once levels and growth exist: **the acquisition graph** — which liquids
 - **The simulated slime is a test player, not game AI.** Its policies live with the tools and the tests, never in the game; it moves through the same `GridPath` (A*) as everyone else.
 - **Outputs:** a report table (build × encounter) written on every run and attached to CI like the coverage report; design rules as EditMode checks in the normal test run.
 
+## Visualization
+
+**Agreed** (2026-11-25): the results are shown as a **website**, so the user sees at a glance what shifted after a change. The same data can later become a **wiki for players** — which build works where — published the same way.
+
+*Proposed* shape:
+
+- **Data first.** The simulator writes its results as a data file (JSON): builds, encounters, outcomes, causes of death, the agreed rules and whether each holds. The site only draws that file; it computes nothing itself.
+- **A static site, built in CI.** Plain HTML and charts generated from the data on every run — no server, no Unity needed to view it. Unity is not used for drawing: a page outside the game is easier to share and never risks ending up in the player's build.
+- **Pages:**
+  1. *Build matrix* — build × encounter, coloured by win rate; click a cell for the fight summary (turns, body spent, cause of death).
+  2. *How far each build gets* — every build against Easy / Normal / Hard, with the reason it drops out.
+  3. *What shifted* — the difference between this run and `dev`: rules that broke, builds that gained or lost a level, cells whose win rate moved by more than a threshold. This is the page to open on every pull request.
+  4. *Design rules* — the list of agreed rules, green or red, each linked to its section of this document.
+- **Where it lives.** Every CI run attaches the site as an artifact (like the coverage report); the version for `dev` is published as a web page. The repository is public, so that page is public too.
+- **Player wiki, later.** A second, filtered build of the same site: only what a player should see (builds, enemies, liquids, what works where), without internal rules and numbers the design keeps hidden.
+
 ## First version
 
 *Proposed* scope:
@@ -43,8 +59,9 @@ Later, once levels and growth exist: **the acquisition graph** — which liquids
 2. The face-tank policy.
 3. Builds: the starting mix and one pure build per liquid (10 units of it).
 4. Encounters: 1, 2 and 3 of each enemy in the roster, starting a few cells away.
-5. A report: build × encounter → win rate over N seeds, average units left, most common cause of death; written to `Logs/` locally and uploaded by CI.
-6. One check that proves the machinery: the result for a fixed seed does not change between runs.
+5. A report: build × encounter → win rate over N seeds, average units left, most common cause of death; written as JSON to `Logs/` locally and uploaded by CI.
+6. The site's first page, the build matrix, generated from that JSON and attached to CI. The "what shifted" page and publishing come in the next version, once there is a previous run to compare with.
+7. One check that proves the machinery: the result for a fixed seed does not change between runs.
 
 Not in the first version: other policies, rooms and walls, growth and acquisition, difficulty definitions, action points (they come with the turn-structure decisions).
 
@@ -54,6 +71,7 @@ Not in the first version: other policies, rooms and walls, growth and acquisitio
 2. The report covers every build × encounter listed above and is produced by the normal EditMode test run, locally and in CI.
 3. Changing a basic number (for example a liquid's strike power) visibly changes the report — checked once by hand when the tool is built.
 4. The simulated slime uses only the actions a player has and moves only through `GridPath`.
+5. CI attaches a page that shows the build matrix from the JSON, readable without Unity.
 
 ## Design rules as checks
 
