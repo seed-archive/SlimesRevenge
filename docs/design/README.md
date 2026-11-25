@@ -24,14 +24,14 @@ Written in this order: each layer depends on the one above it.
 | 1 | [vision.md](vision.md) | The idea: pitch, story, pillars, run structure, death and difficulty, tone, core loop | Agreed |
 | 2 | [turn-structure.md](turn-structure.md) | Turns, initiative, speed, what one action costs, vision | Agreed |
 | 3 | volume.md | The slime's body: units, capacity, volume = life = ammo, layered vs proportional body, how size grows | Not started |
-| 4 | [substances.md](substances.md) | Every liquid today; stacking (strength, not duration); the two cycles (strengthens / suppresses, after *wu xing*); enemy vulnerability from body liquid | Draft — stacking Agreed; 4 open decisions |
+| 4 | [substances.md](substances.md) | Every liquid today; stacking (strength, not duration; Flammable additive); one puddle per cell; the two cycles (strengthens / suppresses, after *wu xing*); enemy vulnerability from body liquid | Draft — stacking and puddles Agreed; 4 open decisions |
 | 5 | actions.md | Everything the slime does: move, strike, spit (ranged), drop a puddle / set a trap, collect, devour, wait | Not started |
 | 6 | affinity.md | Slime affinity (one liquid outweighs the others: thresholds, tiers, perks) and enemy affinities | Not started |
-| 7 | growth.md | Gaining volume: eating corpses and blood, collecting puddles, fountains (finite or not, rate, which liquids), growing capacity | Not started — fountains are under balance analysis |
+| 7 | [growth.md](growth.md) | Gaining volume: net body per fight, eating corpses and blood, collecting puddles, fountains (flasks and tanks, rate, which liquids), growing capacity | Draft — net-body targets, drink/eat in the level-1 kit, fountain kinds Agreed; numbers from balance (pending) |
 | 8 | combat.md | Damage, armor, death, corpses, decay, the kill → eat loop | Not started |
 | 9 | statuses.md | Every status as a design (purpose, counterplay); today's catalog is [status-effects.md](../status-effects.md) | Not started |
-| 10 | enemies.md | The roster: role, abilities, affinity, behavior archetype, what each drops; a template for new enemies | Not started |
-| 11 | levels.md | The room generator: room shapes, corridors, placement of enemies, fountains and hazards, difficulty curve; first target is one dungeon for playtests | Not started |
+| 10 | [enemies.md](enemies.md) | The roster: role, abilities, affinity, behavior archetype, what each drops; a template for new enemies | Draft — no groups, fast enemies Agreed |
+| 11 | [levels.md](levels.md) | The room generator: room shapes, corridors, spawners and placement of enemies, fountains and hazards, difficulty curve; first target is one dungeon for playtests | Draft — spawners, not packs Agreed |
 | 12 | [progression.md](progression.md) | The mechanic ladder (one new required mechanic per level), the long descent (~40 floors), difficulty levels and Iron Man, worlds of one liquid, essences, origin liquid, chest and personal fountain, what carries over | Draft — Mechanic ladder Agreed, the rest mostly ideas |
 | 13 | balance.md | Formulas and numbers in one place, the balance spreadsheet, how a change is checked | Not started |
 | 14 | art-brief.md | The image-generator spec: sheet layout, palette, per-creature brief template, so another model can draw every asset | Not started |

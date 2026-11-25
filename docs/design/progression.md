@@ -19,7 +19,7 @@ What changes between runs and inside a run beyond one room: worlds, difficulty, 
 The game grows like a tower: one level at a time, each built on the one below it. Here a *level* is a stage of the descent, not a difficulty level (Easy / Normal / Hard).
 
 - **Why.** The game needs progression. A slime that has every mechanic on level 1 leaves the player not knowing what to do and with no reason to go to level 2.
-- **Level 1 — the minimum kit**, balanced first: the slime has Water only and a Water affinity from the start; it can move and strike with Water. No other liquid, no puddles, no spit.
+- **Level 1 — the minimum kit**, balanced first: the slime has Water only and a Water affinity from the start; it can move, strike with Water, drink and eat corpses. No other liquid, no puddles, no spit. Whether level 1 has fountains follows from the level-economy calculation (simulator + balance, pending): [growth.md](growth.md).
 - **Every next level adds one new mechanic** that the level cannot be passed without. Candidates:
   - a new liquid;
   - poison against blood;
