@@ -35,6 +35,7 @@ Every mechanic must serve at least one pillar. A feature that serves none is cut
 
 - **The big idea:** a long descent through generated floors, in the spirit of *Sword of the Stars: The Pit* (the user's reference: about 40 floors). There are ways to skip floors and ways to pass something on from one character to the next. Designed in [progression.md](README.md) later; not built now.
 - **Now:** the arena (the duel, already in the game) and a generator of one dungeon, so the game can be played and tested end to end.
+- **Difficulty grows by required mechanics:** every next level adds one mechanic the level cannot be passed without, starting from move and strike with Water — the [Mechanic ladder](progression.md#mechanic-ladder). This matches "Difficulty changes what the player has to do" below.
 
 ## Death and difficulty
 
