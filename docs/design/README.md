@@ -22,9 +22,9 @@ Written in this order: each layer depends on the one above it.
 | # | Section | Covers | Status |
 | --- | --- | --- | --- |
 | 1 | [vision.md](vision.md) | The idea: pitch, story, pillars, run structure, death and difficulty, tone, core loop | Agreed |
-| 2 | [turn-structure.md](turn-structure.md) | Turns, initiative, speed, what one action costs, vision | Draft — agreed except action points (3 open decisions) |
+| 2 | [turn-structure.md](turn-structure.md) | Turns, initiative, speed, what one action costs, vision | Agreed |
 | 3 | volume.md | The slime's body: units, capacity, volume = life = ammo, layered vs proportional body, how size grows | Not started |
-| 4 | substances.md | Every liquid: strike effect, puddle effect, dominance, interaction matrix (water vs fire, oil + lava, …) | Not started |
+| 4 | [substances.md](substances.md) | Every liquid today; the two cycles (strengthens / suppresses, after *wu xing*); enemy vulnerability from body liquid | Draft — 4 open decisions |
 | 5 | actions.md | Everything the slime does: move, strike, spit (ranged), drop a puddle / set a trap, collect, devour, wait | Not started |
 | 6 | affinity.md | Slime affinity (one liquid outweighs the others: thresholds, tiers, perks) and enemy affinities | Not started |
 | 7 | growth.md | Gaining volume: eating corpses and blood, collecting puddles, fountains (finite or not, rate, which liquids), growing capacity | Not started |
