@@ -35,7 +35,7 @@ namespace SlimesRevenge.Tests
             Assert.AreEqual(3, dog.CountStatus<Burning>());
             for (var pulse = 0; pulse < 3; pulse++)
             {
-                dog.TickStatuses();
+                dog.RefreshStatuses();
             }
 
             Assert.AreEqual(1, dog.HitPoints);

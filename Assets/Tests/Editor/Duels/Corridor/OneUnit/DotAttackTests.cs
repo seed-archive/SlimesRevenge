@@ -40,7 +40,7 @@ namespace SlimesRevenge.Tests.Duels.Corridor.OneUnit
                     break;
                 }
 
-                duel.Enemy.TickStatuses();
+                duel.Enemy.RefreshStatuses();
             }
 
             Assert.AreEqual(enemyAlive, duel.Enemy.IsAlive);

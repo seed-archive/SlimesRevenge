@@ -471,9 +471,6 @@ namespace SlimesRevenge
             statusQueue.Pulse(this, RefreshVolumeStatuses);
         }
 
-        /// <summary>Obsolete name for <see cref="RefreshStatuses"/>.</summary>
-        public void TickStatuses() => RefreshStatuses();
-
         public void TakeTurn(
             GameSession session,
             Creature player,

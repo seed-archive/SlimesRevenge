@@ -63,9 +63,9 @@ namespace SlimesRevenge.Tests
             Assert.AreEqual(2, rat.HitPoints);
             Assert.AreEqual(1, rat.CountStatus<Corroding>());
 
-            rat.TickStatuses();
+            rat.RefreshStatuses();
             Assert.AreEqual(1, rat.HitPoints);
-            rat.TickStatuses();
+            rat.RefreshStatuses();
             Assert.AreEqual(0, rat.HitPoints);
             Assert.IsFalse(rat.IsAlive);
         }
