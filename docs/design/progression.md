@@ -1,6 +1,6 @@
 # Progression
 
-**Status:** Draft (2026-11-25) — mostly ideas. Only the items marked **Agreed** (and the Mechanic ladder) are decided; everything under "Ideas" is recorded so it is not lost and will be worked out later.
+**Status:** Draft (2026-11-25) — mostly ideas. Only the sections and items marked **Agreed** are decided; everything under "Ideas" is recorded so it is not lost and will be worked out later.
 
 What changes between runs and inside a run beyond one room: worlds, difficulty, what carries over, what can be handed to the next slime.
 
@@ -16,10 +16,10 @@ What changes between runs and inside a run beyond one room: worlds, difficulty, 
 
 **Agreed** (2026-11-25).
 
-The game grows like a tower: one level at a time, each built on the one below it.
+The game grows like a tower: one level at a time, each built on the one below it. Here a *level* is a stage of the descent, not a difficulty level (Easy / Normal / Hard).
 
 - **Why.** The game needs progression. A slime that has every mechanic on level 1 leaves the player not knowing what to do and with no reason to go to level 2.
-- **Level 1 — the minimum kit**, balanced first: the slime has Water only and a Water affinity from the start; it can move and strike with Water. Nothing else.
+- **Level 1 — the minimum kit**, balanced first: the slime has Water only and a Water affinity from the start; it can move and strike with Water. No other liquid, no puddles, no spit.
 - **Every next level adds one new mechanic** that the level cannot be passed without. Candidates:
   - a new liquid;
   - poison against blood;
@@ -63,3 +63,4 @@ Recorded, not asked yet — they wait until volume, affinity and growth are desi
 1. What essences are for.
 2. Origin liquid: locked first unit, or an innate affinity without locking.
 3. Chest, personal fountain, or both; where they stand.
+4. Mechanic ladder: the order of the mechanics, the level each unlocks on, spit range — from the balance analysis.
