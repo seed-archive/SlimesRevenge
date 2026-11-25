@@ -22,7 +22,7 @@ Written in this order: each layer depends on the one above it.
 | # | Section | Covers | Status |
 | --- | --- | --- | --- |
 | 1 | [vision.md](vision.md) | The idea: pitch, fantasy, pillars, core loop, platform, what the game is not | Draft |
-| 2 | turn-structure.md | Turns, initiative, speed, what one action costs, how a room plays out | Not started |
+| 2 | [turn-structure.md](turn-structure.md) | Turns, initiative, speed, what one action costs, vision | Draft — 3 open decisions |
 | 3 | volume.md | The slime's body: units, capacity, volume = life = ammo, layered vs proportional body, how size grows | Not started |
 | 4 | substances.md | Every liquid: strike effect, puddle effect, dominance, interaction matrix (water vs fire, oil + lava, …) | Not started |
 | 5 | actions.md | Everything the slime does: move, strike, spit (ranged), drop a puddle / set a trap, collect, devour, wait | Not started |
