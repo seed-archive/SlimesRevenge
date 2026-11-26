@@ -1,6 +1,6 @@
 # Curios and single units
 
-**Status:** Draft (2026-11-26). The purpose of curios, the ale and the final pay-off by difficulty are **Agreed**; single units are Oleg's direction; the rest is **Open** (lore proposals). Detail: the design notes `lore/special-units.md`, `lore/single-units.md`, `balance/special-units.md`.
+**Status:** Draft (2026-11-26). The purpose of curios, the ale and the final pay-off by difficulty are **Agreed**; single units are Oleg's direction; the rest is **Open** (lore proposals).
 
 ## What a curio is
 
@@ -12,7 +12,7 @@
 - **Single units react with nothing**, so a unique unit cannot be lost by mistake.
 - Single units and Mercury do not get along by design: singles lie deep in the body and make holding 60 % Mercury harder.
 - An achievement for collecting every single unit; a set bonus maybe, carefully (later).
-- **Not everything in one run:** fallback options became normal ones. At the start the run draws one option from a pool (the mine: dwarf smithy / dwarf pantry / chest / nothing; the grove: Pan or the Hive; the graveyard: the Strzyga or a vampire). All bosses, singles and secrets take 2–3 runs. **Working** (balance, `balance/variety.md`): an unseen option weighs twice as much in the draw.
+- **Not everything in one run:** fallback options became normal ones. At the start the run draws one option from a pool (the mine: dwarf smithy / dwarf pantry / chest / nothing; the grove: Pan or the Hive; the graveyard: the Strzyga or a vampire). All bosses, singles and secrets take 2–3 runs. **Working** (balance): an unseen option weighs twice as much in the draw.
 
 ## The list
 
@@ -29,4 +29,4 @@
 
 - A player who carried the "useless" things long enough gets a decisive advantage in the final fight; there is practically no way to lose then. The price is hauling junk through half the game.
 - **Easy:** the ale. **Normal:** the ale and an item from any secret place. **Hard:** the ale, an item from a secret place and the victory over the squad. The ale is required on every difficulty (bought at the first shop, carried all game).
-- **Working** (balance): the set is carried from level 9; numbers in `balance/special-units.md`.
+- **Working** (balance): the set is carried from level 9.

@@ -1,6 +1,6 @@
 # Substances
 
-**Status:** Draft (2026-11-26). The inventory describes the game today. Stacking, puddles, the 17-liquid roster, the two cycles, reactions in the body and the build rules are **Agreed**; the role of each liquid is **Open** (lore table); numbers are balance's (working). Detail: the design notes `lore/liquids-roles.md`, `lore/forum.md`, `lore/reactions.md`, `lore/alchemy.md`, `balance/liquids.md`, `balance/reactions.md`, `balance/mercury-build.md`, `balance/pus-build.md`.
+**Status:** Draft (2026-11-26). The inventory describes the game today. Stacking, puddles, the 17-liquid roster, the two cycles, reactions in the body and the build rules are **Agreed**; the role of each liquid is **Open** (lore table); numbers are balance's (working).
 
 The liquids the slime is made of: what each does, and how they relate to each other.
 
@@ -42,7 +42,7 @@ Relations that already exist in the code: Water ⊣ Lava (puts it out, blocks it
 
 **Agreed** (2026-11-26).
 
-- **10 combat liquids in two cycles of five.** Membership is lore's (`lore/forum.md`): Water, Lava, Aquavita, Mercury, Ichor; Vitriol, Alkali, Ambrosia, Acid, Poison.
+- **10 combat liquids in two cycles of five.** Membership is lore's: Water, Lava, Aquavita, Mercury, Ichor; Vitriol, Alkali, Ambrosia, Acid, Poison.
 - **7 outside the cycles**: Blood, Pus, Fat, Resin, Sulfur, Aphrodisiac, Ectoplasm. The lore page shows them next to the cycles even though they do not fit them.
 - **Removed:** Oil and Tar. Fat stays of the flammable pair (it also slows: Instability), Resin of the sticky pair. Sulfur is flammable too and takes Oil's role (fire on the enemy burns harder, blue flame, no stinking smoke). Ink, spore tincture, the explosive mix, poison-balm, brine and strength potion are out; nothing is cut further.
 - **Names:** Ambrosia, Ichor and Ectoplasm stay; the rejected alternatives are out. Oleg's view: take recognisable names from the genre, alchemy and folklore rather than invent them. **Open:** Phosphorus is a dry substance, not a liquid, and its place and sources are unsettled (Ichor from old bones in one note, no Ichor from skeletons in another).
@@ -55,11 +55,11 @@ Relations that already exist in the code: Water ⊣ Lava (puts it out, blocks it
 
 **Agreed (the principle):** every liquid can be held (affinity), struck with, struck on (the unit on the edge when the slime is bitten) and spat; a new liquid is designed in every role at once (strike, puddle, affinity) with a name from the world. The Aphrodisiac is the exception.
 
-**Open:** the lore table of 17 liquids × roles (`lore/liquids-roles.md`) waits for Oleg. Decided rows: Mercury's affinity is defensive (below), Ectoplasm as above, Sulfur flammable, Aphrodisiac a single unit ([curios.md](curios.md)).
+**Open:** the lore table of 17 liquids × roles waits for Oleg. Decided rows: Mercury's affinity is defensive (below), Ectoplasm as above, Sulfur flammable, Aphrodisiac a single unit ([curios.md](curios.md)).
 
 ## Two cycles
 
-**Agreed:** half the liquids deal damage, and each hits someone hard and someone not at all (immunity); the other half are statuses that hurt nobody. The 10 damage liquids form two wu-xing circles of five; each shows which liquids are incompatible (like Lava and Water) and which boost each other. The order within the circles is lore's (`lore/forum.md`).
+**Agreed:** half the liquids deal damage, and each hits someone hard and someone not at all (immunity); the other half are statuses that hurt nobody. The 10 damage liquids form two wu-xing circles of five; each shows which liquids are incompatible (like Lava and Water) and which boost each other. The order within the circles is lore's.
 
 ## Elements in combat
 
@@ -77,9 +77,9 @@ Relations that already exist in the code: Water ⊣ Lava (puts it out, blocks it
 - **Five loud reactions:** Water + Lava → Stone (both leave the body; Stone falls to the floor as an obstacle); Lava + Aquavita → flash, both vanish; Poison + Blood → Pus (volume kept); Alkali + Acid → Water; Resin + Lava → amber (only Resin vanishes and drops as amber; Lava stays). Other suppressing pairs react only in combat. Direction (Oleg): Ichor + Poison and Vitriol + Poison do not react.
 - A dangerous joint is highlighted and can be fixed this turn by a swap (or a spit).
 - **A full collapse kills:** a chain that eats the whole body kills the slime. Only a body made entirely of reacting pairs can do it; such a joint is highlighted as deadly. Poison + Blood never kills.
-- **Working** (balance, `balance/reactions.md`): no chain limit; −2 per Water + Lava pair, one Stone per chain, Stone crumbles after 4 rounds; a boost gives +1 damage, at most one boost per turn. Not checked by the simulator.
+- **Working** (balance): no chain limit; −2 per Water + Lava pair, one Stone per chain, Stone crumbles after 4 rounds; a boost gives +1 damage, at most one boost per turn. Not checked by the simulator.
 - **Agreed:** three self-healing mechanics for 10 elements are too many; if Blood and Pus heal themselves, Ectoplasm must not. **Open:** Oleg's later proposal puts regeneration on Ectoplasm instead (easy to dodge, easy to kill).
-- **Open:** useful alchemy in the body (two neighbours on purpose become one rarer unit; lore recipes in `lore/alchemy.md`).
+- **Open:** useful alchemy in the body (two neighbours on purpose become one rarer unit; lore has candidate recipes).
 
 ## Builds
 
@@ -88,7 +88,7 @@ Relations that already exist in the code: Water ⊣ Lava (puts it out, blocks it
 - **Affinity:** see [volume.md](volume.md#affinity).
 - **No extra sources for builds.** A map farms one liquid, the next one punishes it; together with hard resets ([route.md](route.md#resets-at-transitions)) the player changes build at least 2–3 times a run.
 - **Pus build:** valid through the whole game. Pus accumulates without a limit. One ale plus 9 Pus is a legitimate run; the ale pays off in the final fight (alone on Easy, [curios.md](curios.md#the-final-pay-off)).
-- **Mercury build:** Mercury is rare (about 15 in a run, 60 % of a full body of 25). A slime that gathers it becomes very strong, and that is kept. To hold the affinity the slime keeps its body under full; a lost unit of Mercury breaks the build. **Working** (balance, `balance/mercury-build.md`): the affinity is defensive — a bite takes half (rounded up), other liquids are knocked out before Mercury, the slime cannot be pushed.
+- **Mercury build:** Mercury is rare (about 15 in a run, 60 % of a full body of 25). A slime that gathers it becomes very strong, and that is kept. To hold the affinity the slime keeps its body under full; a lost unit of Mercury breaks the build. **Working** (balance): the affinity is defensive — a bite takes half (rounded up), other liquids are knocked out before Mercury, the slime cannot be pushed.
 - **When builds open** (Oleg's direction): Pus and Mercury can start at the very beginning; some builds only from mid-game; no new build is collected on the last map (at most the second-to-last).
-- **Pus** (Agreed): from level 3 a poisonous centipede turns the slime's Blood into Pus, dead cargo to be dumped. Oleg's direction: Pus opens on maps 1–2, not on level 1. **Open:** Pus as a weapon after the undertaker, or the only liquid with a bad affinity (belching: skip a turn, leave Pus puddles around — balance working numbers in `balance/resets.md`).
+- **Pus** (Agreed): from level 3 a poisonous centipede turns the slime's Blood into Pus, dead cargo to be dumped. Oleg's direction: Pus opens on maps 1–2, not on level 1. **Open:** Pus as a weapon after the undertaker, or the only liquid with a bad affinity (belching: skip a turn, leave Pus puddles around, balance working numbers).
 - **Open:** a poison build needs a Poison source, or it turns into a Pus build.

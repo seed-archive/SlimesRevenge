@@ -1,6 +1,6 @@
 # Route
 
-**Status:** Draft (2026-11-26). The map list, the level count and the first stops are **Agreed**; the unique first levels and the fourth stop are lore's; transitions and resets are **Open** (Oleg's proposals with lore and balance drafts). Detail: the design notes `lore/lore.md` (Route v2), `lore/transitions.md`, `lore/elements-by-map.md`, `balance/resets.md`, `balance/graph20-ladder-spec.md`.
+**Status:** Draft (2026-11-26). The map list, the level count and the first stops are **Agreed**; the unique first levels and the fourth stop are lore's; transitions and resets are **Open** (Oleg's proposals with lore and balance drafts).
 
 Where the run goes, level by level, and what happens between levels.
 
@@ -19,7 +19,7 @@ Where the run goes, level by level, and what happens between levels.
 
 ## The five maps
 
-**Agreed:** map 1 is the Quarry plus three dwarf mines; map 2 is the village on the river (rough land, a village, a mill, a small dam); map 3 is three graveyard locations, then the slime leaks under the town wall to the apothecary; then the tunnels under the town and the cellars under the tower. The other cells (marked *lore*) are lore's Route v2 (`lore/lore.md`).
+**Agreed:** map 1 is the Quarry plus three dwarf mines; map 2 is the village on the river (rough land, a village, a mill, a small dam); map 3 is three graveyard locations, then the slime leaks under the town wall to the apothecary; then the tunnels under the town and the cellars under the tower. The other cells (marked *lore*) are lore's Route v2.
 
 | Map | Levels | First level (unique) | Other three | Stop after it |
 | --- | --- | --- | --- | --- |
@@ -43,8 +43,8 @@ Where the run goes, level by level, and what happens between levels.
 
 - A stop is not a fight location: trading, a chest, a skill teacher, maybe more.
 - Dwarves are smiths, not traders: the first stop is the dwarf smith's house. After the graveyard the slime reaches the apothecary. Between the tunnels and the tower there must be a stop that gives something; the apprentice's cell is lore's working choice (fallbacks: a gatekeeper's lodge, a distillery).
-- **Working** (balance, `balance/graph20-ladder-spec.md`): four stops, one after each of maps 1–4, the undertaker after map 2. The capacity budget also counts a choice at the mill (five choices, [volume.md](volume.md#capacity-over-a-run)). The older Agreed "three peaceful towns before levels 5, 11 and 17" is kept as a variant.
-- **The body is the wallet** (Agreed 2026-11-26): the slime pays with units of its body. The smith wants Lava (and the smithy can refill the slime with Lava, so his goods are nearly free); the apothecary wants rare liquids such as Mercury; the undertaker wants Ichor. Prices: balance (`balance/prices.md`, working).
+- **Working** (balance): four stops, one after each of maps 1–4, the undertaker after map 2. The capacity budget also counts a choice at the mill (five choices, [volume.md](volume.md#capacity-over-a-run)). The older Agreed "three peaceful towns before levels 5, 11 and 17" is kept as a variant.
+- **The body is the wallet** (Agreed 2026-11-26): the slime pays with units of its body. The smith wants Lava (and the smithy can refill the slime with Lava, so his goods are nearly free); the apothecary wants rare liquids such as Mercury; the undertaker wants Ichor. Prices: balance (working).
 - **Working** (balance): every stop refills the body with Water first, then the purchases; what is paid does not come back before the next level's river.
 - **Open:** how the slime gets into a town; liquid choices at each house (lore: smith Lava / Acid / Ichor, undertaker Ectoplasm / Alkali / Resin, apothecary Vitriol / Sulfur / Ambrosia; always Mercury, Fat and — inferred, since lore's spirit was merged into it — Aquavita); skills (three branches, one of ~4 per town) — ideas only.
 
@@ -52,7 +52,7 @@ Where the run goes, level by level, and what happens between levels.
 
 **Agreed:** the fast way between locations is marked by the river — a lake, a waterfall and the like. A "bend" is not a rule.
 
-**Open** (Oleg's proposals, lore drafts in `lore/transitions.md`):
+**Open** (Oleg's proposals, lore drafts):
 
 - Each obstacle on the river is a level: go around on land, dive in again upstream. One kind of obstacle per map (rockfalls in the mine, the mill wheel, crypt grates, sluice gates, steam and the still).
 - The dam blocks the river completely: the slime goes around over land up to the lake and dives in again. Riding up on a mill wheel is wanted for the story; lore's options: v1 a detour by the miller's stairs, v2 the sack hoist inside the mill, v3 an overshot wheel the slime sticks to.
@@ -62,6 +62,6 @@ Where the run goes, level by level, and what happens between levels.
 **Open** (Oleg's proposal, not decided; balance numbers working, not checked by the simulator).
 
 - **The idea:** every mechanic can be available early, because transitions take bonuses away. A transition can strip a liquid (a narrow slit lets one unit through, a magnet takes Mercury, an alkali takes Acid, a limestone wall filters some liquids). If balance decides the slime must be "zeroed" after some level, there is a clear way to do it.
-- **Two builds per map, a reset for each at the exit** (lore `lore/elements-by-map.md`): map 1 Blood → Pus, Poison → Water; map 2 Water → Poison (a gift, at most half the body), Aquavita evaporates; map 3 the glowing liquid goes out and becomes cargo, Alkali → Water; map 4 Fat → cargo, Sulfur burns out. Other liquids pass unchanged.
-- **Working** (balance, `balance/resets.md`): volume is not reset (the river refills the body each level); capacity is never touched by resets; a full reset happens at the exit of the secret smithy and before the final fight, followed by a stealth level with no fighting until the body refills.
+- **Two builds per map, a reset for each at the exit** (lore): map 1 Blood → Pus, Poison → Water; map 2 Water → Poison (a gift, at most half the body), Aquavita evaporates; map 3 the glowing liquid goes out and becomes cargo, Alkali → Water; map 4 Fat → cargo, Sulfur burns out. Other liquids pass unchanged.
+- **Working** (balance): volume is not reset (the river refills the body each level); capacity is never touched by resets; a full reset happens at the exit of the secret smithy and before the final fight, followed by a stealth level with no fighting until the body refills.
 - **Agreed (related):** no extra sources are invented for builds. A map that farms one liquid and a next map that punishes it push the player to change build at least 2–3 times a run; the Pus and Mercury builds are the exceptions and can last the whole run ([substances.md](substances.md#builds)).

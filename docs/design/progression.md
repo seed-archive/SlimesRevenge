@@ -33,7 +33,7 @@ The game grows like a tower: one level at a time, each built on the one below it
 
 ## Past slimes
 
-**Agreed:** a past slime lies as a puddle on the level where it died; one unit of its affinity liquid can be collected from it. **Working** (balance, `balance/past-slimes.md`): one liquid puddle per level (the last death on that level and difficulty), 1 unit, once a run; up to 3 dated traces without liquid.
+**Agreed:** a past slime lies as a puddle on the level where it died; one unit of its affinity liquid can be collected from it. **Working** (balance): one liquid puddle per level (the last death on that level and difficulty), 1 unit, once a run; up to 3 dated traces without liquid.
 
 **Rejected:** a fountain of inheritance in the cellar. Lava or Mercury from the last run on level 1 makes the first levels mindless; like *The Pit*, inheritance must be limited to the level it belongs to.
 
@@ -44,7 +44,7 @@ The game grows like a tower: one level at a time, each built on the one below it
 - **A secret location** that does not always appear and may or may not give a bonus. Example: a dwarf smithy where the whole body can be swapped to Lava for free. One per game, a different place each time, with an unnoticeable entrance.
 - **Easter eggs are a little unbalanced but never break the game:** the bonus is comfort and speed for what is reachable anyway, not new power. A big bonus is fine if the next map takes it away (the principle: the counterweight takes exactly the advantage that would break the next map).
 - **Secret rooms with chests:** a couple of chests with some chance, in a secret room that is either "not very secret" (the entrance is visible) or truly hidden. A chest may be a **mimic**: Easy 25 %, Normal 50 %, Hard 75 %; on Hard a real chest must give something very good (maybe Mercury). The mimic fight is in a small closed room: no running out, no kiting.
-- **Working** (lore and balance, `lore/easter-eggs.md`, `balance/easter-eggs.md`): the list of secret places with chances; nothing triggers by accident.
+- **Working** (lore and balance): the list of secret places with chances; nothing triggers by accident.
 
 ## Achievements
 

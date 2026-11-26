@@ -1,6 +1,6 @@
 # Volume
 
-**Status:** Draft (2026-11-26). Body order, the affinity threshold and the capacity target are **Agreed**; how capacity grows is **Open** (balance working budget). Detail: the design notes `balance/capacity.md`, `lore/capacity.md`, `balance/liquids.md`.
+**Status:** Draft (2026-11-26). Body order, the affinity threshold and the capacity target are **Agreed**; how capacity grows is **Open** (balance working budget).
 
 The slime's body: volume is life and ammunition.
 
@@ -28,7 +28,7 @@ The slime's body: volume is life and ammunition.
 
 - Start: 10 units (Hard 6). By the alchemist the slime has grown a little: **maximum about 25**. This is a balance condition.
 - **Open** (Oleg's proposals): +1 capacity per transition between locations; buying capacity at a trader (one of three liquids or +1 capacity; at the smith +1 capacity or a unit of ale); events that take capacity away (visible in advance, avoidable). The result Oleg sketched: the final fight with about 20 capacity and 5 unique liquids instead of 25.
-- **Working** (balance, `balance/capacity.md`): capacity = start + 1 per transition inside a map (except entering a guardian level, 10 a run) + one of "+1 capacity or a curio" at each of 5 choices − at most 2 avoidable events; 25 / 22 / 21 at most on Easy / Normal / Hard. The river refills the body to full every level.
+- **Working** (balance): capacity = start + 1 per transition inside a map (except entering a guardian level, 10 a run) + one of "+1 capacity or a curio" at each of 5 choices − at most 2 avoidable events; 25 / 22 / 21 at most on Easy / Normal / Hard. The river refills the body to full every level.
 
 ## The body is the wallet
 

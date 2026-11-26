@@ -1,6 +1,6 @@
 # Enemies
 
-**Status:** Draft (2026-11-26). Items marked **Agreed** are decided; the bestiary and the guardian roster are lore and balance drafts (**Open**). Today's roster in the code: [creatures.md](../creatures.md). Detail: the design notes `lore/bestiary.md`, `lore/names.md`, `lore/guardians-structure.md`, `lore/unique-guardians.md`, `lore/locations.md`, `balance/bestiary-numbers.md`, `balance/ranged.md`.
+**Status:** Draft (2026-11-26). Items marked **Agreed** are decided; the bestiary and the guardian roster are lore and balance drafts (**Open**). Today's roster in the code: [creatures.md](../creatures.md).
 
 ## No groups
 
@@ -23,11 +23,11 @@
 - **A mimic is only a chest** ([progression.md](progression.md#secrets)).
 - **Mechanical enemies only with the dwarves** (maybe in a town).
 - Swollen corpses, centipedes and beetles, the fire salamander, sirens, the sulfur beetle: yes. Oleg also: plants and mushrooms as many as needed; most likely no fighting fish (an idea).
-- **One-word names** that read in English and Russian, from the genre and myths (Bat, Leech, Mold, Scolopendra, Automaton, Siren, Banshee, Skeleton, Ghoul, Mimic…). The list: `lore/names.md`.
+- **One-word names** that read in English and Russian, from the genre and myths (Bat, Leech, Mold, Scolopendra, Automaton, Siren, Banshee, Skeleton, Ghoul, Mimic…).
 
 ## Enemy types
 
-**Open** (Oleg's idea and direction; lore types in `lore/bestiary.md`).
+**Open** (Oleg's idea and direction).
 
 - **A type is what you can take from it:** the living are made of Blood and give Blood; undead bones give nothing; plants give Resin or Acid; mushrooms something like Acid.
 - **Enemies against builds:** for each of the 10 combat liquids at least one enemy is weak to it, one is immune (not invulnerable) and about three are normal. As many types as possible; **every level has at least one enemy of each type** present on its map.
@@ -36,7 +36,7 @@
 
 ## The bestiary
 
-**Open** (lore with balance numbers). About ten species per map, rotated 3–5 types per level: for example Bat, Leech, Mold, Undine, Vine, Scolopendra, Toadstool, Automaton, Scarab and the Sentinel on map 1. Full table: `lore/bestiary.md`; numbers: `balance/bestiary-numbers.md`.
+**Open** (lore with balance numbers). About ten species per map, rotated 3–5 types per level: for example Bat, Leech, Mold, Undine, Vine, Scolopendra, Toadstool, Automaton, Scarab and the Sentinel on map 1.
 
 ## Ranged enemies
 
@@ -44,7 +44,7 @@
 
 - **Ballista** (Oleg's direction): not a mob but a static trap, like a tower in tower defense — a dwarf crossbow in a gallery that fires a bolt when the slime enters its line. Mercury on the edge stops the bolt; Ectoplasm lets it pass through.
 - Lore's other shooters: the Toad (spits acid, maps 2 and 4) and the Skeleton archer (maps 3 and 5); crossbowmen of the squad on Hard.
-- **Working** (balance, `balance/ranged.md`): a shot instead of a step or bite, damage = the law's bite − 1; at most one shooter per level, none on levels 1–2 or at guardians; the Ballista on map 1 levels 3–4, 2 units off the edge at up to 4 cells in a straight line (Easy 1).
+- **Working** (balance): a shot instead of a step or bite, damage = the law's bite − 1; at most one shooter per level, none on levels 1–2 or at guardians; the Ballista on map 1 levels 3–4, 2 units off the edge at up to 4 cells in a straight line (Easy 1).
 
 ## Guardians and bosses
 
@@ -62,4 +62,4 @@
 
 **Agreed:** hunters appear **only on Hard**, at most once per level: locals (guards, assassins, dwarf berserkers) who try to kill the slime. A squad of hunters by difficulty: Easy — the slime finds its remains and can eat them; Normal — finds them but cannot eat them; Hard — finds the squad alive and must beat it.
 
-**Working** (balance, `balance/hunters.md`, `balance/squad.md`): hunters from map 2, one per Hard level except guardian levels; the squad on level 3.
+**Working** (balance): hunters from map 2, one per Hard level except guardian levels; the squad on level 3.

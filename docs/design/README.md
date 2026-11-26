@@ -44,7 +44,7 @@ Written in this order: each layer depends on the one above it.
 
 ## References
 
-The source of these sections is Oleg's decisions log and the lore and balance notes, which are kept private; a section names the note it draws on. Story details beyond the premise are kept out of this public document.
+These sections are written from Oleg's decisions and the lore and balance work, which are not published; numbers marked Working are balance's working values. Story details beyond the premise are kept out of this public document.
 
 Breakdowns of games the design borrows ideas from (mechanics in spirit, never content or look):
 
