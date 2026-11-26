@@ -24,10 +24,10 @@ What one level is made of and how it is put together from rooms. The route above
 
 | Parameter | Value |
 | --- | --- |
-| Rooms | more on every level (the law: balance); fallback min(4 + level, 7) |
+| Rooms | 4 + ⌈level / 2⌉ (5 on level 1, 14 on level 20); fallback min(4 + level, 7) |
 | Room side | Easy 5–7, Normal 6–8, Hard 7–9; the upper bound grows by 1 every 3 levels, up to 11 (Hard 13) |
 | Corridor | 2 cells |
-| Enemies per room | 1–2 on levels 1–4, 1–3 from level 5 on Normal; the number of enemies differs by difficulty (amount per difficulty: balance) |
+| Enemies per room | levels 1–4: Easy 1, Normal 1–2, Hard 1–2; from level 5: Easy 1–2, Normal 1–3, Hard 2–3 |
 | Enemy vision | 2 / 3 / 4 (Easy / Normal / Hard) |
 
 - **Agreed:** every level is bigger than the one before (coordinator, 2026-11-26: Oleg's rule stands). Fallback (balance with lore): growth by content inside ≤ 7 rooms — room sides +1 every 3 levels, more enemies per room, new kinds; the rooms table above then caps at 7.
@@ -37,7 +37,7 @@ What one level is made of and how it is put together from rooms. The route above
 ## Enemies
 
 - **Agreed:** no packs; enemies roam singly ([enemies.md](enemies.md#no-groups)). Running through the level aggroes many; luring them from the edge works.
-- **Agreed:** enemies roam as singles from spawners (coordinator, 2026-11-26: the rule stands). **Working** (balance): the Rat King and the Hive spawn 1 every 2 rounds, at most 4 alive. Fallback (balance with lore): enemies placed when the level is generated, only bosses and guardians spawn.
+- **Agreed:** enemies roam as singles from spawners (coordinator, 2026-11-26: the rule stands). **Working** (balance): from level 3, 1 spawner per level releases one roaming enemy every 15 slime rounds, at most 2 alive on top of the placed enemies; the Rat King and the Hive spawn 1 every 2 rounds, at most 4 alive. Fallback (balance with lore): enemies placed when the level is generated, only bosses and guardians spawn.
 - **Open** (Oleg's direction): every level has at least one enemy of each category (Living, Undead, Mushrooms, Plants, …). **Working** (balance): 5 elements per level, circle I plus the Living on maps 1–2, circle II on maps 3–5; lore rotates 3–5 kinds per level. Balance has fewer categories per level than Oleg's direction asks for.
 - **Working** (balance): at most one shooter per level, none on levels 1–2 and none on boss levels (4, 8, 12, 16, 20).
 - **Working** (balance, Hard only): a hunter on levels 5–7, 9–11, 13–15 and 17–19 enters at the exit on round 10, or when the slime enters the second-to-last room. The squad waits on level 3 in the second-to-last room, which cannot be bypassed.
@@ -65,7 +65,7 @@ What one level is made of and how it is put together from rooms. The route above
 ### Secret rooms and chests
 
 - **Agreed:** a couple of chests per run, with some chance; for example in a secret room that is either "not very secret" (the entrance is visible) or truly hidden. A chest is a mimic with a chance of 25 % / 50 % / 75 % (Easy / Normal / Hard). The mimic fight is in a small closed room: no running out, no kiting.
-- **Working** (balance): a chest room on every map from level 2, with a 60 % chance (about 3 a run); half with a visible entrance, half hidden. The mimic room is 3×3 and closed, with the mimic in the centre.
+- **Working** (balance): one chest room per map from map 2, with a 60 % chance (about 3 a run); half with a visible entrance, half hidden. The mimic room is 3×3 and closed, with the mimic in the centre.
 
 ### The secret place
 
@@ -130,7 +130,7 @@ What one level is made of and how it is put together from rooms. The route above
 - **Categories per level:** Oleg's "at least one of each" against balance's fewer.
 - **Guardians:** whether a location guardian stands on every non-boss level.
 - **Ligeia:** the island's size and approach.
-- **Secrets:** the dwarf pantry full of liquids (lore) or empty (balance). Chest count is balance's number: a chest room on every map from level 2 at 60 %, about 3 a run.
+- **Secrets:** the dwarf pantry full of liquids (lore) or empty (balance).
 - **Day and night:** which surface exits exist on maps 1, 4 and 5.
 - **Arenas:** frequency and the bypass cost (balance's next report).
 - **Not covered yet:** how a hidden entrance is found or shown; hazards and their placement; the difficulty curve across levels.
