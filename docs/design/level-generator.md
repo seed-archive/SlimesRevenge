@@ -25,17 +25,19 @@ What one level is made of and how it is put together from rooms. The route above
 | Parameter | Value |
 | --- | --- |
 | Rooms | min(4 + level, 7) |
-| Room side | 5–7; the upper bound grows by 1 every 3 levels, up to 11; Hard +2 on both bounds |
+| Room side | Easy 5–7, Normal 6–8, Hard 7–9; the upper bound grows by 1 every 3 levels, up to 11 (Hard 13) |
 | Corridor | 2 cells |
-| Enemies per room | 1–2 on levels 1–4, 1–3 from level 5; balance keeps it equal on every difficulty and gives Hard bigger rooms instead |
+| Enemies per room | 1–2 on levels 1–4, 1–3 from level 5; the same on every difficulty (difficulty comes from enemy HP, bite and corpse, slime capacity and vision) |
 | Enemy vision | 2 / 3 / 4 (Easy / Normal / Hard) |
 
-- **Working** (balance rule): a room's side is at least 2 × vision + 1, so a room has a place where an enemy does not see the slime and luring one at a time is possible. The table above breaks this rule on Normal (5–7 against at least 7) and Hard (7–9 against at least 9); see [Open](#open).
+- **Working** (balance with lore, 2026-11-26): the level grows in content, not in rooms — room sides +1 every 3 levels, more enemies per room, new kinds — inside the 15-minute cap. Fallback: up to 12 rooms.
+- **Working** (balance rule): a room's side is at least 2 × vision + 1, so an enemy in the centre does not see the whole room and luring one at a time is possible; the sides above follow it. Fallback: the same sides on every difficulty.
+- **Working** (balance): the enemy count is equal on every difficulty. Fallback: Hard +1 enemy per 2 rooms. This differs from the Agreed lever "the number of enemies differs by difficulty"; see [Open](#open).
 
 ## Enemies
 
 - **Agreed:** no packs; enemies roam singly ([enemies.md](enemies.md#no-groups)). Running through the level aggroes many; luring them from the edge works.
-- **Working** (balance): only the Rat King spawns enemies during play (1 rat every 2 rounds, at most 4 alive, in the boss room); all other enemies are placed when the level is generated. This conflicts with the text "roaming singles from spawners" ([levels.md](levels.md)); see [Open](#open).
+- **Working** (balance with lore): enemies are placed when the level is generated; only bosses and guardians spawn (the Rat King, the Hive): 1 every 2 rounds, at most 4 alive. Fallback: 1 nest per map on an ordinary level, at most 3 alive. This differs from the text "roaming singles from spawners" ([levels.md](levels.md)); see [Open](#open).
 - **Open** (Oleg's direction): every level has at least one enemy of each category (Living, Undead, Mushrooms, Plants, …). **Working** (balance): 5 elements per level, circle I plus the Living on maps 1–2, circle II on maps 3–5; lore rotates 3–5 kinds per level. Balance has fewer categories per level than Oleg's direction asks for.
 - **Working** (balance): at most one shooter per level, none on levels 1–2 and none on boss levels (4, 8, 12, 16, 20).
 - **Working** (balance, Hard only): a hunter on levels 5–7, 9–11, 13–15 and 17–19 enters at the exit on round 10, or when the slime enters the second-to-last room. The squad waits on level 3 in the second-to-last room, which cannot be bypassed.
@@ -44,12 +46,14 @@ What one level is made of and how it is put together from rooms. The route above
 
 - **Agreed:** the last level of a place has a guardian. A unique mob is a guardian with its own name that guards something.
 - **Open** (Oleg's direction): a boss on every map and a guardian at every location. Three ways past a location guardian: come with the right body, break it for loot, or go around it and lose volume. Lore: the guardian stands at the exit sluice, one on each non-boss level, static like a tower in tower defense; one kind per map (Ballista, Scarecrow, Bell, Gargoyle, Athanor). Lore's fallback: ordinary guard mobs instead of static guardians.
-- **Working** (balance): the Ballista is a trap on map 1, levels 3–4, one per level. Its line is straight, up to 4 cells, and always crosses the path to the exit. Lore makes the same Ballista the map-1 exit guardian; see [Open](#open).
+- **Working** (balance): the Ballista is a trap on map 1, levels 3–4, one per level. Its line is straight, up to 4 cells, and always crosses the path to the exit.
+- **Working** (coordinator, 2026-11-26): the Ballista is both — a static trap that is the location guardian of map 1.
 
 ## Boss levels
 
 - The boss stands on the last level of each map (4, 8, 12, 16, 20).
-- **Ligeia's island** (map 2, level 8). **Open:** Ligeia sits on an island in the middle of the reservoir behind the dam. How the generator places "an island in the centre" is not yet clear to Oleg. Lore's proposal: a lake room of about 7×7 with the island in the centre. It is reached by a ford one cell wide, or through the water (spit, planks, the whirlpool). An island of one cell is lore's base version; 3×3 is better for a fight. The amber bargain needs free cells on the island, where the slime makes amber from Resin and Lava.
+- **Ligeia** is the boss of map 2 (level 8), not an optional arena (**Working**, coordinator, 2026-11-26). Her arena offers three ways: fight, a deal with amber, or a bypass by the spillway.
+- **Ligeia's island.** **Open:** Ligeia sits on an island in the middle of the reservoir behind the dam. How the generator places "an island in the centre" is not yet clear to Oleg. Lore's proposal: a lake room of about 7×7 with the island in the centre. It is reached by a ford one cell wide, or through the water (spit, planks, the whirlpool). An island of one cell is lore's base version; 3×3 is better for a fight. The amber bargain needs free cells on the island, where the slime makes amber from Resin and Lava.
 
 ## Optional places
 
@@ -66,7 +70,7 @@ What one level is made of and how it is put together from rooms. The route above
 ### The secret place
 
 - **Agreed:** one secret location per game, not in every run, at a different place each time, with an unnoticeable entrance (for example the dwarf smithy).
-- **Working** (balance): 70 % of runs (80 % a location, 20 % an empty pantry); on levels 2–3, 6–7, 10–11, 14–15 or 18–19; a dead end off the path to the exit.
+- **Working** (balance): one per run, in 70 % of runs (80 % a location, 20 % an empty pantry); on levels 2–3, 6–7, 10–11, 14–15 or 18–19; a dead end off the path to the exit. The variety pools on every map are a different thing (arenas and optional rooms) and stay. Fallback: a secret place on every map.
 
 ### Variety pools
 
@@ -83,7 +87,12 @@ What one level is made of and how it is put together from rooms. The route above
 
 - **Agreed:** one short way up to the surface per stretch; the sun dries the slime on the surface.
 - **Open** (Oleg's proposal): the graveyard is always at night, the village always by day; by day a Mercury or Lava slime can go out, at night a Water one. Lore: map 1 the quarry floor (day), map 2 the village (day), map 3 the graveyard (night), map 4 a night square, map 5 the tower yard (day).
-- **Working** (balance): surface exits on levels 3 (day), 10, 14 and 20 (night); the sun covers the 2 middle rooms of the chain and dries every 2 rounds; map 2 has no surface exit; the dry levels 6–7 are at night. This differs from the day village and the day tower yard; see [Open](#open).
+- **Working** (balance with lore, 2026-11-26):
+  - The village (map 2) is by day: on the whole level the sun dries Water, Aquavita and Ectoplasm, 1 unit off the edge every 2 slime rounds. Shade does not dry: cellars, ditches, the mill race, under footbridges.
+  - The graveyard (map 3) is at night: the damp cold cools Lava, 1 unit every 2 rounds (it turns to Stone and drops).
+  - The tunnels and the underground have no sky. The tower yard is at night.
+  - Day exits elsewhere: the sun dries every round in surface rooms.
+  - Fallbacks: no shade in the village (it dries everywhere); the village at night.
 
 ## Things placed on the floor
 
@@ -118,14 +127,14 @@ What one level is made of and how it is put together from rooms. The route above
 
 ## Open
 
-- **Size:** which rule wins, "every level bigger" (Agreed) or "≤ 15 minutes, ≤ 7 rooms" (Working). Room sides that break "side ≥ 2 × vision + 1" on Normal and Hard.
-- **Enemy count:** the Agreed lever "the number of enemies differs by difficulty" against balance's equal count.
-- **Spawners:** "roaming singles from spawners" ([levels.md](levels.md), [enemies.md](enemies.md#no-groups)) against balance's "placed at generation; only the Rat King spawns".
+- **Size:** the Agreed "every level bigger" is met by content, not room count (Working); Oleg has not confirmed this reading.
+- **Enemy count:** the Agreed lever "the number of enemies differs by difficulty" against balance's equal count (fallback: Hard +1 per 2 rooms).
+- **Spawners:** "roaming singles from spawners" ([levels.md](levels.md), [enemies.md](enemies.md#no-groups)) against the working "placed at generation; only bosses and guardians spawn".
 - **Categories per level:** Oleg's "at least one of each" against balance's fewer.
-- **Guardians:** whether a location guardian stands on every non-boss level; whether the Ballista is a trap, the exit guardian, or both.
-- **Ligeia:** the island's size and approach; lore also lists her island as an optional arena while she is the map-2 boss.
-- **Secrets:** "one secret place per game" (Agreed) against a secret option on every map in lore's pools; chests counted both as a chest room per map and as a pool option; the dwarf pantry full of liquids (lore) or empty (balance).
-- **Day and night:** the village and the tower yard by day (Oleg, lore) against balance's night exits and no surface on map 2.
+- **Guardians:** whether a location guardian stands on every non-boss level.
+- **Ligeia:** the island's size and approach.
+- **Secrets:** chests counted both as a chest room per map and as a pool option; the dwarf pantry full of liquids (lore) or empty (balance).
+- **Day and night:** the tower yard at night (working) against lore's day; which surface exits exist on maps 1, 4 and 5.
 - **Arenas:** frequency and the bypass cost (balance's next report).
 - **Not covered yet:** how a hidden entrance is found or shown; hazards and their placement; the difficulty curve across levels.
 - The level economy (enemies, corpses, river, flasks) is checked by the simulator, not by this note.
