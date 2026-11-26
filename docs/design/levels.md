@@ -1,6 +1,6 @@
 # Levels
 
-**Status:** Draft (2026-11-25). The items below are **Agreed**; the room generator, placement of fountains and hazards, and the difficulty curve are not written yet.
+**Status:** Draft (2026-11-25). The items below are **Agreed** unless marked Working. The generator spec (rooms, placement, special levels) is [level-generator.md](level-generator.md).
 
 ## Spawners, not packs
 
