@@ -8,11 +8,11 @@ A turn-based tactics roguelike on a small grid, for phones. You are a slime, and
 
 ## Story
 
-**Agreed** (details still open):
+**Agreed** premise (what the player learns at the start; story details are kept out of this public document):
 
-- Everyone has wronged the slime: in every game the weakest monster, the one you farm on the first level, is a rat or a slime.
-- An alchemist (or a mage — both brew potions) lives in a tower and pours spent potions down a hole in the floor. It all flows into the cellar, mixes, and becomes a slime: you.
-- The goal of the game: get through the dungeon and reach the alchemist. What happens then — a talk, revenge, eating something out of him — is not decided and does not block anything.
+- Everyone has wronged the slime: in every game the weakest monster is a rat or a slime.
+- The slime comes to itself in a quarry where the drains end. Upstream stands a tower with an alchemist; the slime climbs the river to reach him and to see the world ([route.md](route.md)).
+- The game stays for children: no drugs. Between cartoon and grim, leaning to cartoon.
 
 ## The fantasy
 
@@ -33,14 +33,15 @@ Every mechanic must serve at least one pillar. A feature that serves none is cut
 
 **Agreed.**
 
-- **The big idea:** a long descent through generated floors, in the spirit of *Sword of the Stars: The Pit* (the user's reference: about 40 floors). There are ways to skip floors and ways to pass something on from one character to the next. Designed in [progression.md](progression.md); not built now.
+- **The big idea:** generated levels in the spirit of *Sword of the Stars: The Pit*, with ways to skip levels and to pass something on from one character to the next. The run is **20 levels on 5 maps** up one river, with a stop between maps: [route.md](route.md). Not built now.
 - **Now:** the arena (the duel, already in the game) and a generator of one dungeon, so the game can be played and tested end to end.
-- **Difficulty grows by required mechanics:** every next level of the descent adds one mechanic the level cannot be passed without, starting from move and strike with Water — the [Mechanic ladder](progression.md#mechanic-ladder). This matches "Difficulty changes what the player has to do" below.
+- **Difficulty grows by required mechanics:** every next level of the run adds one mechanic the level cannot be passed without, starting from move and strike with Water — the [Mechanic ladder](progression.md#mechanic-ladder). This matches "Difficulty changes what the player has to do" below.
 
 ## Death and difficulty
 
 **Agreed.**
 
+- **Hard is not Iron Man.** "Hardcore" in Oleg's words means Hard, the difficulty opposed to the two easier ones; Iron Man is a separate switch.
 - **Softcore is the main mode.** On defeat the slime reappears next to the spawning pool and loses nothing. The spawn has an unlimited Water pool; Iron Man has a reserve fountain of about 20 Water instead (number from balance, pending: [growth.md](growth.md#the-last-unit)).
 - **Iron Man** is permadeath: a defeat ends the run. It is chosen when a new game starts and stays on for that whole game; it cannot be turned off later.
 - **Difficulty changes what the player has to do.** Each difficulty level is defined by how many enemies at once a slime that just stands and trades hits ("face-tanks") survives — the table below is the target every level must meet.
@@ -53,13 +54,15 @@ Every mechanic must serve at least one pillar. A feature that serves none is cut
 - How much each lever adds per level is not decided: the balance analysis computes it so that each level meets the table.
 - **The reference player** is a newcomer who walks up to a new mob and takes its hits to learn it. On Easy he survives them all and wins. On Hard a new tough mob must not be approached: one hit takes half his life.
 
-| Level | Face-tanking survives | Dies to | What the player must do |
+| Difficulty | Face-tanking survives | Dies to | What the player must do |
 | --- | --- | --- | --- |
 | Easy | 1–2 enemies at once | 3 | Walk into a room, beat everyone, collect the liquid, move on. |
 | Normal | 1 enemy | 2 | Avoid fighting two at once; use terrain and puddles sometimes. |
 | Hard | none | 1 | Use the mechanics: pull enemies one by one, manage their vision range, lay a slowing puddle while fleeing, set traps, spend the body sparingly. |
 
 There are no packs ([enemies.md](enemies.md#no-groups)): "enemies at once" happens when the slime aggroes several roaming enemies, by running through the map or by standing where more than one sees it. The table stays as the target.
+
+Beyond numbers, difficulty also changes the extras: hunters and a live squad only on Hard ([enemies.md](enemies.md#hunters-and-the-squad)), what the final pay-off needs ([curios.md](curios.md#the-final-pay-off)), the mimic chance ([progression.md](progression.md#secrets)).
 
 This table is the first balance target: [balance.md](balance.md) must make it true by numbers, and a playtest of a room with 1, 2 and 3 enemies must confirm it.
 
@@ -68,7 +71,7 @@ This table is the first balance target: [balance.md](balance.md) must make it tr
 **Agreed** direction, details open:
 
 - Between cartoon and grim, leaning to cartoon. Not horror: mechanics that read as creepy are out (for example, swallowing a living creature whole and digesting it while it is alive).
-- The run starts in the cellar and the sewers under the tower, then the scenery changes so it never feels like one long dungeon: the surface and grass, a town, a troll's cave. The terrain art already allows several biomes.
+- The run starts in the cellar and sewers (kept as an alternative to the Quarry start). The scenery changes so the run never feels like one long dungeon, while staying a waterway: a quarry and dwarf mines, a village on a river, a graveyard, tunnels under a town, the cellars under the tower ([route.md](route.md#the-five-maps)). At least a couple of distinct biomes.
 - **Enemies are fantastic, not ordinary animals.** A rat, a cat and a dog as the first enemies do not sell the game: players choose a slime game for the unusual. The current monster art is to be redrawn; the slime itself reads as a jelly pudding and stays.
 
 ## Core loop
