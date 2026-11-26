@@ -19,25 +19,25 @@ What one level is made of and how it is put together from rooms. The route above
 ## Size
 
 - **Agreed:** each level is bigger than the one before. Room size and enemy vision are difficulty levers; the number of enemies is a difficulty lever too.
-- **Working** (coordinator): a level takes at most 15 minutes (≤ 7 rooms); levels grow in content and difficulty rather than length.
+- Fallback (coordinator): a level takes at most 15 minutes (≤ 7 rooms); levels grow in content and difficulty rather than length.
 - **Working** (balance):
 
 | Parameter | Value |
 | --- | --- |
-| Rooms | min(4 + level, 7) |
+| Rooms | more on every level (the law: balance); fallback min(4 + level, 7) |
 | Room side | Easy 5–7, Normal 6–8, Hard 7–9; the upper bound grows by 1 every 3 levels, up to 11 (Hard 13) |
 | Corridor | 2 cells |
-| Enemies per room | 1–2 on levels 1–4, 1–3 from level 5; the same on every difficulty (difficulty comes from enemy HP, bite and corpse, slime capacity and vision) |
+| Enemies per room | 1–2 on levels 1–4, 1–3 from level 5 on Normal; the number of enemies differs by difficulty (amount per difficulty: balance) |
 | Enemy vision | 2 / 3 / 4 (Easy / Normal / Hard) |
 
-- **Working** (balance with lore, 2026-11-26): the level grows in content, not in rooms — room sides +1 every 3 levels, more enemies per room, new kinds — inside the 15-minute cap. Fallback: up to 12 rooms.
+- **Agreed:** every level is bigger than the one before (coordinator, 2026-11-26: Oleg's rule stands). Fallback (balance with lore): growth by content inside ≤ 7 rooms — room sides +1 every 3 levels, more enemies per room, new kinds; the rooms table above then caps at 7.
 - **Working** (balance rule): a room's side is at least 2 × vision + 1, so an enemy in the centre does not see the whole room and luring one at a time is possible; the sides above follow it. Fallback: the same sides on every difficulty.
-- **Working** (balance): the enemy count is equal on every difficulty. Fallback: Hard +1 enemy per 2 rooms. This differs from the Agreed lever "the number of enemies differs by difficulty"; see [Open](#open).
+- **Agreed:** the number of enemies is a difficulty lever, like every other parameter (coordinator, 2026-11-26: Oleg's rule stands). Fallback (balance): the same count on every difficulty, with difficulty from enemy HP, bite and corpse, slime capacity and vision.
 
 ## Enemies
 
 - **Agreed:** no packs; enemies roam singly ([enemies.md](enemies.md#no-groups)). Running through the level aggroes many; luring them from the edge works.
-- **Working** (balance with lore): enemies are placed when the level is generated; only bosses and guardians spawn (the Rat King, the Hive): 1 every 2 rounds, at most 4 alive. Fallback: 1 nest per map on an ordinary level, at most 3 alive. This differs from the text "roaming singles from spawners" ([levels.md](levels.md)); see [Open](#open).
+- **Agreed:** enemies roam as singles from spawners (coordinator, 2026-11-26: the rule stands). **Working** (balance): the Rat King and the Hive spawn 1 every 2 rounds, at most 4 alive. Fallback (balance with lore): enemies placed when the level is generated, only bosses and guardians spawn.
 - **Open** (Oleg's direction): every level has at least one enemy of each category (Living, Undead, Mushrooms, Plants, …). **Working** (balance): 5 elements per level, circle I plus the Living on maps 1–2, circle II on maps 3–5; lore rotates 3–5 kinds per level. Balance has fewer categories per level than Oleg's direction asks for.
 - **Working** (balance): at most one shooter per level, none on levels 1–2 and none on boss levels (4, 8, 12, 16, 20).
 - **Working** (balance, Hard only): a hunter on levels 5–7, 9–11, 13–15 and 17–19 enters at the exit on round 10, or when the slime enters the second-to-last room. The squad waits on level 3 in the second-to-last room, which cannot be bypassed.
@@ -90,7 +90,7 @@ What one level is made of and how it is put together from rooms. The route above
 - **Working** (balance with lore, 2026-11-26):
   - The village (map 2) is by day: on the whole level the sun dries Water, Aquavita and Ectoplasm, 1 unit off the edge every 2 slime rounds. Shade does not dry: cellars, ditches, the mill race, under footbridges.
   - The graveyard (map 3) is at night: the damp cold cools Lava, 1 unit every 2 rounds (it turns to Stone and drops).
-  - The tunnels and the underground have no sky. The tower yard is at night.
+  - The tunnels and the underground have no sky. The tower yard is at night (coordinator, 2026-11-26: keeps "by day only a Mercury or Lava slime goes out"); fallback: by day.
   - Day exits elsewhere: the sun dries every round in surface rooms.
   - Fallbacks: no shade in the village (it dries everywhere); the village at night.
 
@@ -127,14 +127,11 @@ What one level is made of and how it is put together from rooms. The route above
 
 ## Open
 
-- **Size:** the Agreed "every level bigger" is met by content, not room count (Working); Oleg has not confirmed this reading.
-- **Enemy count:** the Agreed lever "the number of enemies differs by difficulty" against balance's equal count (fallback: Hard +1 per 2 rooms).
-- **Spawners:** "roaming singles from spawners" ([levels.md](levels.md), [enemies.md](enemies.md#no-groups)) against the working "placed at generation; only bosses and guardians spawn".
 - **Categories per level:** Oleg's "at least one of each" against balance's fewer.
 - **Guardians:** whether a location guardian stands on every non-boss level.
 - **Ligeia:** the island's size and approach.
-- **Secrets:** chests counted both as a chest room per map and as a pool option; the dwarf pantry full of liquids (lore) or empty (balance).
-- **Day and night:** the tower yard at night (working) against lore's day; which surface exits exist on maps 1, 4 and 5.
+- **Secrets:** the dwarf pantry full of liquids (lore) or empty (balance). Chest count is balance's number: a chest room on every map from level 2 at 60 %, about 3 a run.
+- **Day and night:** which surface exits exist on maps 1, 4 and 5.
 - **Arenas:** frequency and the bypass cost (balance's next report).
 - **Not covered yet:** how a hidden entrance is found or shown; hazards and their placement; the difficulty curve across levels.
 - The level economy (enemies, corpses, river, flasks) is checked by the simulator, not by this note.
