@@ -27,4 +27,4 @@ Knowledge notes about the game and the code.
 
 ## Project
 
-- [ci.md](ci.md) — GitHub Actions: EditMode tests, the CSharpier format check, mobile builds on `main`.
+- [ci.md](ci.md) — GitHub Actions (temporarily off on pull requests): EditMode tests, the CSharpier format check, mobile builds on PRs to `main`.

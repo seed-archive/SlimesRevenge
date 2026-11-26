@@ -1,15 +1,12 @@
 name: Test
 
+# Temporarily off by Oleg's decision 2026-11-26: manual runs only.
+# Restore the push/pull_request triggers below and the required checks
+# ("test / Test", "Format") on dev when gameplay code lands.
+#   push: { branches: [dev] }
+#   pull_request: { branches: [main, dev], types: [opened, synchronize, reopened] }
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - dev
-  pull_request:
-    branches:
-      - main
-      - dev
-    types: [opened, synchronize, reopened]
 
 concurrency:
   group: test-${{ github.workflow }}-${{ github.ref }}

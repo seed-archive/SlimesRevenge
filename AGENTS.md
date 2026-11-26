@@ -151,7 +151,7 @@ Config: [`.csharpierrc.json`](.csharpierrc.json), ignore: [`.csharpierignore`](.
 
 ## Testing (EditMode)
 
-Tests are NUnit EditMode under `Assets/Tests/Editor`. CI runs them via GameCI (`.github/workflows/test.yml`).
+Tests are NUnit EditMode under `Assets/Tests/Editor`. CI runs them via GameCI (`.github/workflows/test.yml`), but CI on pull requests is temporarily off ([docs/ci.md](docs/ci.md)): run them and `./scripts/format.sh check` locally before a PR.
 
 Agents: the [`editmode-tests`](.claude/skills/editmode-tests/SKILL.md) skill runs them and reads the results XML.
 
