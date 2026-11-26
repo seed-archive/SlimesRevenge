@@ -40,8 +40,10 @@ Default branch: **`dev`**. Releases: **`main`**.
 
 | Workflow | When | What |
 | --- | --- | --- |
-| [`test.yml`](.github/workflows/test.yml) | Push/PR to `dev`/`main` | EditMode tests + CSharpier format check |
-| [`build.yml`](.github/workflows/build.yml) | Push/`workflow_dispatch` on `main` | Tests + Android + iOS |
+| [`test.yml`](.github/workflows/test.yml) | `workflow_dispatch` only (temporarily) | EditMode tests + CSharpier format check |
+| [`build.yml`](.github/workflows/build.yml) | PR to `main`, `workflow_dispatch` | Android + iOS |
+
+CI on pull requests is temporarily off (2026-11-26): run `./scripts/format.sh check` and the EditMode tests locally before a PR. How to restore it: [docs/ci.md](docs/ci.md).
 
 Secrets: `UNITY_LICENSE`, `UNITY_EMAIL`, `UNITY_PASSWORD` — see [GameCI activation](https://game.ci/docs/github/activation).
 

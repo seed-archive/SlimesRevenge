@@ -2,16 +2,18 @@
 
 GitHub Actions in `.github/workflows/`. The base branch is `dev`; releases go to `main`.
 
+**CI on pull requests is temporarily off** (Oleg's decision, 2026-11-26): docs need no CI and the game has nothing to test yet. `test.yml` runs only by hand; `build.yml` builds Android and iOS on a pull request to `main`. Before every PR run `./scripts/format.sh check` and the EditMode tests locally. To restore: put back the `push`/`pull_request` triggers kept as a comment in `test.yml`, the `test` job and `needs: test` in `build.yml`, and the required checks `test / Test` and `Format` on `dev`. Restore when gameplay code lands.
+
 ## Workflows
 
 | Workflow | Trigger | Jobs |
 | --- | --- | --- |
-| `test.yml` | push to `dev`; PR to `dev` / `main`; manual | `test` (EditMode, via `unity-editmode.yml`), `format` (CSharpier) |
-| `build.yml` | push to `main`; manual | `test` (via `unity-editmode.yml`), then `build` for Android and iOS |
+| `test.yml` | manual only (temporarily) | `test` (EditMode, via `unity-editmode.yml`), `format` (CSharpier) |
+| `build.yml` | PR to `main`; manual | `build` for Android and iOS (the `test` job is temporarily off) |
 | `unity-editmode.yml` | `workflow_call` only | EditMode tests in GameCI |
 | `activation.yml` | manual | requests a Unity manual activation file |
 
-`dev` is protected: a merge needs the checks `test / Test` and `Format` to pass (`strict` off, so the branch need not be up to date; admins can bypass). Auto-merge is enabled: `gh pr merge --squash --auto` waits for both checks. A direct push to `dev` is rejected for non-admins; admins bypass the protection, so agents still never push to `dev` (`workflow` rule).
+`dev` is protected, with no required checks while CI is off (normally `test / Test` and `Format`, `strict` off; admins can bypass). A direct push to `dev` is rejected for non-admins; admins bypass the protection, so agents still never push to `dev` (`workflow` rule).
 
 Mobile builds run only from `build.yml`, so work on `dev` never builds Android or iOS. A concurrency group per workflow and ref cancels the older run when a new push arrives.
 

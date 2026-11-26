@@ -1,8 +1,10 @@
 name: Build
 
+# Builds only when dev is merged into main (Oleg's decision 2026-11-26).
+# The test job is temporarily off; restore it (and `needs: test`) with test.yml.
 on:
   workflow_dispatch:
-  push:
+  pull_request:
     branches:
       - main
 
@@ -18,13 +20,8 @@ permissions:
   checks: write
 
 jobs:
-  test:
-    uses: ./.github/workflows/unity-editmode.yml
-    secrets: inherit
-
   build:
     name: Build ${{ matrix.targetPlatform }}
-    needs: test
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
