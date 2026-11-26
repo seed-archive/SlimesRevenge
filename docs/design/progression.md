@@ -1,12 +1,12 @@
 # Progression
 
-**Status:** Draft (2026-11-25) — mostly ideas. Only the sections and items marked **Agreed** are decided; everything under "Ideas" is recorded so it is not lost and will be worked out later.
+**Status:** Draft (2026-11-26) — partly ideas. Only the sections and items marked **Agreed** are decided; everything under "Ideas" is recorded so it is not lost and will be worked out later.
 
 What changes between runs and inside a run beyond one room: worlds, difficulty, what carries over, what can be handed to the next slime.
 
 ## Agreed
 
-- **The long descent** through generated floors (~40) is the big idea; now: the arena and one generated dungeon ([vision.md](vision.md)).
+- **The run** is 20 levels on 5 maps ([route.md](route.md)); now: the arena and one generated dungeon ([vision.md](vision.md)).
 - **Softcore is the main mode; Iron Man** (permadeath) is chosen at the start of a game and cannot be turned off ([vision.md](vision.md)).
 - **Difficulty levels** Easy / Normal / Hard are defined by how many enemies a face-tanking slime survives. To get there they differ in practically every parameter: enemy vision range, number of enemies, enemy toughness (hit points), and any other parameter that turns out to matter. The amount per level comes from the balance analysis ([vision.md](vision.md)).
 - **No separate survival meter.** No hunger or similar clock: spending the body to kill already is the survival pressure. (The reference game's hunger is deliberately not taken: [references/the-pit.md](references/the-pit.md).)
@@ -16,7 +16,7 @@ What changes between runs and inside a run beyond one room: worlds, difficulty, 
 
 **Agreed** (2026-11-25).
 
-The game grows like a tower: one level at a time, each built on the one below it. Here a *level* is a stage of the descent, not a difficulty level (Easy / Normal / Hard).
+The game grows like a tower: one level at a time, each built on the one below it. Here a *level* is a stage of the run, not a difficulty level (Easy / Normal / Hard).
 
 - **Why.** The game needs progression. A slime that has every mechanic on level 1 leaves the player not knowing what to do and with no reason to go to level 2.
 - **Level 1 — the minimum kit**, balanced first: the slime has Water only and a Water affinity from the start; it can move, strike with Water, drink and eat corpses. No other liquid, no puddles, no spit. Fountains on level 1: working number 1 flask ([balance.md](balance.md)), final from the level-economy calculation (pending): [growth.md](growth.md).
@@ -30,6 +30,26 @@ The game grows like a tower: one level at a time, each built on the one below it
 - **Spit is the level-2 mechanic** (Agreed 2026-11-25): one new mechanic per level, and spit is the first after the level-1 kit.
 - **Balance computes two levels at once**, not only level 1 (Agreed 2026-11-25; [balance.md](balance.md)).
 - **Not decided yet:** the exact order of the mechanics after spit, which level each unlocks on, and every number. They come from the balance analysis, which is not done yet ([balance.md](balance.md)).
+
+## Past slimes
+
+**Agreed:** a past slime lies as a puddle on the level where it died; one unit of its affinity liquid can be collected from it. **Working** (balance, `balance/past-slimes.md`): one liquid puddle per level (the last death on that level and difficulty), 1 unit, once a run; up to 3 dated traces without liquid. The real dates of death are a fourth-wall hook ([story.md](story.md#the-twist-revenge-on-the-player)).
+
+**Rejected:** a fountain of inheritance in the cellar. Lava or Mercury from the last run on level 1 makes the first levels mindless; like *The Pit*, inheritance must be limited to the level it belongs to.
+
+## Secrets and quick endings
+
+**Agreed.**
+
+- **Quick endings:** easter eggs that end the game early, like the "wait here" ending of *Far Cry 4*; good and bad ones, not necessarily fast. Oleg's examples: an unknown liquid throws the slime straight to the alchemist with an unfinished golem; or to a location it cannot survive; "to hell with the alchemist, I'm going to the sea"; pulling a glowing liquid from under a gravestone buries the slime.
+- **A secret location** that does not always appear and may or may not give a bonus. Example: a dwarf smithy where the whole body can be swapped to Lava for free. One per game, a different place each time, with an unnoticeable entrance.
+- **Easter eggs are a little unbalanced but never break the game:** the bonus is comfort and speed for what is reachable anyway, not new power. A big bonus is fine if the next map takes it away (the principle: the counterweight takes exactly the advantage that would break the next map).
+- **Secret rooms with chests:** a couple of chests with some chance, in a secret room that is either "not very secret" (the entrance is visible) or truly hidden. A chest may be a **mimic**: Easy 25 %, Normal 50 %, Hard 75 %; on Hard a real chest must give something very good (maybe Mercury). The mimic fight is in a small closed room: no running out, no kiting.
+- **Working** (lore and balance, `lore/easter-eggs.md`, `balance/easter-eggs.md`): the list of quick endings and secret places with chances; nothing triggers by accident.
+
+## Achievements
+
+**Agreed:** "10 different liquids in the slime"; "Puke over the map" — a puddle on every cell of a level, or simply 100 cells with puddles on a map.
 
 ## Ideas
 

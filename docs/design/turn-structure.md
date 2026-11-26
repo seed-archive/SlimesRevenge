@@ -40,7 +40,7 @@ Devour starts a Digesting status whose length equals the corpse's units. The sli
 2. **The slime gets several actions per round (action points).** One action per round makes a fleeing puddle impossible: pouring costs the step the pursuer needs to catch up. With several actions the slime can step, pour behind itself and step again before the enemies move. How many, and whether the number can grow, is open (below). The reference game's time model is analysed in [references/the-pit.md](references/the-pit.md); a fixed "four actions" rule is not confirmed there.
 3. **Enemies keep one move per round, measured in cells.** Speed stays "cells per move": slow enemies walk 1 cell, fast ones 2. There is no "acts every N turns" property.
 4. **Slow enemies die to effects, not to strikes.** The intended play: pour lava where the slow enemy will step, then walk away while it burns. On Hard this is a tactic the player must use; balance must make a slow enemy too dangerous to face-tank and easy to burn, poison or dissolve.
-5. **Fast enemies are escaped by slowing them** — Oil's Instability (−1 speed), as the game does today.
+5. **Fast enemies are escaped by slowing them** — Oil's Instability (−1 speed), as the game does today; Fat in the design, since Oil is removed.
 6. **The enemy order is shown on the board.** Each enemy shows when it moves next, so the player can plan around it.
 7. **Walls block line of sight.** Vision is a square of `VisionRange` cut by walls. Pulling enemies one by one and hiding from their sight are the Hard level's core skills.
 8. **A fast enemy may move and bite in one turn (a dash).** Low hit points to match is a working assumption, pending balance: [enemies.md](enemies.md#fast-enemies). Today no creature moves and attacks in one turn.

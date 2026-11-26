@@ -20,3 +20,5 @@
 ## Level size grows
 
 **Agreed** (2026-11-25). Each level is bigger than the one before: cells per room, cells per level, rooms per level. The growth law comes from balance (pending).
+
+**Working** (coordinator): a level takes at most 15 minutes (≤ 7 rooms), and levels grow in content and difficulty rather than length. Which of the two rules wins is open ([route.md](route.md#shape-of-a-run)).
