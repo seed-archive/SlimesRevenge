@@ -44,12 +44,14 @@ What one level is made of and how it is put together from rooms. The route above
 
 - **Agreed:** the last level of a place has a guardian. A unique mob is a guardian with its own name that guards something.
 - **Open** (Oleg's direction): a boss on every map and a guardian at every location. Three ways past a location guardian: come with the right body, break it for loot, or go around it and lose volume. Lore: the guardian stands at the exit sluice, one on each non-boss level, static like a tower in tower defense; one kind per map (Ballista, Scarecrow, Bell, Gargoyle, Athanor). Lore's fallback: ordinary guard mobs instead of static guardians.
-- **Working** (balance): the Ballista is a trap on map 1, levels 3–4, one per level. Its line is straight, up to 4 cells, and always crosses the path to the exit. Lore makes the same Ballista the map-1 exit guardian; see [Open](#open).
+- **Working** (balance): the Ballista is a trap on map 1, levels 3–4, one per level. Its line is straight, up to 4 cells, and always crosses the path to the exit.
+- **Working** (coordinator, 2026-11-26): the Ballista is both — a static trap that is the location guardian of map 1.
 
 ## Boss levels
 
 - The boss stands on the last level of each map (4, 8, 12, 16, 20).
-- **Ligeia's island** (map 2, level 8). **Open:** Ligeia sits on an island in the middle of the reservoir behind the dam. How the generator places "an island in the centre" is not yet clear to Oleg. Lore's proposal: a lake room of about 7×7 with the island in the centre. It is reached by a ford one cell wide, or through the water (spit, planks, the whirlpool). An island of one cell is lore's base version; 3×3 is better for a fight. The amber bargain needs free cells on the island, where the slime makes amber from Resin and Lava.
+- **Ligeia** is the boss of map 2 (level 8), not an optional arena (**Working**, coordinator, 2026-11-26). Her arena offers three ways: fight, a deal with amber, or a bypass by the spillway.
+- **Ligeia's island.** **Open:** Ligeia sits on an island in the middle of the reservoir behind the dam. How the generator places "an island in the centre" is not yet clear to Oleg. Lore's proposal: a lake room of about 7×7 with the island in the centre. It is reached by a ford one cell wide, or through the water (spit, planks, the whirlpool). An island of one cell is lore's base version; 3×3 is better for a fight. The amber bargain needs free cells on the island, where the slime makes amber from Resin and Lava.
 
 ## Optional places
 
@@ -122,8 +124,8 @@ What one level is made of and how it is put together from rooms. The route above
 - **Enemy count:** the Agreed lever "the number of enemies differs by difficulty" against balance's equal count.
 - **Spawners:** "roaming singles from spawners" ([levels.md](levels.md), [enemies.md](enemies.md#no-groups)) against balance's "placed at generation; only the Rat King spawns".
 - **Categories per level:** Oleg's "at least one of each" against balance's fewer.
-- **Guardians:** whether a location guardian stands on every non-boss level; whether the Ballista is a trap, the exit guardian, or both.
-- **Ligeia:** the island's size and approach; lore also lists her island as an optional arena while she is the map-2 boss.
+- **Guardians:** whether a location guardian stands on every non-boss level.
+- **Ligeia:** the island's size and approach.
 - **Secrets:** "one secret place per game" (Agreed) against a secret option on every map in lore's pools; chests counted both as a chest room per map and as a pool option; the dwarf pantry full of liquids (lore) or empty (balance).
 - **Day and night:** the village and the tower yard by day (Oleg, lore) against balance's night exits and no surface on map 2.
 - **Arenas:** frequency and the bypass cost (balance's next report).
