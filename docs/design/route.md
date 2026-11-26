@@ -11,7 +11,7 @@ Where the run goes, level by level, and what happens between levels.
 - Generated levels in the spirit of *Sword of the Stars: The Pit* ([references/the-pit.md](references/the-pit.md)), told as a climb, not a bare tower.
 - **20 levels on 5 maps, 4 levels per map.** The first level of a map is unique; the other three share one theme. The last level of a place has a guardian ([enemies.md](enemies.md#guardians-and-bosses)).
 - **Open:** circles by map (Oleg's proposal): the first wu-xing circle on maps 1–2, the second on maps 3–5, so the player changes builds; balance makes it the main variant, with the Living as neutral filler on maps 1–2 (fallback: all 10 elements from level 5).
-- The slime climbs **up one river** towards the tower: the tower is the highest point and the source of the sludge. The sludge on the riverbed gets more colourful with every stretch, so the player feels the tower is closer.
+- The slime climbs **up one river** towards the tower, the highest point. The sludge on the riverbed gets more colourful with every stretch, so the player feels the tower is closer.
 - Counterweight to the secret smithy (**Open**): the smith's tempering tub on the way out of map 1, or map 2 neutral to Lava ([progression.md](progression.md#secrets)).
 - The world is rooms, corridors and doors. There are no "descents" with finds along them.
 - **Working** (coordinator): a level takes at most 15 minutes (≤ 7 rooms). Levels grow in content and difficulty, not in length. It sits beside the Agreed rule "each level is bigger than the one before" ([levels.md](levels.md#level-size-grows)); which one wins is open.
