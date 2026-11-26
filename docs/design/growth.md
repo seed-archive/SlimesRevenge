@@ -59,4 +59,5 @@ Targets, not rules of the code. Exact numbers come from balance (pending).
 - **Small flasks** in the alchemist's lab: one drink each.
 - **Large tanks** (for example a body in formaldehyde): several drinks.
 - A fountain holds one liquid type or several.
+- **Drinking from the river** (Agreed) is allowed in some amount; then a fountain at the start is not needed. **Working** (balance run assumption): the river refills the body to full each level and is the main source of the chosen liquids.
 - Fountains on level 1: the working number is 1 flask ([balance.md](balance.md)); final numbers from the level-economy calculation (simulator + balance, pending).
